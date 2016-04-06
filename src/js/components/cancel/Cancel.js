@@ -9,8 +9,8 @@ class Cancel extends React.Component {
     render() {
 
         return (
-            <div>
-                <h2 className="text-center">Having problems?s</h2>
+            <div className="text-center">
+                <h2>Having problems?s</h2>
 
                 <p>Please do let us know if everythings not absolutely perfect with your deliveries and well do our best to make it all better.</p>
                 <p>Either give us a call on 0207 801 6241</p>

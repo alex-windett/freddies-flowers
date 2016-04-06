@@ -3,7 +3,7 @@ import * as Constants from './base/constants'
 
 import Delivery from './components/delivery/Delivery.js'
 import Share from './components/share/Share.js'
-import Address from './components/address/Address.js'
+import DeliveryAddress from './components/deliveryAddress/DeliveryAddress.js'
 import AccountDetails from './components/accountDetails/AccountDetails.js'
 import BankDetails from './components/bankDetails/BankDetails.js'
 import Cancel from './components/cancel/Cancel.js'
@@ -29,7 +29,7 @@ class App extends React.Component {
                 </div>
 
                 <div className="row column dashboard__item">
-                    <Address />
+                    <DeliveryAddress />
                 </div>
 
                 <div className='row'>
