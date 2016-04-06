@@ -47,8 +47,4 @@
 // @include foundation-visibility-classes;
 // @include foundation-float-classes;
 // @include foundation-flex-classes;
-
-
-body {
-    background: lightyellow;
-}
+@import "base/__base";
