@@ -10,7 +10,7 @@ class Address extends React.Component {
 
         return (
             <div>
-                <h2>Manage your delivery address</h2>
+                <h2 className="text-center">Manage your delivery address</h2>
 
                 <table>
                     <tbody>

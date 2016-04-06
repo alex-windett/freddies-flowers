@@ -10,7 +10,7 @@ class AccountDetails extends React.Component {
 
         return (
             <div>
-                <h2>Change your account details</h2>
+                <h2 className="text-center">Change your account details</h2>
 
                 <form method="post">
                     <label>First name</label>

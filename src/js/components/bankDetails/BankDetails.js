@@ -10,7 +10,7 @@ class BankDetails extends React.Component {
 
         return (
             <div>
-                <h2>Manage your payment details</h2>
+                <h2 className="text-center">Manage your payment details</h2>
 
                 <form method="post">
                     <lable>Card Number</lable>

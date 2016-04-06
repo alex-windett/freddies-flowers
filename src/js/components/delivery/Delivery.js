@@ -23,7 +23,7 @@ class Delivery extends React.Component {
 
         return (
             <div>
-                <h2>Your upcoming deliveries</h2>
+                <h2 className="text-center">Your upcoming deliveries</h2>
 
                 <p>Going on holiday? Not a fan of next week's flowers? Skip upcoming deliveries here.</p>
             </div>
