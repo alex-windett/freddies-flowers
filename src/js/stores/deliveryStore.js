@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
-import Constant from '../constants/DeliveryAddressConstants'
+import DeliveryConstant from '../constants/DeliveryConstants'
 
 const CHANGE_EVENT = 'change'
 
@@ -12,6 +12,8 @@ class DeliveryStore extends EventEmitter {
 
     cancelDelivery(state) {
 
+        console.log('delivery canceled')
+
         this.emit(CHANGE_EVENT)
     }
 
@@ -19,13 +21,12 @@ class DeliveryStore extends EventEmitter {
 
         switch(action.type) {
 
-            case Constant.DELETE_DELIVERY: {
-                this.cancelDelivery(action.state)
+            case DeliveryConstant.DELETE_DELIVERY: {
+                this.cancelDelivery()
                 break
             }
         }
     }
-
 }
 
 const deliveryStore = new DeliveryStore;

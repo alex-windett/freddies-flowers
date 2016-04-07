@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
-import Constant from '../constants/DeliveryAddressConstants'
+import AddressConstant from '../constants/DeliveryAddressConstants'
 
 const CHANGE_EVENT = 'change'
 
@@ -14,7 +14,7 @@ class DeliverAddressStore extends EventEmitter {
         /**
         * Edit the delivery address
         */
-        debugger
+        console.log('edit the address')
 
         this.emit(CHANGE_EVENT)
     }
@@ -23,7 +23,7 @@ class DeliverAddressStore extends EventEmitter {
         /**
         * Edit the delivery address
         */
-        debugger
+        console.log('address deleted')
 
         this.emit(CHANGE_EVENT)
     }
@@ -32,12 +32,12 @@ class DeliverAddressStore extends EventEmitter {
 
         switch(action.type) {
 
-            case Constant.EDIT_ADDRESS: {
+            case AddressConstant.EDIT_ADDRESS: {
                 this.editAddress()
                 break
             }
 
-            case Constant.DELETE_ADDRESS: {
+            case AddressConstant.DELETE_ADDRESS: {
                 this.deleteAddress()
                 break
             }

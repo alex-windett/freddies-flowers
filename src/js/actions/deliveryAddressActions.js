@@ -1,16 +1,17 @@
 import dispatcher from '../dispatcher'
-import Constant from '../constants/deliveryAddressConstants';
+import AddressConstant from '../constants/DeliveryAddressConstants';
+
 const DeliveryAddressActions = {
 
     editAddress() {
         dispatcher.dispatch({
-            type: Constant.EDIT_ADDRESS
+            type: AddressConstant.EDIT_ADDRESS
         })
     },
 
     cancelAddress() {
         dispatcher.dispatch({
-            type: Constant.DELETE_ADDRESS
+            type: AddressConstant.DELETE_ADDRESS
         })
     }
 }
