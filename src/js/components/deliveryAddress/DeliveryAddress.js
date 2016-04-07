@@ -1,6 +1,16 @@
 import React from 'react'
+import Store from '../../stores/deliveryAddressStore'
+import Actions from '../../actions/deliveryAddressActions'
 
 const AddressItem = React.createClass({
+
+    editAddress() {
+        Actions.editAddress()
+    },
+
+    cancelAddress() {
+        Actions.cancelAddress()
+    },
 
     render() {
 
@@ -19,8 +29,8 @@ const AddressItem = React.createClass({
                         <td>1 box</td>
                         <td>20</td>
                         <td>
-                            <button className="button">Edit</button>
-                            <button className="button alert">Cancel</button>
+                            <button className="button" onClick={this.editAddress}>Edit</button>
+                            <button className="button alert" onClick={this.cancelAddress}>Cancel</button>
                         </td>
                     </tr>
                 </tbody>

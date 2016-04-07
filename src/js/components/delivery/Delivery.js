@@ -1,4 +1,6 @@
 import React from 'react'
+import Store from '../../stores/deliveryStore'
+import Actions from '../../actions/deliveryActions'
 
 const DeliveryItem = React.createClass({
 
@@ -6,6 +8,7 @@ const DeliveryItem = React.createClass({
 
         return {
             active: true
+            // members: members
         }
     },
 
@@ -15,6 +18,8 @@ const DeliveryItem = React.createClass({
         } else {
             this.setState({ active: true })
         }
+
+        Actions.cancelDelivery()
     },
 
     render() {

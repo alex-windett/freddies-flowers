@@ -1,0 +1,4 @@
+module.exports = {
+    EDIT_ADDRESS: "EDIT_ADDRESS",
+    DELETE_ADRESS: "DELETE_ADRESS"
+}
