@@ -60,7 +60,8 @@ const config = {
     },
     sassLoader: {
         includePaths: [
-            path.resolve(__dirname), path.resolve(__dirname, './src'),
+            path.resolve(__dirname),
+            path.resolve(__dirname, './src'),
             path.join(__dirname, 'node_modules'),
             path.join(__dirname, './bower_components')
         ]
@@ -73,7 +74,7 @@ const config = {
     ],
     postcss: [
         autoprefixer({
-            browsers: ['last 2 versions']
+            browsers: ['last 2 versions, ie >= 9']
         })
     ]
 }
