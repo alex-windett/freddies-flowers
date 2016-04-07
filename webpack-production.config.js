@@ -1,3 +1,9 @@
+/**
+    Production Webpack config
+
+    Run using webpack --config webpack-production.config.js -p
+*/
+
 const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path')
@@ -66,11 +72,8 @@ const config = {
             path.join(__dirname, './bower_components')
         ]
     },
-    devtool: "inline-source-map", // or "inline-source-map"
-    watch: true,
     plugins: [
         new ExtractTextPlugin('[name].css'),
-        new LiveReloadPlugin()
     ],
     postcss: [
         autoprefixer({
