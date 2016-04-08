@@ -21,9 +21,18 @@ class DeliverAddressStore extends EventEmitter {
 
     deleteAddress() {
         /**
-        * Edit the delivery address
+        * Delete the delivery address
         */
         console.log('address deleted')
+
+        this.emit(CHANGE_EVENT)
+    }
+
+    addAddress() {
+        /**
+        * Add am delivery address
+        */
+        console.log('address added')
 
         this.emit(CHANGE_EVENT)
     }
@@ -39,6 +48,11 @@ class DeliverAddressStore extends EventEmitter {
 
             case AddressConstant.DELETE_ADDRESS: {
                 this.deleteAddress()
+                break
+            }
+
+            case AddressConstant.ADD_ADDRESS: {
+                this.addAddress()
                 break
             }
         }

@@ -1,5 +1,4 @@
 import React from 'react'
-import * as Constants from './base/constants'
 
 import Delivery from './components/delivery/Delivery.js'
 import Share from './components/share/Share.js'

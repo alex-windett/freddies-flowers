@@ -13,6 +13,12 @@ const DeliveryAddressActions = {
         dispatcher.dispatch({
             type: AddressConstant.DELETE_ADDRESS
         })
+    },
+
+    addAddress() {
+        dispatcher.dispatch({
+            type: AddressConstant.ADD_ADDRESS
+        })
     }
 }
 

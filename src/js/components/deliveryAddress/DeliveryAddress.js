@@ -19,15 +19,16 @@ const AddressItem = React.createClass({
         Actions.cancelAddress()
     },
 
-    addAddress() {
-
+    addAddress(e) {
+        e.preventDefault();
+        Actions.addAddress()
     },
 
     toggleFormVisibility(e = '') {
         if ( e != '') {
             e.preventDefault()
         }
-        
+
         if ( this.state.formVisibility) {
             this.setState({ formVisibility: '' })
         } else {
@@ -62,7 +63,7 @@ const AddressItem = React.createClass({
 
                 <button className="button success" onClick={this.toggleFormVisibility}>Add an new delivery address</button>
 
-                <form className={this.state.formVisibility + " form form__addAdress"} method="post">
+                <form onSumbit={this.addAddress} className={this.state.formVisibility + " form form__addAdress"} method="post">
                     <label>Postcode:</label>
                     <input type="text"/>
                     <label>House name or number</label>
@@ -72,7 +73,7 @@ const AddressItem = React.createClass({
                     <label>Town or City</label>
                     <input type="text"/>
 
-                    <button className="button success" onClick={this.addAddress}>Sumbit</button>
+                    <button className="button success" type="submit">Sumbit</button>
                     <button className="button alert" onClick={this.toggleFormVisibility}>Cancel</button>
 
                     <p className="text-center">Enter your postcode to calculate delivery charge</p>

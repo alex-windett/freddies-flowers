@@ -1,7 +1,8 @@
-const autoprefixer = require('autoprefixer')
+const autoprefixer      = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const path = require('path')
-const LiveReloadPlugin = require('webpack-livereload-plugin');
+const path              = require('path')
+const LiveReloadPlugin  = require('webpack-livereload-plugin')
+const buildPath         = './build'
 
 // const sassLoaders = [
 //     'css-loader',
@@ -18,8 +19,8 @@ const config = {
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, './build'),
-        publicPath: './build'
+        path: path.join(__dirname, buildPath),
+        publicPath: buildPath
     },
     resolve: {
         root: path.resolve(__dirname),
@@ -47,6 +48,11 @@ const config = {
                     'style', // backup loader when not building .css file
                     'css!sass' // loaders to preprocess CSS
                 )
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                // Add the fonts to a public folder in build
+                loader: 'file?name=/fonts/[name].[ext]'
             },
             {
                 // Images are inline within the JS
