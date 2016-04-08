@@ -1,17 +1,18 @@
-const autoprefixer      = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path              = require('path')
 const LiveReloadPlugin  = require('webpack-livereload-plugin')
+
+// const autoprefixer      = require('autoprefixer')
 const buildPath         = './build'
 
-// const sassLoaders = [
-//     'css-loader',
-//     'postcss-loader',
-//     'style',
-//     'css',
-//     'sass',
-//     'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './src')
-// ]
+const sassLoaders = [
+    'style-loader',
+    'css-loader',
+    'style!css!sass?includePaths[]=' +
+        path.resolve(__dirname,
+            './bower_components/foundation/scss'
+        )
+]
 
 const config = {
     entry: {
@@ -29,8 +30,7 @@ const config = {
             './node_modules',
             './bower_components'
           ],
-        extensions: ['', '.js', '.scss', '.sass'],
-        alias: {}
+        extensions: ['', '.js', '.scss', '.sass']
     },
     module: {
         loaders: [
@@ -42,12 +42,17 @@ const config = {
                     presets: ['es2015', 'react']
                 }
             },
+            // Load SCSS
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract(
-                    'style', // backup loader when not building .css file
-                    'css!sass' // loaders to preprocess CSS
-                )
+                loader: "style!css!autoprefixer!sass"
+                // loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader") },
+            },
+            // Load plain-ol' vanilla CSS
+            {
+                test: /\.scss$/,
+                loader: "style!css"
+                // loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -76,13 +81,9 @@ const config = {
     watch: true,
     plugins: [
         new ExtractTextPlugin('[name].css'),
+        // new ExtractTextPlugin('[name].css', { allChunks: false }),
         new LiveReloadPlugin()
     ],
-    postcss: [
-        autoprefixer({
-            browsers: ['last 2 versions, ie >= 9']
-        })
-    ]
 }
 
 module.exports = config

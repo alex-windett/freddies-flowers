@@ -1,5 +1,15 @@
 h1,
 h2,
+h3,
+h4,
+h5,
+p,
+li {
+    color: $color__primary--dark;
+}
+
+h1,
+h2,
 h3 {
     font-family: $font__primary;
 }
@@ -13,6 +23,17 @@ li {
 
 a {
     font-family: inherit;
+
+    @include hover-transition(text, $color__primary--dark, $color__primary--mid)
+}
+
+h5,
+p,
+li {
+
+    & > a:hover {
+        text-decoration: underline;
+    }
 }
 
 h1 {
