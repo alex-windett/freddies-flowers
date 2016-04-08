@@ -1,9 +1,17 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path              = require('path')
 const LiveReloadPlugin  = require('webpack-livereload-plugin')
+const NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 // const autoprefixer      = require('autoprefixer')
 const buildPath         = './build'
+const TARGET            = process.env.npm_lifecycle_event;
+
+const PATHS = {
+  src: path.join(__dirname, './src'),
+  build: path.join(__dirname, './build'),
+  style: path.join(__dirname, '.src/scss')
+};
 
 const sassLoaders = [
     'style-loader',
@@ -42,17 +50,10 @@ const config = {
                     presets: ['es2015', 'react']
                 }
             },
-            // Load SCSS
             {
                 test: /\.scss$/,
-                loader: "style!css!autoprefixer!sass"
-                // loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader!sass-loader") },
-            },
-            // Load plain-ol' vanilla CSS
-            {
-                test: /\.scss$/,
-                loader: "style!css"
-                // loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+                loaders: ['style', 'css', 'sass'],
+                include: PATHS.style
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -74,12 +75,17 @@ const config = {
             path.resolve(__dirname),
             path.resolve(__dirname, './src'),
             path.join(__dirname, 'node_modules'),
-            path.join(__dirname, './bower_components')
+            path.join(__dirname, './bower_components'),
+            path.join(__dirname, './bower_components/foundation-sites/scss')
+
         ]
     },
     devtool: "inline-source-map", // or "inline-source-map"
     watch: true,
     plugins: [
+        new NpmInstallPlugin({
+            save: true // --save
+        }),
         new ExtractTextPlugin('[name].css'),
         // new ExtractTextPlugin('[name].css', { allChunks: false }),
         new LiveReloadPlugin()
