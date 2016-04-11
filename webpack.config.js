@@ -41,7 +41,7 @@ const config = {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
                     'style', // backup loader when not building .css file
-                    'css!sass' // loaders to preprocess CSS
+                    'css?sourceMap!sass?sourceMap' // loaders to preprocess CSS
                 )
             },
             {
