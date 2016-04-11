@@ -1,11 +1,12 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
-import Delivery from './components/delivery/Delivery.js'
-import Share from './components/share/Share.js'
-import DeliveryAddress from './components/deliveryAddress/DeliveryAddress.js'
-import AccountDetails from './components/accountDetails/AccountDetails.js'
-import BankDetails from './components/bankDetails/BankDetails.js'
-import Cancel from './components/cancel/Cancel.js'
+import Delivery from './components/delivery/Delivery'
+import Share from './components/share/Share'
+import DeliveryAddress from './components/deliveryAddress/DeliveryAddress'
+import AccountDetails from './components/accountDetails/AccountDetails'
+import BankDetails from './components/bankDetails/BankDetails'
+import Cancel from './components/cancel/Cancel'
 
 
 class App extends React.Component {
