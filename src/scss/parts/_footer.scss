@@ -1,5 +1,6 @@
 .footer {
-
+    margin-top: rem-calc(50);
+    
     &__company {
         margin: 0 auto;
 
@@ -16,7 +17,7 @@
                 padding-left: 10%;
 
                 @include pseudo-el(before, 5px, 30px) {
-                    left: 0;
+                    left: 36px;
                     top: 0;
                     content: " | ";
                 }

@@ -35,6 +35,8 @@
 			background: $color__hover;
 			transition: ease-in-out all 0.5s;
 		}
+
+        @content;
 	} @else if $type == 'text' {
 		color: $color;
 		transition: ease-in-out all 0.5s;

@@ -1,0 +1,52 @@
+.button {
+    border: 1px solid black;
+    vertical-align: bottom;
+
+    @include hover-transition(button, transparent, $color__primary--dark) {
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    &__primary {
+        @extend h4;
+
+        padding: rem-calc(15 80);
+    }
+
+    &__secondary {
+        @extend p;
+
+        padding: rem-calc(5 50);
+    }
+}
+
+input {
+    border: solid 1px $color__primary--mid;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $color__primary--mid;
+
+      @extend h5;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $color__primary--mid;
+
+      @extend h5;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $color__primary--mid;
+
+      @extend h5;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $color__primary--mid;
+
+      @extend h5;
+    }
+}
+
+label {
+    @extend p;
+}
