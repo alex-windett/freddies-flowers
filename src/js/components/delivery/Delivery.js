@@ -42,7 +42,7 @@ const DeliveryItem = React.createClass({
         return (
             <div>
                 <h4 style={textStyles}>Friday 4 September</h4>
-                <button className={"button " + activeClass} onClick={this.toggleState}>{activeText}</button>
+                <button className={"button button__primary " + activeClass} onClick={this.toggleState}>{activeText}</button>
 
                 <hr />
             </div>

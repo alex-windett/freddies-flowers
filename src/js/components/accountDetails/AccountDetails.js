@@ -28,7 +28,7 @@ class AccountDetails extends React.Component {
                     <label>Phone Number</label>
                     <input type="number" />
 
-                    <button className="button">Update</button>
+                    <button className="button button__primary">Update</button>
                 </form>
             </div>
         )

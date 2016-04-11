@@ -15,7 +15,7 @@ class BankDetails extends React.Component {
                 <form method="post">
                     <lable>Card Number</lable>
                     <input type="number"/>
-                    <button className="button">Edit</button>
+                    <button className="button button__primary">Edit</button>
 
                     <br />
 
@@ -25,7 +25,7 @@ class BankDetails extends React.Component {
                         <option>Address 2</option>
                         <option>Address 3</option>
                     </select>
-                    <button className="button">Edit</button>
+                    <button className="button button__primary">Edit</button>
                 </form>
             </div>
         )

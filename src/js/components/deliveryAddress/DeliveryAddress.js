@@ -54,14 +54,14 @@ const AddressItem = React.createClass({
                             <td>1 box</td>
                             <td>20</td>
                             <td>
-                                <button className="button" onClick={this.editAddress}>Edit</button>
-                                <button className="button alert" onClick={this.cancelAddress}>Cancel</button>
+                                <button className="button button__primary" onClick={this.editAddress}>Edit</button>
+                                <button className="button button__primary" onClick={this.cancelAddress}>Cancel</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button className="button success" onClick={this.toggleFormVisibility}>Add an new delivery address</button>
+                <button className="button button__primary" onClick={this.toggleFormVisibility}>Add an new delivery address</button>
 
                 <form onSumbit={this.addAddress} className={this.state.formVisibility + " form form__addAdress"} method="post">
                     <label>Postcode:</label>
@@ -73,8 +73,8 @@ const AddressItem = React.createClass({
                     <label>Town or City</label>
                     <input type="text"/>
 
-                    <button className="button success" type="submit">Sumbit</button>
-                    <button className="button alert" onClick={this.toggleFormVisibility}>Cancel</button>
+                    <button className="button button__primary" type="submit">Sumbit</button>
+                    <button className="button button__primary" onClick={this.toggleFormVisibility}>Cancel</button>
 
                     <p className="text-center">Enter your postcode to calculate delivery charge</p>
                 </form>
