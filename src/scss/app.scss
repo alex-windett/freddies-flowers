@@ -8,8 +8,11 @@
 // // @import 'util/util';
 //
 // // Global variables and styles
-// // @import 'settings';
+
+
 @import './bower_components/foundation-sites/scss/foundation.scss';
+
+@import 'settings';
 // @import 'foundation-sites/assets/foundation';
 //
 // @include foundation-everything;
