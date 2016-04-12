@@ -28,10 +28,11 @@ class DeliverAddressStore extends EventEmitter {
         this.emit(CHANGE_EVENT)
     }
 
-    addAddress() {
+    addAddress(e) {
         /**
         * Add am delivery address
         */
+        debugger
         console.log('address added')
 
         this.emit(CHANGE_EVENT)
@@ -52,7 +53,7 @@ class DeliverAddressStore extends EventEmitter {
             }
 
             case AddressConstant.ADD_ADDRESS: {
-                this.addAddress()
+                this.addAddress(action.e)
                 break
             }
         }

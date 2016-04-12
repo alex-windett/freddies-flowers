@@ -15,9 +15,10 @@ const DeliveryAddressActions = {
         })
     },
 
-    addAddress() {
+    addAddress(e) {
         dispatcher.dispatch({
-            type: AddressConstant.ADD_ADDRESS
+            type: AddressConstant.ADD_ADDRESS,
+            e
         })
     }
 }
