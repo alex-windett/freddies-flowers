@@ -20,6 +20,15 @@
 
         padding: rem-calc(5 50);
     }
+
+    &:disabled {
+        @include hover-transition(button, $color__primary--mid, $color__primary--mid) {
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
 }
 
 input {
@@ -49,4 +58,19 @@ input {
 
 label {
     @extend p;
+}
+
+.input {
+
+    &__required {
+
+    }
+
+    &__error {
+        border: solid 1px $color__warning;
+        background: lighten($color__warning, 20%);
+        &--description {
+            color: $color__warning;
+        }
+    }
 }
