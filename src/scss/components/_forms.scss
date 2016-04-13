@@ -62,6 +62,21 @@ label {
 
 .input {
 
+
+    &__right {
+        width: 50%;
+        float: right;
+    }
+
+    &__left {
+        width: 50%;
+        float: left;
+    }
+
+    &__clear {
+        clear: both;
+    }
+
     &__required {
 
     }
