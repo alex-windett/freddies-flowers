@@ -65,8 +65,10 @@ const MyAppForm = React.createClass({
     render () {
         const regex = /^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)$/
 
-        if ( this.props.selected ) {
-            const addressID =  this.props.selected.id
+        const hasPreSelected = this.props.selected
+
+        if ( hasPreSelected ) {
+            const addressID =  hasPreSelected.id
         }
 
         // debugger
@@ -74,7 +76,7 @@ const MyAppForm = React.createClass({
             <Formsy.Form className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                 <Input className="input__left"
-                    placeholder="Postcode"
+                    placeholder={ hasPreSelected ? hasPreSelected.address : "Postcode"}
                     name="postcode"
                     validations={{
                         minLength: 4,
@@ -86,7 +88,7 @@ const MyAppForm = React.createClass({
                 <button className="button button__secondary float-left">Find Address</button>
 
                 <Input className="input__left"
-                    placeholder="House Number or Name"
+                    placeholder= { hasPreSelected ? hasPreSelected.address : "House Number or Name"}
                     name="house"
                     validations={{
                         isAlphanumeric: true,
@@ -94,14 +96,14 @@ const MyAppForm = React.createClass({
                     }}
                     required/>
                 <Input className="input__left"
-                    placeholder="Street Name"
+                    placeholder={ hasPreSelected ? hasPreSelected.address : "Street Name"}
                     name="street"
                     validations={{
                         isExisty: true
                     }}
                     required/>
                 <Input className="input__right"
-                    placeholder="Town or City"
+                    placeholder={ hasPreSelected ? hasPreSelected.address : "Town City"}
                     name="city"
                     validations={{
                         isAlpha: true,
