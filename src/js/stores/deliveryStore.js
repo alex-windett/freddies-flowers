@@ -8,13 +8,48 @@ class DeliveryStore extends EventEmitter {
 
     constructor() {
         super();
+
+        this.deliveries = [
+            {
+                id: 1,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 2,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 3,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 4,
+                date: 'Friday 4 September',
+                active: true
+            }
+        ]
     }
 
-    cancelDelivery(state) {
+    getDeliveries() {
+        return this.deliveries
+    }
 
-        console.log('delivery canceled')
+    removeDelivery(id) {
+
+        const toEdit = this.deliveries.filter( obj => {
+            return obj.id == id
+        })
+
+        let isActive = toEdit[0].active ? false : true
+
+        toEdit[0].active = isActive
 
         this.emit(CHANGE_EVENT)
+
+        console.log(this.deliveries)
     }
 
     handleActions(action) {
@@ -22,7 +57,7 @@ class DeliveryStore extends EventEmitter {
         switch(action.type) {
 
             case DeliveryConstant.DELETE_DELIVERY: {
-                this.cancelDelivery()
+                this.removeDelivery(action.id)
                 break
             }
         }
@@ -32,4 +67,4 @@ class DeliveryStore extends EventEmitter {
 const deliveryStore = new DeliveryStore;
 Dispatcher.register(deliveryStore.handleActions.bind(deliveryStore))
 
-export default DeliveryStore
+export default deliveryStore

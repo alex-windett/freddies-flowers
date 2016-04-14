@@ -33,7 +33,6 @@ class DeliveryAddressStore extends EventEmitter {
 
     getAddresses() {
         return this.addresses
-
     }
 
     editAddress() {
