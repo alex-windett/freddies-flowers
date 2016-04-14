@@ -19,7 +19,6 @@ class AddressItems extends React.Component{
     }
 
     checkAddressCount(callback) {
-        debugger
         if ( this.props.data.length < 2 ) {
             this.setState({
                 disabled: true

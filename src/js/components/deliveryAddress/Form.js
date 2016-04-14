@@ -58,7 +58,6 @@ const MyAppForm = React.createClass({
         /**
         * @param {model} contains the fields and their value of submitted form
         */
-        debugger
         Actions.addAddress(model)
 
     },
@@ -95,10 +94,9 @@ const MyAppForm = React.createClass({
                     }}
                     required/>
                 <Input className="input__left"
-                    placeholder="Postcode"
+                    placeholder="Street Name"
                     name="street"
                     validations={{
-                        isAlpha: true,
                         isExisty: true
                     }}
                     required/>

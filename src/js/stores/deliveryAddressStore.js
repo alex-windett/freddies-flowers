@@ -49,7 +49,7 @@ class DeliveryAddressStore extends EventEmitter {
         * Delete the delivery address
         */
         let addresses = this.addresses
-        
+
         addresses.reduceRight( (acc, obj, idx) => {
             if ( id.indexOf(obj.id) > -1 )
                 addresses.splice( idx, 1 );
@@ -64,6 +64,17 @@ class DeliveryAddressStore extends EventEmitter {
         /**
         * Add am delivery address
         */
+        const newAddress = {
+            id      : Date.now(),
+            address : `${data.house}  ${data.street}  ${data.postcode}  ${data.city}`,
+            quantity: 0,
+            cost    : 0
+
+        }
+
+        this.addresses.push(newAddress)
+
+        console.log(this.addresses)
         console.log('address added')
 
         this.emit(CHANGE_EVENT)
