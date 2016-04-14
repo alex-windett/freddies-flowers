@@ -37,8 +37,9 @@ class AddressItems extends React.Component{
             editFormVisibility: '',
             selected: address
         })
-        // .then(Actions.editAddress())
-        // this.setState({ editFormVisibility: 'hide' })
+
+        // TODO:
+            // * Fix issue with submitting edit form
     }
 
     cancelAddress(event) {
