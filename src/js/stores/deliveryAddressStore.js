@@ -4,10 +4,36 @@ import AddressConstant from '../constants/DeliveryAddressConstants'
 
 const CHANGE_EVENT = 'change'
 
-class DeliverAddressStore extends EventEmitter {
+class DeliveryAddressStore extends EventEmitter {
 
     constructor() {
         super();
+
+        this.addresses = [
+            {
+                id: 1,
+                address: '9 Takhar Mews',
+                quantity: 1,
+                cost: 20
+            },
+            {
+                id: 2,
+                address: '12 Gordon Place',
+                quantity: 4,
+                cost: 80
+            },
+            {
+                id: 3,
+                address: 'Big Fish Design',
+                quantity: 123,
+                cost: 100000
+            }
+        ]
+    }
+
+    getAddresses() {
+        return this.addresses
+
     }
 
     editAddress() {
@@ -15,24 +41,29 @@ class DeliverAddressStore extends EventEmitter {
         * Edit the delivery address
         */
         console.log('edit the address')
-
         this.emit(CHANGE_EVENT)
     }
 
-    deleteAddress() {
+    deleteAddress(id) {
         /**
         * Delete the delivery address
         */
+        let addresses = this.addresses
+        
+        addresses.reduceRight( (acc, obj, idx) => {
+            if ( id.indexOf(obj.id) > -1 )
+                addresses.splice( idx, 1 );
+        }, 0);
+
         console.log('address deleted')
 
         this.emit(CHANGE_EVENT)
     }
 
-    addAddress(e) {
+    addAddress(data) {
         /**
         * Add am delivery address
         */
-        debugger
         console.log('address added')
 
         this.emit(CHANGE_EVENT)
@@ -42,18 +73,23 @@ class DeliverAddressStore extends EventEmitter {
 
         switch(action.type) {
 
+            case AddressConstant.GET_ADDRESSES: {
+                this.getAddresses()
+                break
+            }
+
             case AddressConstant.EDIT_ADDRESS: {
                 this.editAddress()
                 break
             }
 
             case AddressConstant.DELETE_ADDRESS: {
-                this.deleteAddress()
+                this.deleteAddress(action.id)
                 break
             }
 
             case AddressConstant.ADD_ADDRESS: {
-                this.addAddress(action.e)
+                this.addAddress(action.data)
                 break
             }
         }
@@ -61,7 +97,7 @@ class DeliverAddressStore extends EventEmitter {
 
 }
 
-const deliveryAddressStore = new DeliverAddressStore;
+const deliveryAddressStore = new DeliveryAddressStore;
 Dispatcher.register(deliveryAddressStore.handleActions.bind(deliveryAddressStore))
 
-export default DeliverAddressStore
+export default deliveryAddressStore

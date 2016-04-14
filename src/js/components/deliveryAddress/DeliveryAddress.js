@@ -2,48 +2,27 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Form from './Form'
+import AddressItems from './DeliveryAddressItems'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
 
-const AddressItem = React.createClass({
-
-    editAddress() {
-        Actions.editAddress()
-    },
-
-    cancelAddress() {
-        Actions.cancelAddress()
-    },
-
-    render() {
-
-        return (
-
-
-            <tr>
-                <td>9 Takhar Mews</td>
-                <td>1 box</td>
-                <td>20</td>
-                <td>
-                    <button className="button button__primary" onClick={this.editAddress}>Edit</button>
-                    <button className="button button__primary" onClick={this.cancelAddress}>Cancel</button>
-                </td>
-            </tr>
-
-        )
-    }
-})
-
 class Address extends React.Component {
 
-    constructor() {
+    constructor(props) {
         super()
-
         this.state = {
-            formVisibility: ''
-            // formVisibility: 'hide'
+            formVisibility: 'hide',
+            addresses: Store.getAddresses()
         }
+    }
+
+    componentDidMount() {
+        Store.on("change", _ => {
+            this.setState({
+                addresses: Store.getAddresses()
+            })
+        })
     }
 
     toggleFormVisibility(e = '') {
@@ -59,7 +38,6 @@ class Address extends React.Component {
     }
 
     render() {
-
         return (
             <div>
                 <h2 className="text-center">Manage your delivery address</h2>
@@ -73,14 +51,14 @@ class Address extends React.Component {
                                 <td>Manage</td>
                             </tr>
 
-                            <AddressItem />
+                            <AddressItems data={this.state.addresses}/>
                         </tbody>
                     </table>
 
 
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
-                <div className={this.state.formVisibility}>
+                <div className={this.state.formVisibility + " form form__addAddress"}>
                     <Form />
                 </div>
             </div>

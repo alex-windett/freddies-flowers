@@ -59,14 +59,21 @@ const MyAppForm = React.createClass({
         * @param {model} contains the fields and their value of submitted form
         */
         debugger
+        Actions.addAddress(model)
 
     },
 
     render () {
         const regex = /^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)$/
 
+        if ( this.props.selected ) {
+            const addressID =  this.props.selected.id
+        }
+
+        // debugger
         return (
             <Formsy.Form className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+
                 <Input className="input__left"
                     placeholder="Postcode"
                     name="postcode"
@@ -88,7 +95,7 @@ const MyAppForm = React.createClass({
                     }}
                     required/>
                 <Input className="input__left"
-                    placeholder="Street Name"
+                    placeholder="Postcode"
                     name="street"
                     validations={{
                         isAlpha: true,

@@ -3,22 +3,29 @@ import AddressConstant from '../constants/DeliveryAddressConstants';
 
 const DeliveryAddressActions = {
 
+    getAddresses() {
+        dispatcher.dispatch({
+            type: AddressConstant.GET_ADDRESSES
+        })
+    },
+
     editAddress() {
         dispatcher.dispatch({
             type: AddressConstant.EDIT_ADDRESS
         })
     },
 
-    cancelAddress() {
+    cancelAddress(id) {
         dispatcher.dispatch({
-            type: AddressConstant.DELETE_ADDRESS
+            type: AddressConstant.DELETE_ADDRESS,
+            id
         })
     },
 
-    addAddress(e) {
+    addAddress(address) {
         dispatcher.dispatch({
             type: AddressConstant.ADD_ADDRESS,
-            e
+            address
         })
     }
 }
