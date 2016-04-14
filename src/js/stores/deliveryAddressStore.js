@@ -55,8 +55,6 @@ class DeliveryAddressStore extends EventEmitter {
                 addresses.splice( idx, 1 );
         }, 0);
 
-        console.log('address deleted')
-
         this.emit(CHANGE_EVENT)
     }
 
@@ -73,9 +71,6 @@ class DeliveryAddressStore extends EventEmitter {
         }
 
         this.addresses.push(newAddress)
-
-        console.log(this.addresses)
-        console.log('address added')
 
         this.emit(CHANGE_EVENT)
     }
