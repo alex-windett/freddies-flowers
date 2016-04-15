@@ -17,7 +17,7 @@ const config = {
         app: './src/index.js'
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].js?[hash]',
         path: path.join(__dirname, './build'),
         publicPath: './'
     },
@@ -34,7 +34,7 @@ const config = {
                 exclude: /node_modules/,
                 loader: "babel-loader",
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react', 'react-hmre']
                 }
             },
             {
@@ -69,7 +69,7 @@ const config = {
     devtool: "source-map", // or "inline-source-map"
     watch: true,
     plugins: [
-        new ExtractTextPlugin('[name].css'),
+        new ExtractTextPlugin('[name].css?[hash]'),
         new LiveReloadPlugin()
     ],
     postcss: [
