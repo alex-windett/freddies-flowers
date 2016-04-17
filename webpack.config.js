@@ -27,10 +27,6 @@ const common = {
     }
 }
 
-const config = {
-
-}
-
 if ( TARGET === 'start' || TARGET === 'watch' ) {
     module.exports = merge(common, {
         module: {
@@ -92,5 +88,3 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
 if ( TARGET === 'build') {
     module.exports = merge(common, {})
 }
-
-// module.exports = config
