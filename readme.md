@@ -1,3 +1,4 @@
+- This is currently made of two static HTML pages
 - run npm install and bower install to grab all dependencies
 
 ### Webpack
