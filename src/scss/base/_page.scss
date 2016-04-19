@@ -82,3 +82,8 @@ a {
 .main-content-wrapper {
     padding: rem-calc(20 0);
 }
+
+.columns,
+.column {
+    position: relative;
+}

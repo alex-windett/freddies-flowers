@@ -23,10 +23,15 @@
         &--items {
             display: none;
             position: absolute;
+            left: 0;
             margin: 0;
-            padding-left: rem-calc(30);
-            
+            padding: rem-calc(8 20 5 50);
+
+            background: white;
+            @extend %boxshadow;
+
             list-style-type: none;
+            z-index: 1;
 
             .item {
                 $image: $img-icon-path + 'burger-menu-bar.png';
