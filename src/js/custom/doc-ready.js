@@ -1,6 +1,7 @@
 import header from './functions/header.js'
+import $ from 'jquery'
 
-const docReady = {
+var docReady = {
 
     init() {
         header.burgerMenu()

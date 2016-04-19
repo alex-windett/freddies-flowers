@@ -19,6 +19,30 @@
             top: 8px;
             margin-left: rem-calc(30);
         }
+
+        &--items {
+            display: none;
+            position: absolute;
+            margin: 0;
+            padding-left: rem-calc(30);
+            
+            list-style-type: none;
+
+            .item {
+                $image: $img-icon-path + 'burger-menu-bar.png';
+                @include pseudo-el(before, 30px, 10px, $image) {
+                    left: -33px;
+                    top: 7px;
+                }
+
+                &--active {
+                    $image: $img-icon-path + 'burger-menu-item-active.png';
+                    @include pseudo-el(before, 30px, 25px, $image) {
+                        top: -1px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -26,7 +50,7 @@
 
     &__header {
         text-align: right;
-        
+
         &--title {
             display: inline-block;
             margin-right: rem-calc(20);

@@ -1,0 +1,12 @@
+.socialites {
+    text-align: center;
+
+    &--item {
+        display: inline-block;
+        font-size: 40px;
+
+        i:before {
+            margin: 0;
+        }
+    }
+}

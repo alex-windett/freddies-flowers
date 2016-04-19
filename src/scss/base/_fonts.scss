@@ -9,11 +9,11 @@ $font-path: './fonts/';
 
 // the name that will be used in font-family property
 // Add in 'fontello' when needed
-$font-families: 'freddiesflowerstitle-webfont';
+$font-families: 'freddiesflowerstitle-webfont', 'fontello';
 
 // the filename of your font without the file extension
 // Add in 'fontello' when needed
-$font-filenames: 'freddiesflowerstitle-webfont';
+$font-filenames: 'freddiesflowerstitle-webfont', 'fontello';
 $i: 1;
 
 @each $font-family in $font-families {
@@ -67,3 +67,7 @@ $i: 1;
 	/* Uncomment for 3D effect */
 	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
+
+.icon-facebook:before { content: '\e800'; } 
+.icon-instagram:before { content: '\e801'; }
+.icon-twitter:before { content: '\e802'; }

@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 const header = {
 
     init() {
@@ -5,7 +7,10 @@ const header = {
     },
 
     burgerMenu() {
-        alert("hello")
+        $('#burgerMenu').on('click', e => {
+            e.preventDefault
+            $('#burgerMenuItems').slideToggle()
+        })
     }
 }
 

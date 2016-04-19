@@ -1,6 +1,8 @@
+@import './social-list';
+
 .footer {
     margin-top: rem-calc(50);
-    
+
     &__company {
         margin: 0 auto;
 
@@ -23,5 +25,9 @@
                 }
             }
         }
+    }
+
+    &__social {
+        margin-top: rem-calc(20);
     }
 }

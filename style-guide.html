@@ -9,7 +9,7 @@
  	</head>
  	<body>
 
-        <main class="row column">
+        <main class="row column main-content-wrapper">
 
             <header class="row header__main">
 
@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="column medium-6">
                             <a href="#" class="">
-                                <div class="menu__burger">
+                                <div id="burgerMenu" class="menu__burger">
                                     <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
                                     <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
                                     <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
@@ -25,9 +25,17 @@
                                     <h3 class="menu__burger--title">Menu</h3>
                                 </div>
                             </a>
+                                <ul id="burgerMenuItems" class="menu__burger--items">
+                                    <li class="item item--active"><a href="#"><h3>How it works</h3></a></li>
+                                    <li class="item"><a href="#"><h3>About Freddie</h3></a></li>
+                                    <li class="item"><a href="#"><h3>Next Weeks Flowers</h3></a></li>
+                                    <li class="item"><a href="#"><h3>Past Deliveries</h3></a></li>
+                                    <li class="item"><a href="#"><h3>Testimonials</h3></a></li>
+                                </ul>
+
                         </div>
-                        <div class="column medium-6">
-                            <a href="#" class="text-center logo">
+                        <div class="column medium-6 text-center">
+                            <a href="#" class=" logo">
                                 <img width="200" src="src/images/svg/freddies_flowers_logo.svg" alt="Freddies Flowers" />
                             </a>
                         </div>
@@ -220,15 +228,18 @@
                     </ul>
                 </section>
 
-                <section class="row column footer footer__social">
-
+                <section class="row column footer__social socialites">
+                    <ul class="plainlist">
+                        <li class="socialites--item"><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li class="socialites--item"><a href="#"><i class="icon-instagram"></i></a></li>
+                    </ul>
                 </section>
             </footer>
 
         </main>
 
     <script type="text/javascript" src="build/custom.js"></script>
-    
+
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
  	</body>
