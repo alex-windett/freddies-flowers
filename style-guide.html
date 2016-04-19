@@ -13,30 +13,43 @@
 
             <header class="row header__main">
 
-                <div class="columns medium-4 medium-push-4">
-                    <a href="#" class="text-center logo">
-                        <img src="images/svg/freddies_flowers_logo.svg" alt="Freddies Flowers" />
-                    </a>
+                <div class="columns medium-8">
+                    <div class="row">
+                        <div class="column medium-6">
+                            <a href="#" class="">
+                                <div class="menu__burger">
+                                    <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
+                                    <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
+                                    <span class="menu__burger--bar"><img src="src/images/icons/burger-menu-bar.png" alt="" /></span>
+
+                                    <h3 class="menu__burger--title">Menu</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="column medium-6">
+                            <a href="#" class="text-center logo">
+                                <img width="200" src="src/images/svg/freddies_flowers_logo.svg" alt="Freddies Flowers" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
                     <div class="columns medium-4">
-                        <div class="row column">
-                            <h4>
-                                Give us a call on:  0207 801 6241 -
-                            </h4>
-                            <img src="" alt="" />
+                        <div class="row column contact__header">
+                            <h3 class="contact__header--title">Give us a call on: 0207 801 6241 </h3>
+                            <a href="#">
+                                <img class="contact__header--email" src="src/images/icons/email.png" alt="Email us">
+                            </a>
                         </div>
                         <div class="row column">
-                            <h3>
-                                <a href="#">Sign Up</a>
-                            </h3>
-                            <h3>
-                                <a href="#">Log In</a>
-                            </h3>
+                            <section class="useraccess">
+                                <h2 class="useraccess__item useraccess__item--register"><a href="#">Sign Up</a></h2>
+                                <h2 class="useraccess__item useraccess__item--login"><a href="#">Log In</a></h2>
+                            </section>
                         </div>
                     </div>
             </header>
 
-            <div class="body__wrapper row column">
+            <!-- <div class="body__wrapper row column">
                 <h2>Style Guide</h2>
                 <div class="row">
                     <div class="column medium-6">
@@ -187,7 +200,7 @@
                 </div>
 
 
-            </div>
+            </div> -->
 
             <footer class="row column footer">
                 <section class="row">
@@ -214,6 +227,8 @@
 
         </main>
 
+    <script type="text/javascript" src="build/custom.js"></script>
+    
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
  	</body>

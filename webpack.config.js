@@ -12,7 +12,8 @@ const PATHS             = {
 
 const common = {
     entry: {
-        app: './src/index.js'
+        app: './src/index.js',
+        custom: './src/custom.js'
     },
     output: {
         filename: '[name].js?[hash]',
