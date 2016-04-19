@@ -6,22 +6,24 @@
     &__company {
         margin: 0 auto;
 
-        &--list {
-
+        @media #{$small-only} {
+            &--item + &--item {
+                margin-top: rem-calc(10);
+            }
         }
 
         @media #{$medium-up} {
             &--item {
                 display: inline-block;
-            }
 
-            &--item + &--item {
-                padding-left: 10%;
+                & + & {
+                    padding-left: 10%;
 
-                @include pseudo-el(before, 5px, 30px) {
-                    left: 36px;
-                    top: 0;
-                    content: " | ";
+                    @include pseudo-el(before, 5px, 30px) {
+                        left: 36px;
+                        top: 0;
+                        content: " | ";
+                    }
                 }
             }
         }

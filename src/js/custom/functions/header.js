@@ -4,6 +4,7 @@ const header = {
 
     init() {
         this.burgerMenu();
+        this.cloneUseraccess();
     },
 
     burgerMenu() {
@@ -11,7 +12,7 @@ const header = {
             e.preventDefault
             $('#burgerMenuItems').slideToggle()
         })
-    }
+    },
 }
 
 export default header

@@ -80,7 +80,11 @@ a {
 }
 
 .main-content-wrapper {
-    padding: rem-calc(20 0);
+    padding: rem-calc(0 10);
+
+    @media #{$medium-up} {
+        padding: rem-calc(20 0);
+    }
 }
 
 .columns,

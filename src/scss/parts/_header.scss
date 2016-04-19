@@ -1,3 +1,11 @@
+.home-logo {
+    width: 100px;
+
+    @media #{$medium-up} {
+        width: 200px;
+    }
+}
+
 .menu {
     position: relative;
 
@@ -58,12 +66,15 @@
 
         &--title {
             display: inline-block;
-            margin-right: rem-calc(20);
 
-            @include pseudo-el(after, 10px, 10px, "") {
-                right: -30px;
-                top: 0;
-                content: "-";
+            @media #{$medium-up} {
+                margin-right: rem-calc(20);
+                
+                @include pseudo-el(after, 10px, 10px, "") {
+                    right: -30px;
+                    top: 0;
+                    content: "-";
+                }
             }
         }
 
