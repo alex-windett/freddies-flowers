@@ -174,22 +174,54 @@
                     <div class="column medium-6">
                         <h3>Forms</h3>
                         <form class="" method="post">
-                            <label for="textt">Text</label>
-                            <input type="text" name="test" placeholder="Text">
+                            <ul class="plainlist">
+                                <li>
+                                    <label for="text">Text</label>
+                                    <input type="text" name="test" placeholder="Text">
+                                </li>
+                                <li>
+                                    <label class="input__error--description" for="text">Text Error</label>
+                                    <input class="input__error" type="text" name="test" placeholder="Text">
+                                </li>
+                                <li>
+                                    <label for="text-area">Text Area</label>
+                                    <textarea type="textarea" name="text-area" placeholder="Text Area" ></textarea>
+                                </li>
+                                <li>
+                                    <label for="test">Dropdown</label>
+                                    <select class="custom-dropdown" name="">
+                                        <option value="option2">Option 1</option>
+                                        <option value="option2">Option 2</option>
+                                        <option value="option3">Option 3</option>
+                                    </select>
+                                </li>
+                                <li class="boleanInput">
+                                    <input class="booleanInput__input" type="checkbox" name="ticked-checkbox" value="true">
+                                    <label class="boleanInput__label" for="ticked-checkbox">Checkbox</label>
+                                </li>
+                                <li class="boleanInput">
+                                    <input class="boleanInput__input" type="checkbox" name="ticked-checkbox" value="true" checked>
+                                    <label class="boleanInput__label" for="ticked-checkbox">Ticked Checkbox</label>
+                                </li>
+                                <li class="boleanInput">
+                                    <input class="booleanInput__input" type="radio" name="radio" value="true">
+                                    <label class="boleanInput__label" for="radio">Radio</label>
+                                </li>
+                                <li class="boleanInput">
+                                    <input class="booleanInput__input" type="radio" name="ticked-radio" value="true" checked>
+                                    <label class="boleanInput__label" for="ticked-radio">Radio Ticked</label>
+                                </li>
 
-                            <label for="text-area">Text Area</label>
-                            <textarea type="textarea" name="text-area" placeholder="Text Area" ></textarea>
-
-                            <label for="test">Dropdown</label>
-                            <select class="custom-dropdown" name="">
-                                <option value="option2">Option 1</option>
-                                <option value="option2">Option 2</option>
-                                <option value="option3">Option 3</option>
-                            </select>
-
-                            <button type="submit" class="button button__primary" name="button">primary</button>
-                            <button type="submit" class="button button__secondary" name="button">secondary</button>
-                            <button type="submit" disabled class="button button__primary" name="button">disabled</button>
+                                <li>
+                                    <button type="submit" class="button button__primary" name="button">primary</button>
+                                </li>
+                                <li>
+                                    <button type="submit" class="button button__secondary" name="button">secondary</button>
+                                </li>
+                                <li>
+                                    <button type="submit" disabled class="button button__primary" name="button">disabled</button>
+                                </li>
+                            </ul>
                         </form>
                     </div>
                 </div>

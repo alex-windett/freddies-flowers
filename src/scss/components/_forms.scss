@@ -1,25 +1,10 @@
+textarea,
 input {
     border: solid 1px $color__primary--mid;
 
-    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-      color: $color__primary--mid;
-
-      @extend h5;
-    }
-    &::-moz-placeholder { /* Firefox 19+ */
-      color: $color__primary--mid;
-
-      @extend h5;
-    }
-    &:-ms-input-placeholder { /* IE 10+ */
-      color: $color__primary--mid;
-
-      @extend h5;
-    }
-    &:-moz-placeholder { /* Firefox 18- */
-      color: $color__primary--mid;
-
-      @extend h5;
+    @include placeholder($color__primary--mid) {
+        font-family: $font__tertiary;
+        font-style: italic;
     }
 }
 
@@ -27,8 +12,11 @@ label {
     @extend p;
 }
 
-.input {
+textarea {
+    height: rem-calc(300);
+}
 
+.input {
 
     &__right {
         width: 50%;
@@ -51,6 +39,9 @@ label {
     &__error {
         border: solid 1px $color__warning;
         background: lighten($color__warning, 20%);
+
+        @include placeholder($color__warning)
+
         &--description {
             color: $color__warning;
         }

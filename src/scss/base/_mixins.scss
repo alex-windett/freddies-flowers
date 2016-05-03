@@ -55,3 +55,26 @@
 	position: $position;
 	z-index: $index;
 }
+
+@mixin placeholder($color) {
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $color;
+        @content;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $color;
+        @content;
+    }
+
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $color;
+        @content;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $color;
+        @content;
+    }
+}
