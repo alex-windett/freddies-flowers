@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path              = require('path')
 const LiveReloadPlugin  = require('webpack-livereload-plugin');
 const merge             = require('webpack-merge')
+const BowerWebpackPlugin = require("bower-webpack-plugin");
 
 const TARGET            = process.env.npm_lifecycle_event
 const PATHS             = {
@@ -48,6 +49,10 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
                     )
                 },
                 {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
+                },
+                {
                     test: /\.(eot|svg|ttf|woff|woff2)$/,
                     exclude: /node_modules/,
                     loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
@@ -73,6 +78,7 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         watch: true,
         plugins: [
             new ExtractTextPlugin('[name].css?[hash]'),
+            new BowerWebpackPlugin(),
             new LiveReloadPlugin()
         ],
         postcss: [
