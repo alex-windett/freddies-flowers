@@ -1,36 +1,3 @@
-.button {
-    border: 1px solid black;
-    vertical-align: bottom;
-
-    @include hover-transition(button, transparent, $color__primary--dark) {
-
-        &:hover {
-            color: white;
-        }
-    }
-
-    &__primary {
-        @extend h4;
-
-        padding: rem-calc(15 80);
-    }
-
-    &__secondary {
-        @extend p;
-
-        padding: rem-calc(5 50);
-    }
-
-    &:disabled {
-        @include hover-transition(button, $color__primary--mid, $color__primary--mid) {
-
-            &:hover {
-                color: black;
-            }
-        }
-    }
-}
-
 input {
     border: solid 1px $color__primary--mid;
 

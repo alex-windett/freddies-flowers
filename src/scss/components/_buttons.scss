@@ -1,0 +1,27 @@
+.button {
+    vertical-align: bottom;
+    text-transform: capitalize;
+    border-radius: 10px;
+    @extend h3;
+
+    font-size: 13px;
+
+    &__primary {
+        $button--hover: darken($color__button--primary, 20%);
+        @include hover-transition(button, $color__button--primary, $button--hover)
+        color: white;
+        padding: rem-calc(10 50 5);
+    }
+
+    &__secondary {
+        $button--hover: darken($color__button--secondary, 20%);
+        @include hover-transition(button, $color__button--secondary, $button--hover)
+        color: black;
+        padding: rem-calc(10 50 5);
+    }
+
+    &:disabled {
+        @include hover-transition(button, $color__primary--mid, $color__primary--mid)
+        color: black;
+    }
+}
