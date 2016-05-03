@@ -92,6 +92,14 @@ p {
         font-size: 15px;
         line-height: 20px;
     }
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            @include hover-transition(text, inherit, $color__primary--light)
+        }
+    }
 }
 
 span {

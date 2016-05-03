@@ -44,9 +44,10 @@ const DeliveryItem = React.createClass({
 
 
         return (
-            <div key={delivery.id}>
+            <div key={delivery.id} class="boleanItem">
                 <h4 style={textStyles}>{delivery.date}</h4>
                 <button className={"button button__primary " + activeClass} onClick={this.removeDelivery}>{activeText}</button>
+                <input type="checkbox" />
 
                 <hr />
             </div>
