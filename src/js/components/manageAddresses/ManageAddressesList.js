@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Form from './Form'
-import AddressItems from './DeliveryAddressItems'
+import ManageAddressesListItems from './ManageAddressesListItems'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
 
-class Address extends React.Component {
+class ManageAddresses extends React.Component {
 
     constructor(props) {
         super()
@@ -51,7 +51,7 @@ class Address extends React.Component {
                                 <td>Manage</td>
                             </tr>
 
-                            <AddressItems data={this.state.addresses}/>
+                            <ManageAddressesListItems data={this.state.addresses}/>
                         </tbody>
                     </table>
 
@@ -66,4 +66,4 @@ class Address extends React.Component {
     }
 }
 
-export default Address;
+export default ManageAddresses

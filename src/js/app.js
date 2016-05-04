@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Delivery from './components/delivery/Delivery'
+import UpcomingDeliveries from './components/upcomingDeliveries/UpcomingDeliveries'
 import Share from './components/share/Share'
-import DeliveryAddress from './components/deliveryAddress/DeliveryAddress'
+import ManageAddressesList from './components/manageAddresses/ManageAddressesList'
 import AccountDetails from './components/accountDetails/AccountDetails'
 import BankDetails from './components/bankDetails/BankDetails'
 
@@ -19,7 +19,7 @@ class App extends React.Component {
             <section className="dashboard">
                 <div className='row'>
                     <div className='column medium-6 dashboard__item'>
-                        <Delivery/>
+                        <UpcomingDeliveries/>
                     </div>
 
                     <div className='column medium-6 dashboard__item'>
@@ -28,7 +28,7 @@ class App extends React.Component {
                 </div>
 
                 <div className="row column dashboard__item">
-                    <DeliveryAddress />
+                    <ManageAddressesList />
                 </div>
 
                 <div className='row'>
