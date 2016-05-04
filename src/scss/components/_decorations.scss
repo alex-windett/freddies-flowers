@@ -1,0 +1,17 @@
+.decoration {
+    padding: rem-calc(30);
+
+    &__papper {
+        background: url($img-deco-path + 'paper-background.png') ;
+    }
+
+    &__tape {
+
+        $image: $img-deco-path + 'tape.png';
+        @include pseudo-el(before, 40px, 40px) {
+            background: url($image);
+            top: -6px;
+            left: -9px;
+        }
+    }
+}
