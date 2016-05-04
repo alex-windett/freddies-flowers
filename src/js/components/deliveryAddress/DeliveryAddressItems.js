@@ -73,7 +73,7 @@ class AddressItems extends React.Component{
                                     </button>
 
                                     <button
-                                        className="button button__primary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
+                                        className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
                                         data-id={delivery.id}>
                                         Cancel
                                     </button>

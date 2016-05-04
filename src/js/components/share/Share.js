@@ -9,7 +9,7 @@ class Share extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="decoration decoration__paper decoration__tape">
                 <h2 className="text-center">Get your next delivery free</h2>
 
                 <p>Share your referral code with your mates and for each one who signs up, your next box of spanking fresh flowers will be on us.</p>
@@ -19,7 +19,7 @@ class Share extends React.Component {
 
                 <p>And its not an entirely selfish move: your friend will get their first box free as well! Win win!</p>
 
-                <a href="">www.freddiesflowers.com?lucyl66</a>
+                <p><a href="">www.freddiesflowers.com?lucyl66</a></p>
 
                 <h4>LUCYL66</h4>
             </div>

@@ -9,7 +9,7 @@ class BankDetails extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="decoration decoration__paper decoration__tape">
                 <h2 className="text-center">Manage your payment details</h2>
 
                 <form method="post">

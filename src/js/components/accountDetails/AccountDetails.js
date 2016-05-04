@@ -25,7 +25,7 @@ class AccountDetails extends React.Component {
         const account = this.state.accountDetails
 
         return (
-            <div>
+            <div className="decoration decoration__paper decoration__tape">
                 <h2 className="text-center">Change your account details</h2>
 
                 <form method="post">

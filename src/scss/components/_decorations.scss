@@ -1,7 +1,9 @@
 .decoration {
     padding: rem-calc(30);
 
-    &__papper {
+    @extend %boxshadow; 
+
+    &__paper {
         background: url($img-deco-path + 'paper-background.png') ;
     }
 
@@ -13,5 +15,9 @@
             top: -6px;
             left: -9px;
         }
+    }
+
+    &__plain {
+        background: white;
     }
 }

@@ -39,7 +39,7 @@ class Address extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="decoration decoration__plain padder">
                 <h2 className="text-center">Manage your delivery address</h2>
 
                     <table>

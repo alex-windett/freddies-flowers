@@ -95,7 +95,7 @@ class Delivery extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="decoration decoration__paper decoration__tape">
                 <h2 className="text-center">Your upcoming deliveries</h2>
 
                 <p>Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>
