@@ -2,9 +2,10 @@ const webpack           = require('webpack')
 const autoprefixer      = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path              = require('path')
-const LiveReloadPlugin  = require('webpack-livereload-plugin');
+const LiveReloadPlugin  = require('webpack-livereload-plugin')
 const merge             = require('webpack-merge')
-const BowerWebpackPlugin = require("bower-webpack-plugin");
+const BowerWebpackPlugin = require("bower-webpack-plugin")
+const NpmInstallPlugin  = require('npm-install-webpack-plugin')
 
 const TARGET            = process.env.npm_lifecycle_event
 const PATHS             = {
@@ -79,6 +80,10 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         plugins: [
             new ExtractTextPlugin('[name].css?[hash]'),
             new BowerWebpackPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
+            new NpmInstallPlugin({
+                save: true // --save
+            }),
             new webpack.ProvidePlugin({
                 $: "jquery"
             }),
