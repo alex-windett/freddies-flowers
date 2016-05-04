@@ -27,15 +27,11 @@ const DeliveryItem = React.createClass({
         const delivery = this.state.delivery
 
         if ( this.state.active ) {
-            var activeClass = 'secondary'
-            var activeText  = 'SKIP'
 
             var textStyles = {
                 textDecoration: 'none'
             }
         } else {
-            var activeClass = 'success'
-            var activeText  = 'ACTIVATE'
 
             var textStyles = {
                 textDecoration: 'line-through'
@@ -44,10 +40,10 @@ const DeliveryItem = React.createClass({
 
 
         return (
-            <div key={delivery.id} class="boleanItem">
-                <h4 style={textStyles}>{delivery.date}</h4>
-                <button className={"button button__primary " + activeClass} onClick={this.removeDelivery}>{activeText}</button>
-                <input type="checkbox" />
+            <div key={delivery.id}>
+                <p style={textStyles}>{delivery.date}</p>
+
+                <input type="checkbox" onClick={this.removeDelivery}/>
 
                 <hr />
             </div>
