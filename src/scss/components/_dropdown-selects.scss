@@ -4,13 +4,13 @@
     $dropdown__color--hover: #dadada;
 
     width: 100% !important; // Override plugin styles
-    margin: 20px 0;
+    margin: rem-calc(20 0 0);
 
     .dk-selected {
         border: 1px solid $dropdown__color;
         border-radius: 0;
         color: $dropdown__color;
-        padding: 5px 10px;
+        padding: rem-calc(5 10);
 
         &:before {
             color: $dropdown__color;
@@ -27,8 +27,8 @@
     .dk-option {
         color: $dropdown__color;
         font-family: $font__tertiary;
-        font-size: 15px;
-        line-height: 30px;
+        font-size: rem-calc(15);
+        line-height: rem-calc(30);
 
         &.dk-option-highlight,
         &.dk-option-selected {
@@ -63,6 +63,27 @@
         .dk-selected:before {
             border-width: 0 0.75em 0.75em;
             border-bottom-color: $dropdown__color--hover;
+        }
+    }
+
+    // ****************************************
+    // Dropdown Error
+    // ****************************************
+    &__error {
+        @extend .input__error;
+
+        .dk-selected {
+            border-top-color: $color__warning;
+            color: $color__warning;
+
+            &:before {
+                border-top-color: $color__warning !important; // Override for plugin specficity
+                border-bottom-color: $color__warning !important; // Override for plugin specficity
+            }
+        }
+
+        &--description {
+            color: $color__warning;
         }
     }
 }
