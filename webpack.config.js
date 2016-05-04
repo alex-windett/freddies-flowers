@@ -1,3 +1,4 @@
+const webpack           = require('webpack')
 const autoprefixer      = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path              = require('path')
@@ -58,7 +59,6 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
                     loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
                 },
                 {
-                    // Images are inline within the JS
                     test: /.*\.(gif|png|jpe?g|svg)$/i,
                     loaders: [
                         'file?hash=sha512&digest=hex&name=images/[name].[ext]',
@@ -79,6 +79,9 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         plugins: [
             new ExtractTextPlugin('[name].css?[hash]'),
             new BowerWebpackPlugin(),
+            new webpack.ProvidePlugin({
+                $: "jquery"
+            }),
             new LiveReloadPlugin()
         ],
         postcss: [
