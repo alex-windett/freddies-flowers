@@ -136,11 +136,17 @@ a {
     position: relative;
 }
 
-.row + .row {
+.row {
+    + .row {
 
-    margin-top: rem-calc(20);
+        margin-top: rem-calc(20);
 
-    @include breakpoint(medium up) {
-        margin-top: rem-calc(40);
+        @include breakpoint(medium up) {
+            margin-top: rem-calc(40);
+        }
+    }
+    .row {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
