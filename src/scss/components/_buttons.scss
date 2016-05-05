@@ -8,6 +8,10 @@
 
     font-size: 13px;
 
+    &:hover {
+        text-decoration: none;
+    }
+
     &__primary {
         $button--hover: darken($color__button--primary, 20%);
         @include hover-transition(button, $color__button--primary, $button--hover)
