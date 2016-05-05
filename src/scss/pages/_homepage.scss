@@ -1,0 +1,41 @@
+body.homepage {
+
+    .hero {
+        position: relative;
+
+        &__content {
+            position: absolute;
+            right: 0;
+            top: 27%;
+            width: 38%;
+            padding-right: rem-calc(14);
+
+            &--title {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .feature {
+
+        &__title {
+
+        }
+
+        &__info {
+
+        }
+    }
+
+    .postcode {
+
+        &__wrapper {
+            $image: $img-deco-path + 'homepage-postcode-decoration.png';
+            @include pseudo-el(after, 193px, 120px) {
+                background: url($image) no-repeat;
+                right: 160px;
+                bottom: -20px;
+            }
+        }
+    }
+}
