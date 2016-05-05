@@ -6,13 +6,13 @@
     &__company {
         margin: 0 auto;
 
-        @media #{$small-only} {
+        @include breakpoint(small only) {
             &--item + &--item {
                 margin-top: rem-calc(10);
             }
         }
 
-        @media #{$medium-up} {
+        @include breakpoint(medium up) {
             &--item {
                 display: inline-block;
 
