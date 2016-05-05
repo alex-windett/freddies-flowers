@@ -51,7 +51,7 @@ class BankDetails extends React.Component {
         var str = []
         //Create the "*" for exactly 4 digits short
         for( var i = 1; i <= activeCard[0].cardNumber.length - 4; i++) {
-            str += "*";
+            str += "*"
         }
         //Join the asterisk and last 4 characters
         var ecard = `${str} ${activeCard[0].cardNumber.substr(activeCard[0].cardNumber.length-4)}`
