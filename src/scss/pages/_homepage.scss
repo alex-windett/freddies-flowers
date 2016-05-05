@@ -3,15 +3,32 @@ body.homepage {
     .hero {
         position: relative;
 
-        &__content {
-            position: absolute;
-            right: 0;
-            top: 27%;
-            width: 38%;
-            padding-right: rem-calc(14);
+        &__image {
 
-            &--title {
-                margin-bottom: 0;
+            @media #{$small-only} {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        &__content {
+
+            @media #{$small-only} {
+                text-align: center;
+            }
+
+            @media #{$medium-up} {
+                position: absolute;
+                right: 0;
+                top: 27%;
+                width: 38%;
+                padding-right: rem-calc(14);
+
+                &--title {
+                    font-size: 1.5vw;
+                    line-height: 4vw;
+                    margin-bottom: 0;
+                }
             }
         }
     }
@@ -30,11 +47,14 @@ body.homepage {
     .postcode {
 
         &__wrapper {
-            $image: $img-deco-path + 'homepage-postcode-decoration.png';
-            @include pseudo-el(after, 193px, 120px) {
-                background: url($image) no-repeat;
-                right: 160px;
-                bottom: -20px;
+
+            @media #{$medium-up} {
+                $image: $img-deco-path + 'homepage-postcode-decoration.png';
+                @include pseudo-el(after, 193px, 120px) {
+                    background: url($image) no-repeat;
+                    right: 160px;
+                    bottom: -20px;
+                }
             }
         }
     }
