@@ -1,8 +1,35 @@
-.home-logo {
+.header {
+
+    &__main {
+
+        &--sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: $color__background;
+            padding-top: rem-calc(20);
+            z-index: 1;
+
+            .useraccess {
+                margin-top: 0;
+
+                &__wrapper {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.homelogo {
     width: 100px;
 
     @include breakpoint(medium up) {
         width: 200px;
+    }
+
+    &--sticky {
+        width: 140px;
     }
 }
 
@@ -86,8 +113,11 @@
 }
 
 .useraccess {
-    margin-top: rem-calc(20);
-    text-align: right;
+
+    &__wrapper {
+        margin-top: rem-calc(20);
+        text-align: right;
+    }
 
     &__item {
         display: inline-block;
@@ -100,14 +130,6 @@
                 left: -45px;
                 top: 0;
             }
-        }
-
-        &--register {
-
-        }
-
-        &--login {
-
         }
     }
 }
