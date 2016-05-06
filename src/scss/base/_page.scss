@@ -96,9 +96,7 @@ p {
     a {
         text-decoration: underline;
 
-        &:hover {
-            @include hover-transition(text, inherit, $color__primary--light)
-        }
+        @include hover-transition(text, inherit, $color__primary--mid)
     }
 
     &.small {

@@ -29,3 +29,15 @@
 .row.body__wrapper {
     margin-top: 0;
 }
+
+// ****************************************
+// Block Grid gutter
+// * Add a spall space above block grid items on mobile
+// ****************************************
+@include breakpoint(small only) {
+    [class*="small-up-"] {
+        .column + .column {
+            margin-top: rem-calc(20);
+        }
+    }
+}

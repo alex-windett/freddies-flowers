@@ -27,8 +27,8 @@ body.homepage {
                 &--title {
                     margin-bottom: 0;
 
-                    @include breakpoint(xlarge down) {
-                        font-size: 1.5vw;
+                    @include breakpoint(large down) {
+                        font-size: 1.7vw;
                         line-height: 4vw;
                     }
                 }
@@ -37,13 +37,10 @@ body.homepage {
     }
 
     .feature {
-
-        &__title {
-
-        }
+        padding: rem-calc(20);
 
         &__info {
-
+            padding: rem-calc(0 30);
         }
     }
 
@@ -67,10 +64,26 @@ body.homepage {
                 $image: $img-deco-path + 'homepage-postcode-decoration.png';
                 @include pseudo-el(after, 193px, 120px) {
                     background: url($image) no-repeat;
-                    right: 160px;
+                    right: -20px;
                     bottom: -50px;
                 }
             }
+        }
+
+        &__input {
+
+            width: 200px;
+            margin-left: rem-calc(10);
+
+            @include breakpoint(small only) {
+                margin: 0 auto 10px;
+            }
+        }
+
+        &__input,
+        &__submit,
+        &__title {
+            display: inline-block;
         }
     }
 
