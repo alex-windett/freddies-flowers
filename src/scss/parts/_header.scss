@@ -2,6 +2,10 @@
 
     &__main {
 
+        @include breakpoint(small only) {
+            padding: rem-calc(20 0);
+        }
+
         &--sticky {
             position: fixed;
             top: 0;
@@ -9,6 +13,10 @@
             background: $color__background;
             padding-top: rem-calc(20);
             z-index: 1;
+
+            @include breakpoint(small only) {
+                left: 0;
+            }
 
             .useraccess {
                 margin-top: 0;
@@ -67,6 +75,10 @@
 
             list-style-type: none;
             z-index: 1;
+
+            @include breakpoint(small only) {
+                top: 30px;
+            }
 
             .item {
                 $image: $img-icon-path + 'burger-menu-bar.png';
