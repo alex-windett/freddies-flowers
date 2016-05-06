@@ -81,7 +81,7 @@ $breakpoints: (
   xlarge: $global-width,
   xxlarge: 1440px,
 );
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge);
 
 // 3. The Grid
 // -----------
@@ -90,7 +90,7 @@ $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-responsive-gutter: (
   small: 10,
-  medium: 40,
+  medium: 20,
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
