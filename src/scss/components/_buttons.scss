@@ -1,8 +1,9 @@
 .button {
+    display: inline-block;
     vertical-align: bottom;
     text-transform: capitalize;
     border-radius: 10px;
-    margin: rem-calc(15 0);
+    margin: 0;
     border: none;
     @extend h3;
 
