@@ -41,46 +41,44 @@
     }
 }
 
-.menu {
+.menuburger {
     position: relative;
+    bottom: 0;
+    left: 0;
 
-    &__burger {
-        // position: absolute;
+    &__bar {
+        position: absolute;
+
+        &:nth-child(2) { top: 5px }
+        &:nth-child(3) { top: 10px }
+    }
+
+    &__title {
         position: relative;
-        bottom: 0;
+        top: 8px;
+        margin-left: rem-calc(30);
+    }
+
+    &__content {
+        display: none;
+        position: absolute;
         left: 0;
+        margin: 0;
+        padding: rem-calc(8 20 5 50);
 
-        &--bar {
-            position: absolute;
+        background: white;
+        @extend %boxshadow;
 
-            &:nth-child(2) { top: 5px }
-            &:nth-child(3) { top: 10px }
+        list-style-type: none;
+        z-index: 1;
+
+        @include breakpoint(small only) {
+            top: 30px;
         }
 
-        &--title {
-            position: relative;
-            top: 8px;
-            margin-left: rem-calc(30);
-        }
+        .item {
 
-        &--items {
-            display: none;
-            position: absolute;
-            left: 0;
-            margin: 0;
-            padding: rem-calc(8 20 5 50);
-
-            background: white;
-            @extend %boxshadow;
-
-            list-style-type: none;
-            z-index: 1;
-
-            @include breakpoint(small only) {
-                top: 30px;
-            }
-
-            .item {
+            &__title {
                 $image: $img-icon-path + 'burger-menu-bar.png';
                 @include pseudo-el(before, 30px, 10px, $image) {
                     left: -33px;

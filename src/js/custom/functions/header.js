@@ -25,6 +25,14 @@ const header = {
             e.preventDefault
             $('#burgerMenuItems').slideToggle()
         })
+
+        const burgerMenuContent   = $('.menuburger__content');
+        const burgerMenuItem      = burgerMenuContent.find('.item__title')
+
+        burgerMenuItem.click(function() {
+            $(this).addClass('item__title--active')
+            $(this).parents('.item').siblings().find('.item__title').removeClass('item__title--active')
+        })
     },
 
     stickyNav() {
