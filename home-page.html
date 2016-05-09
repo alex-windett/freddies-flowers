@@ -26,11 +26,11 @@
                                 </div>
                             </a>
                                 <ul id="burgerMenuItems" class="menuburger__content ">
-                                    <li class="item"><a href="#how-it-works"><h3 class="item__title item__title--active">How it works</h3></a></li>
-                                    <li class="item"><a href="#about-freddie"><h3 class="item__title">About Freddie</h3></a></li>
-                                    <li class="item"><a href="#next-weeks-flowers"><h3 class="item__title">Next Weeks Flowers</h3></a></li>
-                                    <li class="item"><a href="#past-deliveries"><h3 class="item__title">Past Deliveries</h3></a></li>
-                                    <li class="item"><a href="#testimonials"><h3 class="item__title">Testimonials</h3></a></li>
+                                    <li id="how-it-works" class="item item__howitworks"><a href="#how-it-works"><h3 class="item__title item__title--active">How it works</h3></a></li>
+                                    <li id="about-freddie" class="item item__aboutfreddie"><a href="#about-freddie"><h3 class="item__title">About Freddie</h3></a></li>
+                                    <li id="next-weeks-flowers" class="item item__nextweeksflowers"><a href="#next-weeks-flowers"><h3 class="item__title">Next Weeks Flowers</h3></a></li>
+                                    <li id="past-deliveries" class="item item__pastdeliveries"><a href="#past-deliveries"><h3 class="item__title">Past Deliveries</h3></a></li>
+                                    <li id="testimonials" class="item item__testimonials"><a href="#testimonials"><h3 class="item__title">Testimonials</h3></a></li>
                                 </ul>
                         </div>
                         <div class="column small-6 text-center">
@@ -78,7 +78,7 @@
                 </section>
 
                 <section class="row small-up-1 medium-up-3">
-                    <a name="how-it-works"></a>
+                    <a class="waypoint waypoint__howitworks" name="how-it-works"></a>
                     <article class="column">
                         <div class="feature text-center decoration decoration__paper decoration__tape decoration__tape--left">
                             <h2 class="feature__title">We choose a selection ofbeautiful fresh flowers...</h2>
@@ -116,7 +116,7 @@
                 </section>
 
                 <section class="row">
-                    <a name="about-freddie"></a>
+                    <a class="waypoint waypoint__aboutfreddie" name="about-freddie"></a>
                     <div class="column medium-6">
                         <img src="src/images/homepage/welcome.jpg" />
                     </div>
@@ -135,7 +135,7 @@
                 </section>
 
                 <section class="row decoration decoration__plain">
-                    <a name="next-weeks-flowers"></a>
+                    <a class="waypoint waypoint__nextweeksflowers" name="next-weeks-flowers"></a>
                     <div class="column medium-6">
                         <h2>Next weeks flowers</h2>
                         <p>
@@ -153,7 +153,7 @@
                 </section>
 
                 <section class="row text-center">
-                    <a name="past-deliveries"></a>
+                    <a class="waypoint waypoint__pastdeliveries" name="past-deliveries"></a>
                     <h1>Blast from the past</h1>
 
                     <div class="pastdelivery__wrapper clearfix small-up-1 medium-up-3">
@@ -199,7 +199,7 @@
                 </section>
 
                 <section class="row small-up-1 medium-up-3 text-center">
-                    <a name="testimonials"></a>
+                    <a class="waypoint waypoint__testimonials" name="testimonials"></a>
 
                     <article class="column">
                         <div class="testimonial decoration decoration__paper decoration__tape decoration__tape--left clearfix">
@@ -256,8 +256,8 @@
             </footer>
 
         </main>
-
-        <script type="text/javascript" src="build/custom.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/noframework.waypoints.min.js"></script> -->
+    <script type="text/javascript" src="build/custom.js"></script>
 
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 

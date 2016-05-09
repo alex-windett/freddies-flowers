@@ -27,7 +27,9 @@ const common = {
         root: path.resolve(__dirname),
         modulesDirectories: ['./src', 'node_modules', './bower_components'],
         extensions: ['', '.js', '.scss', '.sass'],
-        alias: {}
+        alias: {
+            'waypoints': 'waypoints/lib/waypoints.js'
+        }
     }
 }
 
@@ -85,10 +87,17 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
                 save: true // --save
             }),
             new webpack.ProvidePlugin({
-                $: "jquery"
+                $: "jquery",
+                waypoints: 'waypoints'
             }),
             new LiveReloadPlugin()
         ],
+        // resolveLoader: {
+        //     fallback: path.join(__dirname, 'node_modules'),
+        //     alias: {
+        //         'hbs': 'handlebars-loader'
+        //     }
+        // }
         postcss: [
             autoprefixer({
                 browsers: [

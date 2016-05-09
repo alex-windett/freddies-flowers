@@ -6,10 +6,11 @@ var smoothScroll = {
                  location.hostname == this.hostname ) {
 
                 let target  = $(this.hash)
-                target      = target.length ? target : $('[name=' + this.hash.slice(1) +']')
+                    target  =  $( `[name='${this.hash.slice(1)}']`  )
 
                 if (target.length) {
                     $('html, body').animate({
+
                         // 300 compensates for the sticky nav
                         scrollTop: target.offset().top - 300
                     }, 1000);

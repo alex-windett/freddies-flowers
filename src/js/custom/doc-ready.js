@@ -7,6 +7,8 @@ import helpers from './functions/helpers.js'
 import readMore from './functions/read-more.js'
 import smoothScroll from './functions/smooth-scroll.js'
 
+require('waypoints')
+
 var docReady = {
 
     init() {

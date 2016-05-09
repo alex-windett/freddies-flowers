@@ -19,6 +19,7 @@
     "foundation-sites": "6.1.2",
     "foundation-icon-fonts": "*",
     "modernizr": "~3.3.1",
-    "dropkick": "^2.1.8"
+    "dropkick": "^2.1.8",
+    "waypoints": "jquery-waypoints#^4.0.0"
   }
 }
