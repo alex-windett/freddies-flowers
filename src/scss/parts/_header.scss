@@ -31,13 +31,13 @@
     width: 100px;
 
     @include breakpoint(medium up) {
-        width: 200px;
+        width: rem-calc(200);
     }
 
     &--sticky {
-        
+
         @include breakpoint(medium up) {
-            width: 140px;
+            width: rem-calc(140);
         }
     }
 }

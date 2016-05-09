@@ -25,8 +25,8 @@ const header = {
             }
         })
 
+        // Toggle Menu
         $('#burgerMenu').on('click', e => {
-            e.preventDefault
             $('#burgerMenuItems').slideToggle()
         })
 
