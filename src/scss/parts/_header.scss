@@ -10,14 +10,11 @@
         z-index: 1;
 
         @include breakpoint(small only) {
+            left: 0;
             padding: rem-calc(20 0);
         }
 
         &--sticky {
-
-            @include breakpoint(small only) {
-                left: 0;
-            }
 
             .useraccess {
                 margin-top: 0;
@@ -38,7 +35,10 @@
     }
 
     &--sticky {
-        width: 140px;
+        
+        @include breakpoint(medium up) {
+            width: 140px;
+        }
     }
 }
 
