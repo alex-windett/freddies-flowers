@@ -2,17 +2,15 @@
 
     &__main {
 
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: $color__background;
+        padding-top: rem-calc(20);
+        z-index: 1;
+
         @include breakpoint(small only) {
             padding: rem-calc(20 0);
-        }
-
-        @include breakpoint(medium up) {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: $color__background;
-            padding-top: rem-calc(20);
-            z-index: 1;
         }
 
         &--sticky {
