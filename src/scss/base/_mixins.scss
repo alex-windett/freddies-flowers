@@ -27,25 +27,29 @@
 }
 
 @mixin hover-transition( $type, $color, $color__hover) {
+    $transition: ease-in-out all 0.5s;
+    
 	@if $type == 'button' {
 		background: $color;
-		transition: ease-in-out all 0.5s;
+		transition: $transition;
 
 		&:hover {
 			background: $color__hover;
-			transition: ease-in-out all 0.5s;
+			transition: $transition;
 		}
 
         @content;
 	} @else if $type == 'text' {
 		color: $color;
-		transition: ease-in-out all 0.5s;
+		transition: $transition;
 
 		&:hover {
 			color: $color__hover;
-			transition: ease-in-out all 0.5s;
+			transition: $transition;
             text-decoration: underline;
 		}
+
+        @content;
 	} @else {
 		@error "`#{$type}` is not a valid hover-state. The options are either for 'button' or 'text'";
 	}

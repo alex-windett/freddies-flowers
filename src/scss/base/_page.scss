@@ -28,7 +28,12 @@ li {
 a {
     font-family: inherit;
     text-decoration: none;
-    @include hover-transition(text, $color__primary--dark, $color__primary--mid)
+
+    @include hover-transition(text, $color__primary--dark, $color__primary--mid);
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 h5,
