@@ -1,17 +1,9 @@
 .table {
     width: 100%;
-    border-collapse: collapse;
-
-    tbody,
-    thead {
-        border: none;
-    }
 
     &__row,
     thead,
     td {
-        background-color: transparent !important;
-        background: transparent !important;
 
         &--header {
             border-bottom: 1px solid $color__primary--dark;
