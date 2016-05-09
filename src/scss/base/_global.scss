@@ -28,6 +28,10 @@
 
 .row.body__wrapper {
     margin-top: 0;
+
+    @include breakpoint(medium up) {
+        top: 140px
+    }
 }
 
 // ****************************************

@@ -6,13 +6,16 @@
             padding: rem-calc(20 0);
         }
 
-        &--sticky {
+        @include breakpoint(medium up) {
             position: fixed;
             top: 0;
             width: 100%;
             background: $color__background;
             padding-top: rem-calc(20);
             z-index: 1;
+        }
+
+        &--sticky {
 
             @include breakpoint(small only) {
                 left: 0;
