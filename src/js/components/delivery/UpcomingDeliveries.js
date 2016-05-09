@@ -95,7 +95,7 @@ class UpcomingDeliveries extends React.Component {
     render() {
 
         return (
-            <div className="decoration decoration__paper decoration__tape">
+            <div className="decoration decoration__paper decoration__tape decoration__tape--left">
                 <h2 className="text-center">Your upcoming deliveries</h2>
 
                 <p>Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>

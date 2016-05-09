@@ -57,7 +57,7 @@ class BankDetails extends React.Component {
         var ecard = `${str} ${activeCard[0].cardNumber.substr(activeCard[0].cardNumber.length-4)}`
 
         return (
-            <div className="decoration decoration__paper decoration__tape">
+            <div className="decoration decoration__paper decoration__tape decoration__tape--left">
                 <h2 className="text-center">Manage your payment details</h2>
 
                 <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)}>
