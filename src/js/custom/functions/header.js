@@ -30,16 +30,6 @@ const header = {
             $('#burgerMenuItems').slideToggle()
         })
 
-        // Add active decoration
-        const burgerMenuContent   = $('.menuburger__content');
-        const burgerMenuItem      = burgerMenuContent.find('.item__title')
-
-        burgerMenuItem.click(function() {
-            $(this).addClass('item__title--active')
-            $(this).parents('.item').siblings().find('.item__title').removeClass('item__title--active')
-        })
-
-
         // Waypoints
         const waypointsArray = Array.from(document.getElementsByClassName('waypoint'))
 
