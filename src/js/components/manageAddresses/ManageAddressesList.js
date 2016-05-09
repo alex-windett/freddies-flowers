@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Form from './Form'
-import ManageAddressesListItems from './ManageAddressesListItems'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
@@ -69,13 +68,13 @@ class ManageAddresses extends React.Component {
 
     render() {
         const addresses = this.state.addresses
-        const tableRow = addresses.map( address => {
+        const tableRows = addresses.map( address => {
 
             return (
-                <tr key={address.id}>
+                <tr key={address.id} className="table__row">
                     <td>{address.address}</td>
                     <td>{address.quantity}</td>
-                    <td>{address.cost}</td>
+                    <td>£{address.cost}</td>
                     <td>
                         <button
                             className="button button__primary"
@@ -92,22 +91,23 @@ class ManageAddresses extends React.Component {
                 </tr>
             )
         })
+
         return (
             <div className="decoration decoration__plain padder">
                 <h2 className="text-center">Manage your delivery address</h2>
 
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>First Line of address</td>
-                                <td>Quantity</td>
-                                <td>Total cost</td>
-                                <td>Manage</td>
+                    <table id="responsive-example-table" className="table table--stackable stack">
+                        <thead>
+                            <tr className="table__row table__row--header">
+                                <td><h3>First Line of address</h3></td>
+                                <td><h3>Quantity</h3></td>
+                                <td><h3>Total cost (inc delivery)</h3></td>
+                                <td><h3>Manage</h3></td>
                             </tr>
+                        </thead>
 
-                            {tableRow}
-
-                            {/*<ManageAddressesListItems data={this.state.addresses}/>*/}
+                        <tbody>
+                            {tableRows}
                         </tbody>
                     </table>
 
