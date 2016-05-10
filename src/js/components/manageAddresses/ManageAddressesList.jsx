@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Form from './Form'
-import DecrementerButton from './DecrementButton'
-import IncrementerButton from './IncrementButton'
+import ActionButtons from './ActionButtons'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
@@ -77,11 +76,13 @@ class ManageAddresses extends React.Component {
                 <tr key={address.id} className="table__row">
                     <td>{address.address}</td>
                     <td>
-                        <DecrementerButton addressData={address} />
+                        <ActionButtons addressData={address}>
+                            {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
+                        </ActionButtons>
 
-                        {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
+                        {/*<DecrementerButton addressData={address} />
 
-                        <IncrementerButton addressData={address} />
+                    <IncrementerButton addressData={address} />*/}
                     </td>
                     <td>£{address.cost}</td>
                     <td>

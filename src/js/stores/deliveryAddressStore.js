@@ -26,7 +26,7 @@ class DeliveryAddressStore extends EventEmitter {
             {
                 id: 3,
                 address: 'Big Fish Design',
-                quantity: 123,
+                quantity: 2,
                 cost: 100000
             }
         ]
@@ -81,6 +81,9 @@ class DeliveryAddressStore extends EventEmitter {
     }
 
     increaseDelivery(id) {
+        /**
+        * Increase delivery amount to specific address
+        */
         const addressToChange = helper.findById(this.addresses, id)
         addressToChange.quantity++
 
