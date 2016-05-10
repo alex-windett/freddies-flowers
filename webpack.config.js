@@ -26,7 +26,7 @@ const common = {
     resolve: {
         root: path.resolve(__dirname),
         modulesDirectories: ['./src', 'node_modules', './bower_components'],
-        extensions: ['', '.js', '.scss', '.sass'],
+        extensions: ['', '.js', '.jsx', '.scss', '.sass'],
         alias: {
             'waypoints': 'waypoints/lib/waypoints.js'
         }
@@ -38,7 +38,7 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         module: {
             loaders: [
                 {
-                    test: /\.js$/,
+                    test: /\.jsx?$/,
                     exclude: /node_modules/,
                     loader: "babel-loader",
                     query: {
