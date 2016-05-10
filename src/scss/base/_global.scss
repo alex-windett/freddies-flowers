@@ -27,7 +27,7 @@
 }
 
 .row.body__wrapper {
-    margin-top: 0;
+    margin-top: rem-calc(140);
 
     @include breakpoint(medium up) {
         margin-top: rem-calc(180)
