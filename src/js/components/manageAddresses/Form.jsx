@@ -8,7 +8,7 @@ import Input from '../forms/input'
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
 
-const MyAppForm = React.createClass({
+const NewAddressForm = React.createClass({
     // https://github.com/christianalfoni/formsy-react/blob/master/API.md#validators
     // https://github.com/christianalfoni/formsy-react
 
@@ -94,18 +94,4 @@ const MyAppForm = React.createClass({
     }
 })
 
-class Form extends React.Component {
-
-    constructor() {
-        super()
-    }
-
-    render() {
-        return (
-
-            <MyAppForm />
-        )
-    }
-}
-
-export default MyAppForm
+export default NewAddressForm

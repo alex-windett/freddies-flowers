@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Form from './Form'
+import NewAddressForm from './Form'
 import ActionButtons from './ActionButtons'
 
 import Store from '../../stores/deliveryAddressStore'
@@ -125,7 +125,7 @@ class ManageAddresses extends React.Component {
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
                 <div className={this.state.formVisibility + " form form__addAddress"}>
-                    <Form />
+                    <NewAddressForm />
                 </div>
             </div>
         )
