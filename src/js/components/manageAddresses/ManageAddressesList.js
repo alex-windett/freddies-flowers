@@ -10,13 +10,13 @@ var DecrementerButton = React.createClass({
 
     getInitialState() {
 
-        if ( this.props.addressData.quantity <= 1 ) {
+        if ( this.props.addressData.quantity > 1 ) {
             return {
-                disabled: true,
+                disabled: false,
             }
         } else {
             return {
-                disabled: false
+                disabled: true
             }
         }
     },
@@ -26,15 +26,17 @@ var DecrementerButton = React.createClass({
 
         Store.decreaseDelivery(address.id)
 
-        if ( address.quantity <= 1 ) {
-            this.setState({
-                disabled: true
-            })
-        } else {
+        if ( address.quantity > 1 ) {
             this.setState({
                 disabled: false
             })
+        } else {
+            this.setState({
+                disabled: true
+            })
         }
+
+        console.log(this.state)
     },
 
     render() {
