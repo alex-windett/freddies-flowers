@@ -2,100 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Form from './Form'
+import DecrementerButton from './DecrementButton'
+import IncrementerButton from './IncrementButton'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
-
-var DecrementerButton = React.createClass({
-
-    getInitialState() {
-
-        if ( this.props.addressData.quantity > 1 ) {
-            return {
-                disabled: false,
-            }
-        } else {
-            return {
-                disabled: true
-            }
-        }
-    },
-
-    editDelivery(event) {
-        const address = this.props.addressData
-
-        Store.decreaseDelivery(address.id)
-
-        if ( address.quantity > 1 ) {
-            this.setState({
-                disabled: false
-            })
-        } else {
-            this.setState({
-                disabled: true
-            })
-        }
-
-        console.log(this.state)
-    },
-
-    render() {
-
-        return (
-
-            <button
-                className="button button__secondary button__secondary--decrementer"
-                onClick={this.editDelivery}
-                disabled={this.state.disabled}
-                > -
-            </button>
-        )
-    }
-})
-
-var IncrementerButton = React.createClass({
-
-    getInitialState() {
-        if ( this.props.addressData.quantity >= 4 ) {
-            return {
-                disabled: true,
-            }
-        } else {
-            return {
-                disabled: false
-            }
-        }
-    },
-
-
-    editDelivery(event) {
-        const address = this.props.addressData
-
-        Store.increaseDelivery(address.id)
-
-        if ( address.quantity >= 4 ) {
-            this.setState({
-                disabled: true
-            })
-        } else {
-            this.setState({
-                disabled: false
-            })
-        }
-    },
-
-    render() {
-        return (
-
-            <button
-                className="button button__secondary button__secondary--incrementer"
-                onClick={this.editDelivery}
-                disabled={this.state.disabled}
-                > +
-            </button>
-        )
-    }
-})
 
 
 class ManageAddresses extends React.Component {
@@ -104,7 +15,7 @@ class ManageAddresses extends React.Component {
         super()
         this.state = {
             formVisibility: 'hide',
-            editForm: '',
+            disabled: '',
             addresses: Store.getAddresses(),
         }
     }
@@ -132,11 +43,11 @@ class ManageAddresses extends React.Component {
     checkAddressCount(callback) {
         if ( this.state.addresses.length < 2 ) {
             this.setState({
-                editForm: true
+                disabled: true
             })
         } else {
             this.setState({
-                editForm: false
+                disabled: false
             })
         }
 
@@ -181,7 +92,7 @@ class ManageAddresses extends React.Component {
                         </button>
 
                         <button
-                            className="button button__secondary" disabled={this.state.editForm}    onClick={this.cancelAddress.bind(this)}
+                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
                             data-id={address.id}>
                             Cancel
                         </button>

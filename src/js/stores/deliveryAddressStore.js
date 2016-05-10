@@ -36,6 +36,11 @@ class DeliveryAddressStore extends EventEmitter {
         return this.addresses
     }
 
+    getAddress(id) {
+        const address = findById(this.addresses, id)
+        return address
+    }
+
     editAddress() {
         /**
         * Edit the delivery address
