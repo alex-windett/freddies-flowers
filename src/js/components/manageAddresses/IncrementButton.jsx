@@ -19,7 +19,7 @@ class IncrementerButton extends React.Component {
     }
 
 
-    editDelivery(event) {
+    editDelivery(event) { 
         const address = this.props.addressData
 
         Store.increaseDelivery(address.id)
