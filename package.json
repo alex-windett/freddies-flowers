@@ -1,5 +1,6 @@
 {
   "name": "freddies_react",
+  "repository": "https://github.com/alex-windett/freddies-flowers",
   "version": "1.0.0",
   "description": "Freddies Flower with React.js",
   "main": "index.js",
@@ -41,7 +42,7 @@
   },
   "scripts": {
     "test": "test",
-    "start": "echo \"Running start...\" && webpack --progress --colors --watch",
+    "start": "echo \"Running start...\" && npm install && webpack --progress --colors --watch",
     "dev": "echo \"Running webpack dev...\" && webpack --progress --colors --watch",
     "build": "webpack --colors"
   },
