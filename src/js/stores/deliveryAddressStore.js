@@ -70,8 +70,8 @@ class DeliveryAddressStore extends EventEmitter {
         const newAddress = {
             id      : Date.now(),
             address : `${data.house}  ${data.street}  ${data.postcode}  ${data.city}`,
-            quantity: 0,
-            cost    : 0
+            quantity: 1,
+            cost    : 20
 
         }
 
