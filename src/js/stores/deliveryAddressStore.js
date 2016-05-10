@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
 import AddressConstant from '../constants/DeliveryAddressConstants'
+import helper from '../helpers'
 
 const CHANGE_EVENT = 'change'
 
@@ -74,6 +75,23 @@ class DeliveryAddressStore extends EventEmitter {
         this.emit(CHANGE_EVENT)
     }
 
+    increaseDelivery(id) {
+        const addressToChange = helper.findById(this.addresses, id)
+        addressToChange.quantity++
+
+        this.emit(CHANGE_EVENT)
+    }
+
+    decreaseDelivery(id)  {
+        /**
+        * Decrease delivery amount to specific address
+        */
+        const addressToChange = helper.findById(this.addresses, id)
+        addressToChange.quantity--
+
+        this.emit(CHANGE_EVENT)
+    }
+
     handleActions(action) {
 
         switch(action.type) {
@@ -95,6 +113,16 @@ class DeliveryAddressStore extends EventEmitter {
 
             case AddressConstant.ADD_ADDRESS: {
                 this.addAddress(action.data)
+                break
+            }
+
+            case AddressConstant.INCREASE_DELIVERY: {
+                this.increaseDelivery(action.id)
+                break
+            }
+
+            case AddressConstant.DECREASE_DELIVERY: {
+                this.decreaseDelivery(action.id)
                 break
             }
         }

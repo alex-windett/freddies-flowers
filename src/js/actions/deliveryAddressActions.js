@@ -27,7 +27,21 @@ const DeliveryAddressActions = {
             type: AddressConstant.ADD_ADDRESS,
             data
         })
-    }
+    },
+
+    decreaseDelivery(id) {
+        dispatcher.dispatch({
+            type: AddressConstant.DECREASE_DELIVERY,
+            id
+        })
+    },
+
+    increaseDelivery(id) {
+        dispatcher.dispatch({
+            type: AddressConstant.INCREASE_DELIVERY,
+            id
+        })
+    },
 }
 
 export default DeliveryAddressActions
