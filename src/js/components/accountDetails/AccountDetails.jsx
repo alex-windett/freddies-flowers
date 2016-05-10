@@ -62,7 +62,8 @@ class AccountDetails extends React.Component {
 
                         <Input
                             value={account.fname}
-                            name="name"
+                            name="fname"
+                            type="text"
                             required
                             validations={{
                                 isExisty: true
@@ -71,7 +72,8 @@ class AccountDetails extends React.Component {
 
                         <Input
                             value={account.lname}
-                            name="house"
+                            name="lname"
+                            type="text"
                             required
                             validations={{
                                 isExisty: true
@@ -79,7 +81,8 @@ class AccountDetails extends React.Component {
                             />
                         <Input
                             value={account.email}
-                            name="street"
+                            name="email"
+                            type="email"
                             required
                             validations={{
                                 isExisty: true
@@ -87,7 +90,8 @@ class AccountDetails extends React.Component {
                             />
                         <Input
                             value={account.password}
-                            name="city"
+                            name="password"
+                            type="password"
                             required
                             validations={{
                                 isExisty: true
@@ -95,7 +99,8 @@ class AccountDetails extends React.Component {
                             />
                         <Input
                             value={account.phone}
-                            name="city"
+                            name="phone"
+                            type="text"
                             required
                             validations={{
                                 isExisty: true
