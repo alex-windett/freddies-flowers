@@ -66,32 +66,12 @@ class ActionButtons extends React.Component {
         const address = this.props.addressData
 
         Store.decreaseDelivery(address.id)
-
-        if ( address.quantity > 1 ) {
-            this.setState({
-                decreaseDisabled: false
-            })
-        } else {
-            this.setState({
-                decreaseDisabled: true
-            })
-        }
     }
 
     increaseDelivery(event) {
         const address = this.props.addressData
 
         Store.increaseDelivery(address.id)
-
-        if ( address.quantity >= 4 ) {
-            this.setState({
-                increaseDisabled: true
-            })
-        } else {
-            this.setState({
-                increaseDisabled: false
-            })
-        }
     }
 
     render() {
