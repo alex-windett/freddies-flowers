@@ -8,58 +8,58 @@ class ActionButtons extends React.Component {
         super(props)
         const quantity = this.props.addressData.quantity
 
+        this.state = {
+            decreaseDisabled: '',
+            increaseDisabled: '',
+        }
+    }
+
+    componentWillReceiveProps() {
+        const quantity = this.props.addressData.quantity
+
         if ( quantity <= 1 ) {
-            this.state = {
+            this.setState({
                 decreaseDisabled: true,
-            }
+            })
         } else {
-            this.state = {
+            this.setState({
                 decreaseDisabled: false
-            }
+            })
         }
 
         if ( quantity >= 4  ) {
-            this.state = {
+            this.setState({
                 increaseDisabled: true
-            }
+            })
         } else {
-            this.state = {
+            this.setState({
                 increaseDisabled: false
-            }
+            })
         }
     }
 
-    componentDidUpdate() {
+    componentWillMount() {
         const quantity = this.props.addressData.quantity
 
-            if ( quantity <= 1 ) {
-                this.setState({
-                    decreaseDisabled: true,
-                })
-            } else {
-                this.setState({
-                    decreaseDisabled: false
-                })
-            }
+        if ( quantity <= 1 ) {
+            this.setState({
+                decreaseDisabled: true,
+            })
+        } else {
+            this.setState({
+                decreaseDisabled: false
+            })
+        }
 
-            if ( quantity >= 4  ) {
-                this.setState({
-                    increaseDisabled: true
-                })
-            } else {
-                this.setState({
-                    increaseDisabled: false
-                })
-            }
-    }
-
-    componentDidMount() {
-        Store.on("change", _ => {
-            // const getChangedAddress = filter
-            // this.setState({
-            //     bankDetails: Store.getBankDetails()
-            // })
-        })
+        if ( quantity >= 4  ) {
+            this.setState({
+                increaseDisabled: true
+            })
+        } else {
+            this.setState({
+                increaseDisabled: false
+            })
+        }
     }
 
     decreaseDelivery(event) {
