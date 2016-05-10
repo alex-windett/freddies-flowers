@@ -14,7 +14,7 @@ class ActionButtons extends React.Component {
         }
     }
 
-    componentWillReceiveProps() {
+    checkButtonDisablity() {
         const quantity = this.props.addressData.quantity
 
         if ( quantity <= 1 ) {
@@ -38,28 +38,12 @@ class ActionButtons extends React.Component {
         }
     }
 
+    componentWillReceiveProps() {
+        this.checkButtonDisablity()
+    }
+
     componentWillMount() {
-        const quantity = this.props.addressData.quantity
-
-        if ( quantity <= 1 ) {
-            this.setState({
-                decreaseDisabled: true,
-            })
-        } else {
-            this.setState({
-                decreaseDisabled: false
-            })
-        }
-
-        if ( quantity >= 4  ) {
-            this.setState({
-                increaseDisabled: true
-            })
-        } else {
-            this.setState({
-                increaseDisabled: false
-            })
-        }
+        this.checkButtonDisablity()
     }
 
     decreaseDelivery(event) {
