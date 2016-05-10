@@ -10,8 +10,14 @@ var DecrementerButton = React.createClass({
 
     getInitialState() {
 
-        return {
-            disabled: false,
+        if ( this.props.addressData.quantity <= 1 ) {
+            return {
+                disabled: true,
+            }
+        } else {
+            return {
+                disabled: false
+            }
         }
     },
 
@@ -48,9 +54,14 @@ var DecrementerButton = React.createClass({
 var IncrementerButton = React.createClass({
 
     getInitialState() {
-
-        return {
-            disabled: false,
+        if ( this.props.addressData.quantity >= 4 ) {
+            return {
+                disabled: true,
+            }
+        } else {
+            return {
+                disabled: false
+            }
         }
     },
 
