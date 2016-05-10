@@ -1,6 +1,10 @@
 .table {
     width: 100%;
 
+    &--stackable {
+        @extend table.stack;
+    }
+
     &__row,
     thead,
     td {

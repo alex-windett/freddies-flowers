@@ -9,6 +9,10 @@
 
     font-size: 13px;
 
+    & + & {
+        margin-left: rem-calc(20);
+    }
+
     &:hover {
         text-decoration: none;
     }
@@ -32,6 +36,19 @@
 
         &--small {
             font-size: 10px;
+        }
+
+        &--incrementer,
+        &--decrementer {
+            padding: rem-calc(10 10 0);
+        }
+
+        &--incrementer {
+            margin-left: rem-calc(10);
+        }
+
+        &--decrementer {
+            margin-right: rem-calc(10);
         }
     }
 
