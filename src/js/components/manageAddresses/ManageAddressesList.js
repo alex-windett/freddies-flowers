@@ -6,35 +6,28 @@ import Form from './Form'
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
 
-var OrderChangeButton = React.createClass({
-    checkQunantity(address, buttonType) {
-        if ( buttonType === 'decrementer' ) {
-            address.quantity > 1 ? true : false
-        } else if ( buttonType === 'incrementer' ) {
-            address.quantity <= 4 ? true : false
-        }
-    },
+var DecrementerButton = React.createClass({
 
     getInitialState() {
-        const incrementerDisabled = this.checkQunantity(this.props.addressData, this.props.buttonType)
-debugger
+
         return {
-            buttonType: this.props.buttonType,
-            disabled: incrementerDisabled,
+            disabled: false,
         }
     },
 
     editDelivery(event) {
         const address = this.props.addressData
 
-        this.setState({
-            disabled: this.checkQunantity(address, this.state.buttonType),
-        })
+        Store.decreaseDelivery(address.id)
 
-        if ( this.state.buttonType === "decrementer" ) {
-            Store.decreaseDelivery(address.id)
-        }  else if ( this.state.buttonType === "incrementer" ) {
-            Store.increaseDelivery(address.id)
+        if ( address.quantity <= 1 ) {
+            this.setState({
+                disabled: true
+            })
+        } else {
+            this.setState({
+                disabled: false
+            })
         }
     },
 
@@ -43,11 +36,49 @@ debugger
         return (
 
             <button
-                className={"button button__secondary button__secondary--" + this.state.buttonType}
+                className="button button__secondary button__secondary--decrementer"
                 onClick={this.editDelivery}
                 disabled={this.state.disabled}
-                >
-                { this.state.buttonType === "decrementer" ? "-" : "+"  }
+                > -
+            </button>
+        )
+    }
+})
+
+var IncrementerButton = React.createClass({
+
+    getInitialState() {
+
+        return {
+            disabled: false,
+        }
+    },
+
+
+    editDelivery(event) {
+        const address = this.props.addressData
+
+        Store.increaseDelivery(address.id)
+
+        if ( address.quantity >= 4 ) {
+            this.setState({
+                disabled: true
+            })
+        } else {
+            this.setState({
+                disabled: false
+            })
+        }
+    },
+
+    render() {
+        return (
+
+            <button
+                className="button button__secondary button__secondary--incrementer"
+                onClick={this.editDelivery}
+                disabled={this.state.disabled}
+                > +
             </button>
         )
     }
@@ -62,8 +93,6 @@ class ManageAddresses extends React.Component {
             formVisibility: 'hide',
             disabled: '',
             addresses: Store.getAddresses(),
-            decrementerButton: "decrementer",
-            incrementerButton: "incrementer",
         }
     }
 
@@ -124,17 +153,11 @@ class ManageAddresses extends React.Component {
                 <tr key={address.id} className="table__row">
                     <td>{address.address}</td>
                     <td>
-                        <OrderChangeButton
-                            addressData={address}
-                            buttonType={this.state.decrementerButton}
-                            />
+                        <DecrementerButton addressData={address} />
 
                         {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
 
-                        <OrderChangeButton
-                            addressData={address}
-                            buttonType={this.state.incrementerButton}
-                            />
+                        <IncrementerButton addressData={address} />
                     </td>
                     <td>£{address.cost}</td>
                     <td>
