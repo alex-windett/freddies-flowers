@@ -104,7 +104,7 @@ class ManageAddresses extends React.Component {
         super()
         this.state = {
             formVisibility: 'hide',
-            disabled: '',
+            editForm: '',
             addresses: Store.getAddresses(),
         }
     }
@@ -132,11 +132,11 @@ class ManageAddresses extends React.Component {
     checkAddressCount(callback) {
         if ( this.state.addresses.length < 2 ) {
             this.setState({
-                disabled: true
+                editForm: true
             })
         } else {
             this.setState({
-                disabled: false
+                editForm: false
             })
         }
 
@@ -181,7 +181,7 @@ class ManageAddresses extends React.Component {
                         </button>
 
                         <button
-                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
+                            className="button button__secondary" disabled={this.state.editForm}    onClick={this.cancelAddress.bind(this)}
                             data-id={address.id}>
                             Cancel
                         </button>

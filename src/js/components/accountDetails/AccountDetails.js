@@ -16,7 +16,7 @@ class AccountDetails extends React.Component {
     componentDidMount() {
         Store.on("change", _ => {
             this.setState({
-                addresses: Store.getAccount()
+                accountDetails: Store.getAccount()
             })
         })
     }
