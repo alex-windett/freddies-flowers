@@ -1,5 +1,5 @@
 .button {
-    display: inline-block;
+    display: block;
     vertical-align: top;
     text-transform: capitalize;
     border-radius: 10px;
@@ -9,8 +9,17 @@
 
     font-size: 13px;
 
+    @include breakpoint(medium up) {
+        display: inline-block;
+    }
+
     & + & {
-        margin-left: rem-calc(20);
+        margin-top: rem-calc(10);
+        
+        @include breakpoint(medium up) {
+            margin-top: 0;
+            margin-left: rem-calc(20);
+        }
     }
 
     &:hover {
@@ -40,6 +49,7 @@
 
         &--incrementer,
         &--decrementer {
+            display: inline-block;
             padding: rem-calc(10 10 0);
         }
 
