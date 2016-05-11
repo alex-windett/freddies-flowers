@@ -16,6 +16,12 @@ textarea {
     height: rem-calc(300);
 }
 
+input {
+    // Overrides Foundation form styling
+    border: solid 1px black !important;
+    border-radius: 5px !important;
+}
+
 .input {
 
     &__right {

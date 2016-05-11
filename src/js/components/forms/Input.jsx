@@ -10,20 +10,20 @@ var Input = React.createClass({
     // setValue() will set the value of the component, which in
     // turn will validate it and the rest of the form
     changeValue(event) {
-
         this.setValue(event.currentTarget.value);
     },
 
     render() {
 
-        const additionalClasses = this.props.className ? ' ' + this.props.className : ''
-        const className         = this.showRequired() ? 'input__required' : this.showError() ? 'input__error' : null
+        const additionalClasses = this.props.className ? ` ${this.props.className}` : ''
+        const validationClassName = this.showRequired() ? 'input__required' : this.showError() ? 'input__error' : ''
+        const isValidClassName  = this.isValid() ? 'input__valid' : ''
         const type              = this.props.type ? this.props.type : 'text'
 
         return (
-            <div className={'input' + additionalClasses}>
+            <div className={`input ${additionalClasses}`}>
                 <input
-                    className={className}
+                    className={`${validationClassName} ${isValidClassName}`}
                     type={type}
                     placeholder={this.props.placeholder}
                     onChange={this.changeValue}
