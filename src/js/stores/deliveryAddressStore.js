@@ -51,9 +51,10 @@ class DeliveryAddressStore extends EventEmitter {
             * DB is set up
         */
 
-
         let toEditAddress = helper.findById(this.addresses, modelData.id)
-        toEditAddress.address = `${toEditAddress.house} ${toEditAddress.street}`
+        toEditAddress.address = `${modelData.house} ${modelData.street}`
+
+        console.log(this.addresses)
 
         this.emit(CHANGE_EVENT)
     }
