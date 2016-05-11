@@ -58,7 +58,7 @@ const EditAddressForm = React.createClass({
         * @param {model} contains the fields and their value of submitted form
         */
         Actions.editAddress(model)
-
+        this.refs.editAddressForm.reset();
     },
 
     render () {
@@ -68,7 +68,7 @@ const EditAddressForm = React.createClass({
         const editingAddress = this.props.editingAddress
 
         return (
-            <Formsy.Form className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+            <Formsy.Form ref="editAddressForm" className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                 <ReadOnlyInput className="input__right"
                     value={ editingAddress ? editingAddress.id : '' }
