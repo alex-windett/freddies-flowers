@@ -30,6 +30,7 @@ textarea {
 [type='time'],
 [type='url'],
 [type='color'],
+[readonly],
 textarea {
     // Overrides Foundation form styling
     border: solid 1px black;
@@ -59,6 +60,20 @@ textarea {
 
     &__required {
 
+    }
+
+    &__copylink {
+        background-image: url($img-icon-path + 'copy-link.png');
+        background-repeat: no-repeat;
+        background-position: 8px 50%;
+    }
+
+    &__readonly {
+        padding: rem-calc(10 40);
+        margin-top: rem-calc(10);
+        width: rem-calc(300);
+        text-align: center;
+        background-color: transparent;
     }
 
     &__error {
