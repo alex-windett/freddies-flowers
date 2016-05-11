@@ -39,7 +39,7 @@ class ManageAddresses extends React.Component {
         }
     }
 
-    checkAddressCount() {
+    checkAddressCount( func ) {
         if ( this.state.addresses.length < 2 ) {
             this.setState({
                 disabled: true
@@ -62,11 +62,9 @@ class ManageAddresses extends React.Component {
     // }
 
     cancelAddress(event) {
-        let id = event.target.getAttribute('data-id')
-
-
-        this.checkAddressCount()
+        const id = event.target.getAttribute('data-id')
         Actions.cancelAddress(id)
+        this.checkAddressCount()
     }
 
     render() {
