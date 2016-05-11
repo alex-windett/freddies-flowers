@@ -18,6 +18,7 @@ var Input = React.createClass({
         const additionalClasses = this.props.className ? ` ${this.props.className}` : ''
         const validationClassName = this.showRequired() ? 'input__required' : this.showError() ? 'input__error' : ''
         const isValidClassName  = this.isValid() ? 'input__valid' : ''
+        // const isValidClassName  = ''
         const type              = this.props.type ? this.props.type : 'text'
 
         return (

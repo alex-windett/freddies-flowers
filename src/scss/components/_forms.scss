@@ -16,13 +16,32 @@ textarea {
     height: rem-calc(300);
 }
 
-input {
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
     // Overrides Foundation form styling
-    border: solid 1px black !important;
-    border-radius: 5px !important;
+    border: solid 1px black;
+    border-radius: 5px;
 }
 
 .input {
+
+    &__valid {
+        border: solid 1px $color__valid !important;
+        background: lighten($color__valid, 20%);
+    }
 
     &__right {
         width: 50%;
