@@ -57,14 +57,6 @@ class DeliveryAddressStore extends EventEmitter {
 
         helper.deleteById(addresses, targetID);
 
-        // for ( var i = 0; i < addresses.length; i++ ){
-        //     if ( addresses[i].id == targetID ){
-        //         //removes 1 element at position i
-        //         addresses.splice(i, 1)
-        //         break
-        //     }
-        // }
-
         this.emit(CHANGE_EVENT)
     }
 
