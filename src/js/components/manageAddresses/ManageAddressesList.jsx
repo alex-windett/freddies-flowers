@@ -24,6 +24,8 @@ class ManageAddresses extends React.Component {
             this.setState({
                 addresses: Store.getAddresses()
             })
+
+            this.checkAddressCount()
         })
     }
 
@@ -39,7 +41,8 @@ class ManageAddresses extends React.Component {
         }
     }
 
-    checkAddressCount( func ) {
+    checkAddressCount() {
+
         if ( this.state.addresses.length < 2 ) {
             this.setState({
                 disabled: true
@@ -64,7 +67,6 @@ class ManageAddresses extends React.Component {
     deleteAddress(event) {
         const id = event.target.getAttribute('data-id')
         Actions.deleteAddress(id)
-        this.checkAddressCount()
     }
 
     render() {
