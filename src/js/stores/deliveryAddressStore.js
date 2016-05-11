@@ -41,11 +41,20 @@ class DeliveryAddressStore extends EventEmitter {
         return address
     }
 
-    editAddress() {
+    editAddress(modelData) {
         /**
         * Edit the delivery address
+
+        TODO:
+            * Make the edit address object work with
+            * properties. Will probably be sorted when
+            * DB is set up
         */
-        console.log('edit the address')
+
+
+        let toEditAddress = helper.findById(this.addresses, modelData.id)
+        toEditAddress.address = `${toEditAddress.house} ${toEditAddress.street}`
+
         this.emit(CHANGE_EVENT)
     }
 
@@ -107,7 +116,7 @@ class DeliveryAddressStore extends EventEmitter {
             }
 
             case AddressConstant.EDIT_ADDRESS: {
-                this.editAddress()
+                this.editAddress(action.modelData)
                 break
             }
 

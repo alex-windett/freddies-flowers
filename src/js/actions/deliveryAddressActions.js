@@ -9,9 +9,10 @@ const DeliveryAddressActions = {
         })
     },
 
-    editAddress() {
+    editAddress(modelData) {
         dispatcher.dispatch({
-            type: AddressConstant.EDIT_ADDRESS
+            type: AddressConstant.EDIT_ADDRESS,
+            modelData
         })
     },
 

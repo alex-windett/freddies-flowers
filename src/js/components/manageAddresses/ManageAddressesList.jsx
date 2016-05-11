@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import NewAddressForm from './Form'
+import NewAddressForm from './NewAddressForm'
+import EditAddressForm from './EditAddressForm'
 import ActionButtons from './ActionButtons'
 
 import Store from '../../stores/deliveryAddressStore'
@@ -13,8 +14,10 @@ class ManageAddresses extends React.Component {
     constructor(props) {
         super()
         this.state = {
-            formVisibility: 'hide',
+            newFormVisibility: 'hide',
+            editFormVisibility: 'hide',
             disabled: '',
+            selected: '',
             addresses: Store.getAddresses(),
         }
     }
@@ -34,10 +37,10 @@ class ManageAddresses extends React.Component {
             e.preventDefault()
         }
 
-        if ( this.state.formVisibility) {
-            this.setState({ formVisibility: '' })
+        if ( this.state.newFormVisibility) {
+            this.setState({ newFormVisibility: '' })
         } else {
-            this.setState({ formVisibility: 'hide' })
+            this.setState({ newFormVisibility: 'hide' })
         }
     }
 
@@ -54,15 +57,27 @@ class ManageAddresses extends React.Component {
         }
     }
 
-    // editAddress(address) {
-    //     this.setState({
-    //         editFormVisibility: '',
-    //         selected: address
-    //     })
-    //
-    //     // TODO:
-    //         // * Fix issue with submitting edit form
-    // }
+    editAddress(address) {
+        if ( this.state.editFormVisibility) {
+            this.setState({
+                editFormVisibility: '',
+                selected: address
+            })
+        } else {
+            this.setState({
+                editFormVisibility: 'hide',
+                selected: ''
+            })
+        }
+
+        // this.setState({
+        //     editFormVisibility: '',
+        //     selected: address
+        // })
+
+        // TODO:
+            // * Fix issue with submitting edit form
+    }
 
     deleteAddress(event) {
         const id = event.target.getAttribute('data-id')
@@ -83,11 +98,11 @@ class ManageAddresses extends React.Component {
                     </td>
                     <td>£{address.cost}</td>
                     <td>
-                        {/*<button
+                        <button
                             className="button button__primary"
                             onClick={ _ => this.editAddress(address) }>
                             Edit
-                        </button>*/}
+                        </button>
 
                         <button
                             className="button button__secondary" disabled={this.state.disabled}    onClick={this.deleteAddress.bind(this)}
@@ -121,9 +136,15 @@ class ManageAddresses extends React.Component {
 
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
-                <div className={this.state.formVisibility + " form form__addAddress"}>
+                <div className={this.state.newFormVisibility + " form form__addAddress"}>
                     <NewAddressForm />
                 </div>
+
+                <div className={this.state.editFormVisibility + " form form__editAddress"}>
+                    <EditAddressForm editingAddress={this.state.selected} />
+                </div>
+
+
             </div>
         )
     }
