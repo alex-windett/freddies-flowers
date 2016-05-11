@@ -39,7 +39,7 @@ class ManageAddresses extends React.Component {
         }
     }
 
-    checkAddressCount(callback) {
+    checkAddressCount() {
         if ( this.state.addresses.length < 2 ) {
             this.setState({
                 disabled: true
@@ -49,23 +49,24 @@ class ManageAddresses extends React.Component {
                 disabled: false
             })
         }
-
-        callback
     }
 
-    editAddress(address) {
-        this.setState({
-            editFormVisibility: '',
-            selected: address
-        })
-
-        // TODO:
-            // * Fix issue with submitting edit form
-    }
+    // editAddress(address) {
+    //     this.setState({
+    //         editFormVisibility: '',
+    //         selected: address
+    //     })
+    //
+    //     // TODO:
+    //         // * Fix issue with submitting edit form
+    // }
 
     cancelAddress(event) {
         let id = event.target.getAttribute('data-id')
-        this.checkAddressCount( Actions.cancelAddress(id) )
+
+
+        this.checkAddressCount()
+        Actions.cancelAddress(id)
     }
 
     render() {
@@ -86,11 +87,11 @@ class ManageAddresses extends React.Component {
                     </td>
                     <td>£{address.cost}</td>
                     <td>
-                        <button
+                        {/*<button
                             className="button button__primary"
                             onClick={ _ => this.editAddress(address) }>
                             Edit
-                        </button>
+                        </button>*/}
 
                         <button
                             className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
