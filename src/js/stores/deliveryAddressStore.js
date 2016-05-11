@@ -93,7 +93,10 @@ class DeliveryAddressStore extends EventEmitter {
         * Increase delivery amount to specific address
         */
         const addressToChange = helper.findById(this.addresses, id)
-        addressToChange.quantity++
+
+        if ( addressToChange.quantity <= 4 ) {
+            addressToChange.quantity++
+        }
 
         this.emit(CHANGE_EVENT)
     }
@@ -103,7 +106,10 @@ class DeliveryAddressStore extends EventEmitter {
         * Decrease delivery amount to specific address
         */
         const addressToChange = helper.findById(this.addresses, id)
-        addressToChange.quantity--
+
+        if ( addressToChange.quantity <= 1 ) {
+            addressToChange.quantity--
+        }
 
         this.emit(CHANGE_EVENT)
     }
