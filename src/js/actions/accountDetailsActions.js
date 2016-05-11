@@ -1,17 +1,20 @@
 import dispatcher from '../dispatcher'
 import AccountDetailsConstant from '../constants/AccountDetailsConstants'
 
-const EditAccount = {
+const AccountDetails = {
 
-    editAccount(fname, lname, address, password) {
+    getAccount() {
         dispatcher.dispatch({
             type: AccountDetailsConstant.GET_ACCOUNT,
         })
+    },
 
+    editAccount(modelData) {
         dispatcher.dispatch({
             type: AccountDetailsConstant.EDIT_ACCOUNT,
+            modelData,
         })
-    }
+    },
 }
 
-export default EditAccount
+export default AccountDetails

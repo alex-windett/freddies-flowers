@@ -43,7 +43,7 @@ class AccountDetails extends React.Component {
         /**
         * @param {model} contains the fields and their value of submitted form
         */
-        Actions.addAddress(model)
+        Actions.editAccount(model)
 
     }
 

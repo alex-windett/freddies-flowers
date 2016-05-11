@@ -24,11 +24,21 @@ class AccountDetailsStore extends EventEmitter {
         return this.accountDetails
     }
 
-    editAccount() {
+    editAccount(modelData) {
         /**
         * Edit the delivery address
         */
-        console.log('edit the address')
+
+        let account = this.accountDetails
+
+        account.fname       = modelData.fname
+        account.lname       = modelData.lname
+        account.email       = modelData.email
+        account.password    = modelData.password
+        account.phone       = modelData.phone
+
+        console.log('new account details ', account)
+
         this.emit(CHANGE_EVENT)
     }
 
@@ -41,8 +51,8 @@ class AccountDetailsStore extends EventEmitter {
                 break
             }
 
-            case AccountDetailsConstant.EDIT_ACCOOUNT: {
-                this.editAccount()
+            case AccountDetailsConstant.EDIT_ACCOUNT: {
+                this.editAccount(action.modelData)
                 break
             }
         }
