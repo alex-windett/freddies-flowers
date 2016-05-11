@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Store from '../../stores/deliveryAddressStore'
+import GlobalConstant from '../../constants/GlobalConstants'
 
 class ActionButtons extends React.Component {
 
@@ -17,7 +18,7 @@ class ActionButtons extends React.Component {
     checkButtonDisablity() {
         const quantity = this.props.addressData.quantity
 
-        if ( quantity <= 1 ) {
+        if ( quantity <= GlobalConstant.MIN_ORDERS ) {
             this.setState({
                 decreaseHide: 'hide',
             })
@@ -27,7 +28,7 @@ class ActionButtons extends React.Component {
             })
         }
 
-        if ( quantity >= 4  ) {
+        if ( quantity >= GlobalConstant.MAX_ORDERS  ) {
             this.setState({
                 increaseHide: 'hide'
             })
@@ -64,7 +65,7 @@ class ActionButtons extends React.Component {
 
             <div>
                 <button
-                    className={"button button__secondary button__secondary--decrementer " + this.state.decreaseHide}
+                    className={`button button__secondary button__secondary--decrementer ${this.state.decreaseHide}`}
                     onClick={this.decreaseDelivery.bind(this)}
                     > -
                 </button>
@@ -72,7 +73,7 @@ class ActionButtons extends React.Component {
                 {this.props.children}
 
                 <button
-                    className={"button button__secondary button__secondary--incrementer " + this.state.increaseHide}
+                    className={`button button__secondary button__secondary--incrementer ${this.state.increaseHide}`}
                     onClick={this.increaseDelivery.bind(this)}
                     > +
                 </button>

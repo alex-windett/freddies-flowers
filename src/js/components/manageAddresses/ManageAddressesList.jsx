@@ -1,9 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 import NewAddressForm from './NewAddressForm'
 import EditAddressForm from './EditAddressForm'
 import ActionButtons from './ActionButtons'
+
+import GlobalConstant from '../../constants/GlobalConstants'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
@@ -46,7 +47,7 @@ class ManageAddresses extends React.Component {
 
     checkAddressCount() {
 
-        if ( this.state.addresses.length < 2 ) {
+        if ( this.state.addresses.length <= GlobalConstant.MIN_ADDRESSES  ) {
             this.setState({
                 hidden: 'hide'
             })
@@ -129,11 +130,11 @@ class ManageAddresses extends React.Component {
 
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
-                <div className={this.state.newFormVisibility + " form form__addAddress"}>
+                <div className={`form form__addAddress ${this.state.newFormVisibility}`} >
                     <NewAddressForm />
                 </div>
 
-                <div className={this.state.editFormVisibility + " form form__editAddress"}>
+                <div className={`form edit__addAddress ${this.state.editFormVisibility}`} >
                     <EditAddressForm editingAddress={this.state.selected} />
                 </div>
 
