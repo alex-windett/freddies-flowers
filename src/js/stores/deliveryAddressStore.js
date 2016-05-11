@@ -62,8 +62,8 @@ class DeliveryAddressStore extends EventEmitter {
         * Delete the delivery address
         */
         let addresses = this.addresses
-        
-        if ( addresses.length > 1 && addresses.length <= 4) {
+
+        if ( addresses.length > 1 ) {
             helper.deleteById(addresses, targetID);
         }
 
