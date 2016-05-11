@@ -2,6 +2,8 @@ import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
 import DeliveryConstant from '../constants/DeliveryConstants'
 
+import helper from '../helpers'
+
 const CHANGE_EVENT = 'change'
 
 class DeliveryStore extends EventEmitter {
@@ -39,17 +41,10 @@ class DeliveryStore extends EventEmitter {
 
     removeDelivery(id) {
 
-        const toEdit = this.deliveries.filter( obj => {
-            return obj.id == id
-        })
-
-        let isActive = toEdit[0].active ? false : true
-
-        toEdit[0].active = isActive
-
-        this.emit(CHANGE_EVENT)
-
+        const toEdit = helper.findById(this.deliveries, id)
+        toEdit.active = toEdit.active ? false : true
         console.log(this.deliveries)
+        this.emit(CHANGE_EVENT)
     }
 
     handleActions(action) {
