@@ -32,7 +32,9 @@ const DeliveryItem = React.createClass({
 
         return (
             <div key={delivery.id}>
-                <p style={textStyles}>{delivery.date}</p>
+                <p style={textStyles}>
+                    {delivery.date}
+                </p>
 
                 <input type="checkbox" onClick={this.removeDelivery}/>
 
@@ -47,7 +49,6 @@ const DeliveryItems = React.createClass({
     getInitialState() {
 
         return {
-            active: true,
             deliveries: Store.getDeliveries()
         }
     },
