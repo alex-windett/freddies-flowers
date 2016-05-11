@@ -80,10 +80,6 @@ class ManageAddresses extends React.Component {
                         <ActionButtons addressData={address}>
                             {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
                         </ActionButtons>
-
-                        {/*<DecrementerButton addressData={address} />
-
-                    <IncrementerButton addressData={address} />*/}
                     </td>
                     <td>£{address.cost}</td>
                     <td>
