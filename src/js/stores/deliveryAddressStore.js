@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
 import AddressConstant from '../constants/DeliveryAddressConstants'
+import GlobalConstant from '../constants/GlobalConstants'
 import helper from '../helpers'
 
 const CHANGE_EVENT = 'change'
@@ -63,7 +64,7 @@ class DeliveryAddressStore extends EventEmitter {
         */
         let addresses = this.addresses
 
-        if ( addresses.length > 1 ) {
+        if ( addresses.length > GlobalConstant.MIN_ADDRESSES ) {
             helper.deleteById(addresses, targetID);
         }
 
@@ -94,7 +95,7 @@ class DeliveryAddressStore extends EventEmitter {
         */
         const addressToChange = helper.findById(this.addresses, id)
 
-        if ( addressToChange.quantity <= 4 ) {
+        if ( addressToChange.quantity <= GlobalConstant.MAX_ORDERS ) {
             addressToChange.quantity++
         }
 
@@ -107,7 +108,7 @@ class DeliveryAddressStore extends EventEmitter {
         */
         const addressToChange = helper.findById(this.addresses, id)
 
-        if ( addressToChange.quantity <= 1 ) {
+        if ( addressToChange.quantity >= GlobalConstant.MIN_ORDERS ) {
             addressToChange.quantity--
         }
 
