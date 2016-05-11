@@ -15,7 +15,7 @@ const PATHS             = {
 
 const common = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.jsx',
         custom: './src/custom.js'
     },
     output: {
