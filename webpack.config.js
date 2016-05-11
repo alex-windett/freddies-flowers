@@ -82,7 +82,7 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         plugins: [
             new ExtractTextPlugin('[name].css?[hash]'),
             new BowerWebpackPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
+            // new webpack.HotModuleReplacementPlugin(),
             new NpmInstallPlugin({
                 save: true // --save
             }),
