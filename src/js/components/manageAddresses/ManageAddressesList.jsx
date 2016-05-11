@@ -16,7 +16,7 @@ class ManageAddresses extends React.Component {
         this.state = {
             newFormVisibility: 'hide',
             editFormVisibility: 'hide',
-            disabled: '',
+            hidden: '',
             selected: '',
             addresses: Store.getAddresses(),
         }
@@ -48,11 +48,11 @@ class ManageAddresses extends React.Component {
 
         if ( this.state.addresses.length < 2 ) {
             this.setState({
-                disabled: true
+                hidden: 'hide'
             })
         } else {
             this.setState({
-                disabled: false
+                hidden: ''
             })
         }
     }
@@ -69,14 +69,6 @@ class ManageAddresses extends React.Component {
                 selected: ''
             })
         }
-
-        // this.setState({
-        //     editFormVisibility: '',
-        //     selected: address
-        // })
-
-        // TODO:
-            // * Fix issue with submitting edit form
     }
 
     deleteAddress(event) {
@@ -105,7 +97,8 @@ class ManageAddresses extends React.Component {
                         </button>
 
                         <button
-                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.deleteAddress.bind(this)}
+                            className={"button button__secondary " + this.state.hidden}
+                            onClick={this.deleteAddress.bind(this)}
                             data-id={address.id}>
                             Cancel
                         </button>
