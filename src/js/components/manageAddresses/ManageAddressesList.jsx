@@ -61,9 +61,9 @@ class ManageAddresses extends React.Component {
     //         // * Fix issue with submitting edit form
     // }
 
-    cancelAddress(event) {
+    deleteAddress(event) {
         const id = event.target.getAttribute('data-id')
-        Actions.cancelAddress(id)
+        Actions.deleteAddress(id)
         this.checkAddressCount()
     }
 
@@ -92,7 +92,7 @@ class ManageAddresses extends React.Component {
                         </button>*/}
 
                         <button
-                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
+                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.deleteAddress.bind(this)}
                             data-id={address.id}>
                             Cancel
                         </button>

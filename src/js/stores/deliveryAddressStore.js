@@ -49,16 +49,19 @@ class DeliveryAddressStore extends EventEmitter {
         this.emit(CHANGE_EVENT)
     }
 
-    deleteAddress(id) {
+    deleteAddress(targetID) {
         /**
         * Delete the delivery address
         */
         let addresses = this.addresses
 
-        addresses.reduceRight( (acc, obj, idx) => {
-            if ( id.indexOf(obj.id) > -1 )
-                addresses.splice( idx, 1 );
-        }, 0);
+        for ( var i = 0; i < addresses.length; i++ ){
+            if ( addresses[i].id == targetID ){
+                //removes 1 element at position i
+                addresses.splice(i, 1)
+                break
+            }
+        }
 
         this.emit(CHANGE_EVENT)
     }

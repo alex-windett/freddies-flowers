@@ -15,7 +15,7 @@ const DeliveryAddressActions = {
         })
     },
 
-    cancelAddress(id) {
+    deleteAddress(id) {
         dispatcher.dispatch({
             type: AddressConstant.DELETE_ADDRESS,
             id
