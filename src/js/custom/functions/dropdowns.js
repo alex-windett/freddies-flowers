@@ -1,5 +1,3 @@
-require('dropkick')
-
 const dropkick = {
 
     init() {
