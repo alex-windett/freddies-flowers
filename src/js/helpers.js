@@ -13,7 +13,17 @@ const helpers = {
             }
         }
         throw `Couldn't find object with id: ${id}`
-    }
+    },
+
+    deleteById(arr, idToRemove) {
+        for ( var i = 0; i < arr.length; i++ ){
+            if ( arr[i].id == idToRemove ){
+                //removes 1 element at position i
+                arr.splice(i, 1)
+                break
+            }
+        }
+    },
 }
 
 export default helpers
