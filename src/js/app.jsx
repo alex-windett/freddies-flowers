@@ -17,7 +17,7 @@ class App extends React.Component {
     render() {
         return (
             <section className="dashboard">
-            c    <div className='row'>
+                <div className='row'>
                     <div className='column medium-6 dashboard__item'>
                         <UpcomingDeliveries/>
                     </div>
