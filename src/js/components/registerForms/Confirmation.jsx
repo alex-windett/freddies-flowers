@@ -7,13 +7,14 @@ class Confirmation extends React.Component {
     }
 
     render() {
+        const firstName = this.props.fieldValues.firstName
 
         return (
             <div className="row confirmation">
                 <aside className="columns medium-6">
                     <div className="confirmation__image--wrapper">
                         <img className="confirmation__image--medium" src="./src/images/content/registration-confirmation.jpg"/>
-                        <span className="confirmation__image--name">Alex</span>
+                        <span className="confirmation__image--name">{firstName ? firstName : 'Thank You'}</span>
                     </div>
                 </aside>
                 <article className="columns medium-6">

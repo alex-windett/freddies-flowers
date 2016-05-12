@@ -1,0 +1,19 @@
+.confirmation {
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__image {
+
+        &--name {
+            position: absolute;
+            bottom: 80px;
+            right: 180px;
+            transform: rotate(-5deg);
+            z-index: 1;
+
+            @extend h3;
+        }
+    }
+}

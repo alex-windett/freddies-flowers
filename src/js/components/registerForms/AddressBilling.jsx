@@ -31,7 +31,7 @@ class AddressBilling extends React.Component {
     }
 
     nextStep(model) {
-        
+
         var data = {
             postcode    : model.postcode,
             address     : `${model.house} ${model.street}`,
@@ -51,7 +51,7 @@ class AddressBilling extends React.Component {
     render () {
 
         return (
-            <Formsy.Form ref="newAddressForm" className="clearfix" onSubmit={this.nextStep} onValid={this.enableButton} onInvalid={this.disableButton}>
+            <Formsy.Form ref="newAddressForm" className="clearfix registration registration__billing" onSubmit={this.nextStep} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                 <Input className="clearfix input__left"
                     placeholder="Postcode"
@@ -60,7 +60,6 @@ class AddressBilling extends React.Component {
                         isExisty: true
                     }} >
                 </Input>
-
                 <Input className="input__right"
                     placeholder="House Number"
                     name="house"
@@ -92,7 +91,6 @@ class AddressBilling extends React.Component {
                     name="delivery" />
 
                 <h3 className="clear">Your payment details</h3>
-
                 <Input className="clearfix input__left"
                     placeholder="The Long Number"
                     name="cardNumber"

@@ -48,7 +48,7 @@ class AboutYou extends React.Component {
     render () {
 
         return (
-            <Formsy.Form ref="newAddressForm" className="clearfix" onSubmit={this.nextStep} onValid={this.enableButton} onInvalid={this.disableButton}>
+            <Formsy.Form ref="newAddressForm" className="clearfix registration registration__about" onSubmit={this.nextStep} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                 <Input className="clearfix input__left"
                     placeholder="First Name"
