@@ -17,17 +17,19 @@ class Share extends React.Component {
                 </header>
 
                 <footer className="share__invitation">
-                    <label>Just send this invitation link to your pals:</label>
-                    <input className="input__readonly input__copylink" readOnly value="www.freddiesflowers.com?lucyl66" />
+                    <p>Just send this invitation link to your pals:</p>
+                    <span className="share__invitation--link">www.freddiesflowers.com?lucyl66</span>
 
                     <section className="row column socialites">
                         <ul className="plainlist">
                             <li className="socialites--item"><a href="#"><i className="icon-facebook"></i></a></li>
                             <li className="socialites--item"><a href="#"><i className="icon-twitter"></i></a></li>
+                            <li className="socialites--item"><a href="#"><i className="icon-email"></i></a></li>
+                            <li className="socialites--item"><a href="#"><i className="icon-sms"></i></a></li>
                         </ul>
                     </section>
 
-                    <p>Or simply tell them to type in the following code when they sign up:</p>
+                    <p className="padded">Or simply tell them to type in the following code when they sign up:</p>
                     <h4 className="share__invitation--code">LUCYL66</h4>
                 </footer>
             </div>

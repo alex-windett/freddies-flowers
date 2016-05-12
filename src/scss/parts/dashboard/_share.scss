@@ -6,6 +6,7 @@
     }
 
     .socialites {
+        margin-top: rem-calc(10);
 
         &--item {
             font-size: 33px;
@@ -16,11 +17,28 @@
         color: $color__cta--primary;
     }
 
+    .icon {
+        &-email { margin-left: rem-calc(5) }
+        &-sms { margin-left: rem-calc(15) }
+    }
+
     .share__invitation {
 
         p {
             margin-top: 0;
-            padding: rem-calc(0 50);
+
+            &.padded {
+                padding: rem-calc(0 50);
+            }
+        }
+
+        &--link {
+            @extend input;
+
+            padding: rem-calc(10 40);
+            background-image: url($img-icon-path + 'copy-link.png');
+            background-repeat: no-repeat;
+            background-position: 8px 50%;
         }
 
         &--code {
