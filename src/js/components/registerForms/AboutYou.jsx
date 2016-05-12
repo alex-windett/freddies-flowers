@@ -88,8 +88,7 @@ class AboutYou extends React.Component {
                     name="code" />
 
                 <div className="form--actions">
-                    {/*<button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>*/}
-                    <button type="submit"  className="button button__primary" >Next</button>
+                    <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
                 </div>
             </Formsy.Form>
         );

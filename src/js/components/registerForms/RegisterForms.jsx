@@ -1,10 +1,5 @@
 import React from 'react'
 
-import Action from '../../actions/registerFormsActions'
-import Store from '../../stores/registerFormsStore'
-import Constant from '../../constants/registerFormsConstants'
-import Helper from '../../helpers'
-
 import AboutYou from './AboutYou'
 import AddressBilling  from './AddressBilling'
 import Confirmation  from './Confirmation'
@@ -69,19 +64,19 @@ class RegisterForms extends React.Component {
     showStep() {
         switch (this.state.step) {
             case 1:
-            return <AboutYou fieldValues={fieldValues}
-                nextStep={this.nextStep}
-                previousStep={this.previousStep}
-                saveValues={this.saveValues} />
+                return <AboutYou fieldValues={fieldValues}
+                    nextStep={this.nextStep}
+                    previousStep={this.previousStep}
+                    saveValues={this.saveValues} />
             case 2:
-            return <AddressBilling fieldValues={fieldValues}
-                nextStep={this.nextStep}
-                previousStep={this.previousStep}
-                saveValues={this.saveValues} />
+                return <AddressBilling fieldValues={fieldValues}
+                    nextStep={this.nextStep}
+                    previousStep={this.previousStep}
+                    saveValues={this.saveValues} />
             case 3:
-            return <Confirmation fieldValues={fieldValues}
-                previousStep={this.previousStep}
-                submitRegistration={this.submitRegistration} />
+                return <Confirmation fieldValues={fieldValues}
+                    previousStep={this.previousStep}
+                    submitRegistration={this.submitRegistration} />
         }
     }
 
