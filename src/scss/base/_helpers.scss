@@ -22,8 +22,14 @@
 	}
 }
 
-.text-center { text-align: center }
+.text-center {
+	text-align: center;
+}
 
 .padder {
     margin: rem-calc(50 0);
+}
+
+.clear {
+	clear: both;
 }
