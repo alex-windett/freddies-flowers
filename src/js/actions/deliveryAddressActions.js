@@ -9,13 +9,14 @@ const DeliveryAddressActions = {
         })
     },
 
-    editAddress() {
+    editAddress(modelData) {
         dispatcher.dispatch({
-            type: AddressConstant.EDIT_ADDRESS
+            type: AddressConstant.EDIT_ADDRESS,
+            modelData
         })
     },
 
-    cancelAddress(id) {
+    deleteAddress(id) {
         dispatcher.dispatch({
             type: AddressConstant.DELETE_ADDRESS,
             id

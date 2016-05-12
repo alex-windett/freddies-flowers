@@ -43,8 +43,7 @@ class AccountDetails extends React.Component {
         /**
         * @param {model} contains the fields and their value of submitted form
         */
-        Actions.addAddress(model)
-
+        Actions.editAccount(model)
     }
 
     render() {
@@ -55,6 +54,7 @@ class AccountDetails extends React.Component {
                 <h2 className="text-center">Change your account details</h2>
 
                     <Formsy.Form
+                        ref="accountDetailsForm"
                         className="clearfix"
                         onSubmit={this.submit}
                         onValid={this.enableButton.bind(this)}
@@ -100,7 +100,7 @@ class AccountDetails extends React.Component {
                         <Input
                             value={account.phone}
                             name="phone"
-                            type="text"
+                            type="tel"
                             required
                             validations={{
                                 isExisty: true

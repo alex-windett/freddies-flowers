@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Store from '../../stores/deliveryAddressStore'
+import GlobalConstant from '../../constants/GlobalConstants'
 
 class ActionButtons extends React.Component {
 
@@ -9,31 +10,31 @@ class ActionButtons extends React.Component {
         const quantity = this.props.addressData.quantity
 
         this.state = {
-            decreaseDisabled: '',
-            increaseDisabled: '',
+            decreaseHide: '',
+            increaseHide: '',
         }
     }
 
     checkButtonDisablity() {
         const quantity = this.props.addressData.quantity
 
-        if ( quantity <= 1 ) {
+        if ( quantity <= GlobalConstant.MIN_ORDERS ) {
             this.setState({
-                decreaseDisabled: true,
+                decreaseHide: 'hide',
             })
         } else {
             this.setState({
-                decreaseDisabled: false
+                decreaseHide: ''
             })
         }
 
-        if ( quantity >= 4  ) {
+        if ( quantity >= GlobalConstant.MAX_ORDERS  ) {
             this.setState({
-                increaseDisabled: true
+                increaseHide: 'hide'
             })
         } else {
             this.setState({
-                increaseDisabled: false
+                increaseHide: ''
             })
         }
     }
@@ -64,18 +65,16 @@ class ActionButtons extends React.Component {
 
             <div>
                 <button
-                    className="button button__secondary button__secondary--decrementer"
+                    className={`button button__secondary button__secondary--decrementer ${this.state.decreaseHide}`}
                     onClick={this.decreaseDelivery.bind(this)}
-                    disabled={this.state.decreaseDisabled}
                     > -
                 </button>
 
                 {this.props.children}
 
                 <button
-                    className="button button__secondary button__secondary--incrementer"
+                    className={`button button__secondary button__secondary--incrementer ${this.state.increaseHide}`}
                     onClick={this.increaseDelivery.bind(this)}
-                    disabled={this.state.increaseDisabled}
                     > +
                 </button>
             </div>

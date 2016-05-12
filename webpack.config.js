@@ -15,7 +15,7 @@ const PATHS             = {
 
 const common = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.jsx',
         custom: './src/custom.js'
     },
     output: {
@@ -82,7 +82,7 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
         plugins: [
             new ExtractTextPlugin('[name].css?[hash]'),
             new BowerWebpackPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
+            // new webpack.HotModuleReplacementPlugin(),
             new NpmInstallPlugin({
                 save: true // --save
             }),

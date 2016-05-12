@@ -5,43 +5,36 @@ import Actions from '../../actions/deliveryActions'
 const DeliveryItem = React.createClass({
 
     getInitialState() {
-
         return {
-            active: true,
+            active: this.props.data.active,
             delivery: this.props.data
         }
     },
 
+    componentDidMount() {
+        Store.on("change", _ => {
+            this.setState({
+                active: this.props.data.active,
+                delivery: this.props.data,
+            })
+        })
+    },
+
     removeDelivery() {
-
-        if ( this.state.active ) {
-            this.setState({ active: false })
-        } else {
-            this.setState({ active: true })
-        }
-
         Actions.removeDelivery(this.state.delivery.id)
     },
 
     render() {
+
         const delivery = this.state.delivery
 
-        if ( this.state.active ) {
-
-            var textStyles = {
-                textDecoration: 'none'
-            }
-        } else {
-
-            var textStyles = {
-                textDecoration: 'line-through'
-            }
-        }
-
+        let textStyles = this.state.active ? "" : " 'textDecoration': 'line-throught' "
 
         return (
             <div key={delivery.id}>
-                <p style={textStyles}>{delivery.date}</p>
+                <p style={textStyles}>
+                    {delivery.date}
+                </p>
 
                 <input type="checkbox" onClick={this.removeDelivery}/>
 
@@ -56,7 +49,6 @@ const DeliveryItems = React.createClass({
     getInitialState() {
 
         return {
-            active: true,
             deliveries: Store.getDeliveries()
         }
     },

@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
 import AddressConstant from '../constants/DeliveryAddressConstants'
+import GlobalConstant from '../constants/GlobalConstants'
 import helper from '../helpers'
 
 const CHANGE_EVENT = 'change'
@@ -41,24 +42,32 @@ class DeliveryAddressStore extends EventEmitter {
         return address
     }
 
-    editAddress() {
+    editAddress(modelData) {
         /**
         * Edit the delivery address
+
+        TODO:
+            * Make the edit address object work with
+            * properties. Will probably be sorted when
+            * DB is set up
         */
-        console.log('edit the address')
+
+        let toEditAddress = helper.findById(this.addresses, modelData.id)
+        toEditAddress.address = `${modelData.house} ${modelData.street}`
+
         this.emit(CHANGE_EVENT)
     }
 
-    deleteAddress(id) {
+    deleteAddress(targetID) {
         /**
         * Delete the delivery address
         */
         let addresses = this.addresses
 
-        addresses.reduceRight( (acc, obj, idx) => {
-            if ( id.indexOf(obj.id) > -1 )
-                addresses.splice( idx, 1 );
-        }, 0);
+        if ( addresses.length > GlobalConstant.MIN_ADDRESSES ) {
+            helper.deleteById(addresses, targetID);
+        }
+
 
         this.emit(CHANGE_EVENT)
     }
@@ -85,7 +94,10 @@ class DeliveryAddressStore extends EventEmitter {
         * Increase delivery amount to specific address
         */
         const addressToChange = helper.findById(this.addresses, id)
-        addressToChange.quantity++
+
+        if ( addressToChange.quantity <= GlobalConstant.MAX_ORDERS ) {
+            addressToChange.quantity++
+        }
 
         this.emit(CHANGE_EVENT)
     }
@@ -95,7 +107,10 @@ class DeliveryAddressStore extends EventEmitter {
         * Decrease delivery amount to specific address
         */
         const addressToChange = helper.findById(this.addresses, id)
-        addressToChange.quantity--
+
+        if ( addressToChange.quantity >= GlobalConstant.MIN_ORDERS ) {
+            addressToChange.quantity--
+        }
 
         this.emit(CHANGE_EVENT)
     }
@@ -110,7 +125,7 @@ class DeliveryAddressStore extends EventEmitter {
             }
 
             case AddressConstant.EDIT_ADDRESS: {
-                this.editAddress()
+                this.editAddress(action.modelData)
                 break
             }
 

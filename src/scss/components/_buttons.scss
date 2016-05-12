@@ -27,8 +27,8 @@
     }
 
     &__primary {
-        $button--hover: darken($color__button--primary, 20%);
-        @include hover-transition(button, $color__button--primary, $button--hover)
+        $button--hover: darken($color__cta--primary, 20%);
+        @include hover-transition(button, $color__cta--primary, $button--hover)
         color: white;
         padding: rem-calc(10 50 5);
 
@@ -38,8 +38,8 @@
     }
 
     &__secondary {
-        $button--hover: darken($color__button--secondary, 20%);
-        @include hover-transition(button, $color__button--secondary, $button--hover)
+        $button--hover: darken($color__cta--secondary, 20%);
+        @include hover-transition(button, $color__cta--secondary, $button--hover)
         color: black;
         padding: rem-calc(10 50 5);
 

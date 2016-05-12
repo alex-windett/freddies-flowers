@@ -1,8 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-import NewAddressForm from './Form'
+import NewAddressForm from './NewAddressForm'
+import EditAddressForm from './EditAddressForm'
 import ActionButtons from './ActionButtons'
+
+import GlobalConstant from '../../constants/GlobalConstants'
 
 import Store from '../../stores/deliveryAddressStore'
 import Actions from '../../actions/deliveryAddressActions'
@@ -13,8 +15,10 @@ class ManageAddresses extends React.Component {
     constructor(props) {
         super()
         this.state = {
-            formVisibility: 'hide',
-            disabled: '',
+            newFormVisibility: 'hide',
+            editFormVisibility: 'hide',
+            hidden: '',
+            selected: '',
             addresses: Store.getAddresses(),
         }
     }
@@ -24,6 +28,8 @@ class ManageAddresses extends React.Component {
             this.setState({
                 addresses: Store.getAddresses()
             })
+
+            this.checkAddressCount()
         })
     }
 
@@ -32,40 +38,43 @@ class ManageAddresses extends React.Component {
             e.preventDefault()
         }
 
-        if ( this.state.formVisibility) {
-            this.setState({ formVisibility: '' })
+        if ( this.state.newFormVisibility) {
+            this.setState({ newFormVisibility: '' })
         } else {
-            this.setState({ formVisibility: 'hide' })
+            this.setState({ newFormVisibility: 'hide' })
         }
     }
 
-    checkAddressCount(callback) {
-        if ( this.state.addresses.length < 2 ) {
+    checkAddressCount() {
+
+        if ( this.state.addresses.length <= GlobalConstant.MIN_ADDRESSES  ) {
             this.setState({
-                disabled: true
+                hidden: 'hide'
             })
         } else {
             this.setState({
-                disabled: false
+                hidden: ''
             })
         }
-
-        callback
     }
 
     editAddress(address) {
-        this.setState({
-            editFormVisibility: '',
-            selected: address
-        })
-
-        // TODO:
-            // * Fix issue with submitting edit form
+        if ( this.state.editFormVisibility) {
+            this.setState({
+                editFormVisibility: '',
+                selected: address
+            })
+        } else {
+            this.setState({
+                editFormVisibility: 'hide',
+                selected: ''
+            })
+        }
     }
 
-    cancelAddress(event) {
-        let id = event.target.getAttribute('data-id')
-        this.checkAddressCount( Actions.cancelAddress(id) )
+    deleteAddress(event) {
+        const id = event.target.getAttribute('data-id')
+        Actions.deleteAddress(id)
     }
 
     render() {
@@ -79,10 +88,6 @@ class ManageAddresses extends React.Component {
                         <ActionButtons addressData={address}>
                             {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
                         </ActionButtons>
-
-                        {/*<DecrementerButton addressData={address} />
-
-                    <IncrementerButton addressData={address} />*/}
                     </td>
                     <td>£{address.cost}</td>
                     <td>
@@ -93,7 +98,8 @@ class ManageAddresses extends React.Component {
                         </button>
 
                         <button
-                            className="button button__secondary" disabled={this.state.disabled}    onClick={this.cancelAddress.bind(this)}
+                            className={"button button__secondary " + this.state.hidden}
+                            onClick={this.deleteAddress.bind(this)}
                             data-id={address.id}>
                             Cancel
                         </button>
@@ -124,9 +130,15 @@ class ManageAddresses extends React.Component {
 
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
-                <div className={this.state.formVisibility + " form form__addAddress"}>
+                <div className={`form form__addAddress ${this.state.newFormVisibility}`} >
                     <NewAddressForm />
                 </div>
+
+                <div className={`form form__editAddress ${this.state.editFormVisibility}`} >
+                    <EditAddressForm editingAddress={this.state.selected} />
+                </div>
+
+
             </div>
         )
     }

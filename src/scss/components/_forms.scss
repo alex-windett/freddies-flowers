@@ -1,13 +1,3 @@
-textarea,
-input {
-    border: solid 1px $color__primary--mid;
-
-    @include placeholder($color__primary--mid) {
-        font-family: $font__tertiary;
-        font-style: italic;
-    }
-}
-
 label {
     @extend p;
 }
@@ -16,16 +6,50 @@ textarea {
     height: rem-calc(300);
 }
 
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+[readonly],
+textarea,
+input {
+    border: solid 1px $color__primary--mid;
+    border-radius: 5px;
+
+    @include placeholder($color__primary--mid) {
+        font-family: $font__tertiary;
+        font-style: italic;
+    }
+}
+
 .input {
 
-    &__right {
-        width: 50%;
-        float: right;
+    &__valid {
+        border: solid 1px $color__valid !important;
+        background: lighten($color__valid, 20%);
+    }
+
+    &__right,
+    &__left {
+        width: 48%;
     }
 
     &__left {
-        width: 50%;
         float: left;
+    }
+
+    &__right {
+        float: right;
     }
 
     &__clear {
