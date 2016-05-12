@@ -1,12 +1,21 @@
 .socialites {
     text-align: center;
 
-    &--item {
+    &__item {
         display: inline-block;
         font-size: 40px;
 
-        i:before {
-            margin: 0;
+        i {
+
+            &.icon {
+
+                &-email { margin-left: rem-calc(5) }
+                &-sms { margin-left: rem-calc(15) }
+            }
+
+            &:before {
+                margin: 0;
+            }
         }
     }
 }

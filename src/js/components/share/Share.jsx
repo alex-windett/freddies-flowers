@@ -22,10 +22,10 @@ class Share extends React.Component {
 
                     <section className="row column socialites">
                         <ul className="plainlist">
-                            <li className="socialites--item"><a href="#"><i className="icon-facebook"></i></a></li>
-                            <li className="socialites--item"><a href="#"><i className="icon-twitter"></i></a></li>
-                            <li className="socialites--item"><a href="#"><i className="icon-email"></i></a></li>
-                            <li className="socialites--item"><a href="#"><i className="icon-sms"></i></a></li>
+                            <li className="socialites__item"><a href="#"><i className="icon-facebook"></i></a></li>
+                            <li className="socialites__item"><a href="#"><i className="icon-twitter"></i></a></li>
+                            <li className="socialites__item"><a href="#"><i className="icon-email"></i></a></li>
+                            <li className="socialites__item"><a href="#"><i className="icon-sms"></i></a></li>
                         </ul>
                     </section>
 

@@ -17,8 +17,8 @@ class Confirmation extends React.Component {
                     </div>
                 </aside>
                 <article className="columns medium-6">
-                    <div className="confirmatio__content">
-                        <h2 className="confirmatio__content--title">You are completelyand utterly brilliant</h2>
+                    <div className="confirmatio__content text-center">
+                        <h1 className="confirmatio__content--title">You are completelyand utterly brilliant</h1>
 
                         <p className="confirmatio__content--body">Call me impulsive but I’ve decided to mark this moment with a small tattoo. Hope you don’t mind! Very much looking forward to seeing you soon. Exciting times ahead.</p>
 
