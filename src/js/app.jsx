@@ -22,7 +22,7 @@ class App extends React.Component {
                         <UpcomingDeliveries/>
                     </div>
 
-                    <div className='column medium-6 dashboard__item'>
+                    <div className='column medium-6 dashboard__item dashboard__item--share'>
                         <Share />
                     </div>
                 </div>

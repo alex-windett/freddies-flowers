@@ -10,24 +10,26 @@ class Share extends React.Component {
 
         return (
             <div className="decoration decoration__paper decoration__tape decoration__tape--left text-center">
-                <h2 className="text-center">Fancy FREE Flowers?</h2>
+                <header className="share__header">
+                    <h2 className="text-center">Fancy FREE Flowers?</h2>
+                    <p>Share your invitation code with your friends and you’ll get a free box of flowers each time someone signs up.</p>
+                    <p>And it’s not an entirely selfish move: your friendswill get their first box free, too. Win-win!</p>
+                </header>
 
-                <p>Share your referral code with your mates and for each one who signs up, your next box of spanking fresh flowers will be on us.</p>
-                <p>And its not an entirely selfish move: your friend will get their first box free as well! Win win!</p>
-
-                <hr />
-
-                <label>Just send this invitation link to your pals:</label>
-                <input className="input__readonly input__copylink" readOnly value="www.freddiesflowers.com?lucyl66" />
+                <footer className="share__invitation">
+                    <label>Just send this invitation link to your pals:</label>
+                    <input className="input__readonly input__copylink" readOnly value="www.freddiesflowers.com?lucyl66" />
 
                     <section className="row column socialites">
                         <ul className="plainlist">
                             <li className="socialites--item"><a href="#"><i className="icon-facebook"></i></a></li>
-                            <li className="socialites--item"><a href="#"><i className="icon-instagram"></i></a></li>
+                            <li className="socialites--item"><a href="#"><i className="icon-twitter"></i></a></li>
                         </ul>
                     </section>
 
-                <h4>LUCYL66</h4>
+                    <p>Or simply tell them to type in the following code when they sign up:</p>
+                    <h4 className="share__invitation--code">LUCYL66</h4>
+                </footer>
             </div>
         )
     }
