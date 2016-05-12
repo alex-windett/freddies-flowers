@@ -86,7 +86,7 @@ const NewAddressForm = React.createClass({
                 <div className="form--actions">
                     <p>Enter your postcode to calculate a delivery charge</p>
                     <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Submit</button>
-                    <button type="button" className="button button__primary" >Cancel</button>
+                    <button type="button" className="button button__primary">Cancel</button>
                 </div>
             </Formsy.Form>
         );
