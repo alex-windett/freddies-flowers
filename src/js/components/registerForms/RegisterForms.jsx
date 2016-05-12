@@ -64,30 +64,46 @@ class RegisterForms extends React.Component {
     showStep() {
         switch (this.state.step) {
             case 1:
-                return <AboutYou fieldValues={fieldValues}
-                    nextStep={this.nextStep}
-                    previousStep={this.previousStep}
-                    saveValues={this.saveValues} />
+                return {
+                    heading: 'About You',
+                    element: <AboutYou
+                        fieldValues={fieldValues}
+                        nextStep={this.nextStep}
+                        previousStep={this.previousStep}
+                        saveValues={this.saveValues} />,
+                }
             case 2:
-                return <AddressBilling fieldValues={fieldValues}
-                    nextStep={this.nextStep}
-                    previousStep={this.previousStep}
-                    saveValues={this.saveValues} />
+                return {
+                    heading: 'Address & Billing',
+                    element: <AddressBilling
+                        fieldValues={fieldValues}
+                        nextStep={this.nextStep}
+                        previousStep={this.previousStep}
+                        saveValues={this.saveValues} />,
+                }
             case 3:
-                return <Confirmation fieldValues={fieldValues}
-                    previousStep={this.previousStep}
-                    submitRegistration={this.submitRegistration} />
+                return {
+                    heading: '',
+                    element: <Confirmation
+                            fieldValues={fieldValues}
+                            previousStep={this.previousStep}
+                            submitRegistration={this.submitRegistration} />,
+                }
         }
     }
 
+    getCurrentStep(){
+
+    }
 
     render() {
+        let step = this.showStep()
 
         return (
             <main>
-                <h2 className="progress-step">Step {this.state.step}</h2>
+                <h2 className="progress-step">{this.state.step <= 2 ? `${this.state.step }. ${step.heading}` : ''}</h2>
 
-                {this.showStep()}
+                {step.element}
             </main>
         )
     }
