@@ -25,7 +25,8 @@
         @extend input;
 
         padding: rem-calc(10 40);
-        background-image: url($img-icon-path + 'copy-link.png');
+        // background-image: url($img-icon-path + 'copy-link.png');
+        background-image: image($icon, 'copy-link.png');
         background-repeat: no-repeat;
         background-position: 8px 50%;
     }
