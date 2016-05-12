@@ -1,6 +1,13 @@
 .socialites {
     text-align: center;
 
+    &--blue {
+
+        i {
+            color: $color__cta--primary;
+        }
+    }
+
     &__item {
         display: inline-block;
         font-size: 40px;

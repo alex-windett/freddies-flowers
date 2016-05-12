@@ -24,7 +24,7 @@ class Confirmation extends React.Component {
 
                         <footer className="confirmation__content--share">
                             <h1>Share this powerful imagewith your pals:</h1>
-                            <section className="row column socialites">
+                            <section className="row column socialites socialites--blue">
                                 <ul className="plainlist">
                                     <li className="socialites__item"><a href="#"><i className="icon-facebook"></i></a></li>
                                     <li className="socialites__item"><a href="#"><i className="icon-twitter"></i></a></li>

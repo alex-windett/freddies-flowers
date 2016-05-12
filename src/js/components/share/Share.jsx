@@ -20,7 +20,7 @@ class Share extends React.Component {
                     <p>Just send this invitation link to your pals:</p>
                     <span className="share__invitation--link">www.freddiesflowers.com?lucyl66</span>
 
-                    <section className="row column socialites">
+                    <section className="row column socialites socialites--blue">
                         <ul className="plainlist">
                             <li className="socialites__item"><a href="#"><i className="icon-facebook"></i></a></li>
                             <li className="socialites__item"><a href="#"><i className="icon-twitter"></i></a></li>
