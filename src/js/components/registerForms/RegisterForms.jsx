@@ -61,9 +61,7 @@ class RegisterForms extends React.Component {
     }
 
     submitRegistration() {
-        // Handle via ajax submitting the user data, upon
-        // success return this.nextStop(). If it fails,
-        // show the user the error but don't advance
+        // Send AJAX request here. Proably on submit of second stage of form
 
         this.nextStep()
     }
