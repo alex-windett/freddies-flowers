@@ -68,14 +68,14 @@ const EditAddressForm = React.createClass({
         const editingAddress = this.props.editingAddress
 
         return (
+            /**
+            * TODO: Have placeholder show correct details, will need to adjust object recieved
+            */
             <Formsy.Form ref="editAddressForm" className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
-                <ReadOnlyInput className="input__right"
-                    value={ editingAddress ? editingAddress.id : '' }
-                    name="id" />
-
-                <Input className="input__left"
-                    placeholder={ editingAddress ? editingAddress.postcode : "Postcode"}
+                <Input className="clearfix"
+                    inputClass="input__left"
+                    placeholder={editingAddress.postcode ? editingAddress.postcode : "Postcode"}
                     name="postcode"
                     validations={{
                         minLength: 4,
@@ -83,26 +83,27 @@ const EditAddressForm = React.createClass({
                         isExisty: true
                     }}
                     validationError="This is not a valid postcode"
-                    required/>
-                <button className="button button__secondary float-left">Find Address</button>
+                    required >
+                    <button className="button button__secondary find-address">Find Address</button>
+                </Input>
 
                 <Input className="input__left"
-                    placeholder= { editingAddress ? editingAddress.address : "House Number or Name"}
+                    placeholder={editingAddress.address ? editingAddress.address : "Town City"}
                     name="house"
                     validations={{
                         isAlphanumeric: true,
                         isExisty: true
                     }}
                     required/>
-                <Input className="input__left"
-                    placeholder={ editingAddress ? editingAddress.address : "Street Name"}
+                <Input className="input__right"
+                    placeholder={editingAddress.address ? editingAddress.address : "Town City"}
                     name="street"
                     validations={{
                         isExisty: true
                     }}
                     required/>
-                <Input className="input__right"
-                    placeholder={ editingAddress ? editingAddress.address : "Town City"}
+                <Input className="input__left"
+                    placeholder={editingAddress.address ? editingAddress.address : "Town City"}
                     name="city"
                     validations={{
                         isAlpha: true,
@@ -110,7 +111,11 @@ const EditAddressForm = React.createClass({
                     }}
                     required/>
 
-                <button type="submit"  disabled={!this.state.canSubmit} className="button button__primary" >Submit</button>
+                <div className="form--actions">
+                    <p>Enter your postcode to calculate a delivery charge</p>
+                    <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Submit</button>
+                    <button type="button" className="button button__primary" >Cancel</button>
+                </div>
             </Formsy.Form>
         );
     }

@@ -1,0 +1,17 @@
+.form {
+    width: 70%;
+    margin: rem-calc(30) auto 0;
+
+    &__addAddress,
+    &__editAddress {
+
+        .find-address {
+            margin-left: 4%;
+        }
+    }
+
+    &--actions {
+        clear: both;
+        text-align: center;
+    }
+}

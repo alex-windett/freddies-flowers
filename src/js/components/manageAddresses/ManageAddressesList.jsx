@@ -134,7 +134,7 @@ class ManageAddresses extends React.Component {
                     <NewAddressForm />
                 </div>
 
-                <div className={`form edit__addAddress ${this.state.editFormVisibility}`} >
+                <div className={`form form__editAddress ${this.state.editFormVisibility}`} >
                     <EditAddressForm editingAddress={this.state.selected} />
                 </div>
 

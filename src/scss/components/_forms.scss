@@ -39,14 +39,17 @@ input {
         background: lighten($color__valid, 20%);
     }
 
-    &__right {
-        width: 50%;
-        float: right;
+    &__right,
+    &__left {
+        width: 48%;
     }
 
     &__left {
-        width: 50%;
         float: left;
+    }
+
+    &__right {
+        float: right;
     }
 
     &__clear {
@@ -55,12 +58,6 @@ input {
 
     &__required {
 
-    }
-
-    &__copylink {
-        background-image: url($img-icon-path + 'copy-link.png');
-        background-repeat: no-repeat;
-        background-position: 8px 50%;
     }
 
     &__error {

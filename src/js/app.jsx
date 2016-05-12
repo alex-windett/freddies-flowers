@@ -27,7 +27,7 @@ class App extends React.Component {
                     </div>
                 </div>
 
-                <div className="row column dashboard__item">
+                <div className="row column dashboard__item dashboard__item--addresses">
                     <ManageAddressesList />
                 </div>
 

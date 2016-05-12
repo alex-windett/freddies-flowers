@@ -1,1 +1,13 @@
-@import 'share';
+.dashboard {
+
+    &__item {
+
+        &--share {
+            @import 'share';
+        }
+
+        &--addresses {
+            @import 'manage-addresses';
+        }
+    }
+}
