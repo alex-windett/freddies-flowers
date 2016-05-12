@@ -10,9 +10,10 @@ import AddressBilling  from './AddressBilling'
 import Confirmation  from './Confirmation'
 import assign        from 'object-assign'
 
-// Idealy, these form values would be saved in another
-// sort of persistence, like a Store via Flux pattern
-var fieldValues = {
+// TODO:
+    // Movoe object into Flux stores
+    // Create action for submit i.e fake AJAX
+let fieldValues = {
     firstName   : null,
     lastName    : null,
     email       : null,
@@ -30,7 +31,6 @@ var fieldValues = {
 }
 
 class RegisterForms extends React.Component {
-
     constructor(props) {
         super()
 
@@ -92,7 +92,7 @@ class RegisterForms extends React.Component {
 
         return (
             <main>
-                <span className="progress-step">Step {this.state.step}</span>
+                <h2 className="progress-step">Step {this.state.step}</h2>
 
                 {this.showStep()}
             </main>
