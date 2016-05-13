@@ -18,14 +18,14 @@ class Confirmation extends React.Component {
                     </div>
                 </aside>
                 <article className="columns medium-6">
-                    <div className="confirmatio__content text-center">
-                        <h1 className="confirmatio__content--title">You are completelyand utterly brilliant</h1>
+                    <div className="confirmation__content">
+                        <h1 className="confirmation__content--title">You are completelyand utterly brilliant</h1>
 
-                        <p className="confirmatio__content--body">Call me impulsive but I’ve decided to mark this moment with a small tattoo. Hope you don’t mind! Very much looking forward to seeing you soon. Exciting times ahead.</p>
+                        <p className="confirmation__content--body">Call me impulsive but I’ve decided to mark this moment with a small tattoo. Hope you don’t mind! Very much looking forward to seeing you soon. Exciting times ahead.</p>
 
                         <footer className="confirmation__content--share">
                             <h1>Share this powerful imagewith your pals:</h1>
-                            <section className="row column socialites socialites--blue">
+                            <section className="row column socialites--left socialites--blue">
                                 <ul className="plainlist">
                                     <li className="socialites__item"><a href="#"><i className="icon-facebook"></i></a></li>
                                     <li className="socialites__item"><a href="#"><i className="icon-twitter"></i></a></li>
