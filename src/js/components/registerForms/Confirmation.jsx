@@ -10,7 +10,7 @@ class Confirmation extends React.Component {
         const firstName = this.props.fieldValues.firstName
 
         return (
-            <div className="row confirmation">
+            <div className="row decoration decoration__tape decoration__tape--left confirmation">
                 <aside className="columns medium-6">
                     <div className="confirmation__image--wrapper">
                         <img className="confirmation__image--medium" src="./src/images/content/registration-confirmation.jpg"/>
