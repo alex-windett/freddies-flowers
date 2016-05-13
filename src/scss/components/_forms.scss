@@ -43,6 +43,14 @@ input {
             &__right,
             &__left {
                 width: 48%;
+
+                &--large {
+                    width: 65%;
+                }
+
+                &--small {
+                    width: 31%;
+                }
             }
 
             &__left {
