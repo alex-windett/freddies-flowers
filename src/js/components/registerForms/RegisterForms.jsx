@@ -33,7 +33,18 @@ class RegisterForms extends React.Component {
         this.previousStep   = this.previousStep.bind(this)
 
         this.state = {
-            step: 1
+            currentStep: 0,
+            steps: [
+                {
+                    name: 'About You'
+                },
+                {
+                    name: 'Address & Billing'
+                },
+                {
+                    name: 'Confirmation'
+                },
+            ]
         }
     }
 
@@ -45,13 +56,13 @@ class RegisterForms extends React.Component {
 
     nextStep() {
         this.setState({
-            step : this.state.step + 1
+            currentStep : this.state.currentStep + 1
         })
     }
 
     previousStep() {
         this.setState({
-            step : this.state.step - 1
+            currentStep : this.state.currentStep - 1
         })
     }
 
@@ -62,8 +73,8 @@ class RegisterForms extends React.Component {
     }
 
     showStep() {
-        switch (this.state.step) {
-            case 1:
+        switch (this.state.currentStep) {
+            case 0:
                 return {
                     heading: 'About You',
                     element: <AboutYou
@@ -72,7 +83,7 @@ class RegisterForms extends React.Component {
                         previousStep={this.previousStep}
                         saveValues={this.saveValues} />,
                 }
-            case 2:
+            case 1:
                 return {
                     heading: 'Address & Billing',
                     element: <AddressBilling
@@ -81,9 +92,9 @@ class RegisterForms extends React.Component {
                         previousStep={this.previousStep}
                         saveValues={this.saveValues} />,
                 }
-            case 3:
+            case 2:
                 return {
-                    heading: '',
+                    heading: 'Confirmation',
                     element: <Confirmation
                             fieldValues={fieldValues}
                             previousStep={this.previousStep}
@@ -97,13 +108,26 @@ class RegisterForms extends React.Component {
     }
 
     render() {
-        let step = this.showStep()
+        const currentStep    = this.showStep()
+        const progressItem   = this.state.steps.map( (step, index) => {
+        const activeClass    = index === this.state.currentStep ? 'progress__item--active' : ''
+
+            return (
+                /* Add + 1 to the index as state array starts at 0 */
+                <li className={`progress__item ${activeClass}`} key={index}><h2>{index + 1}. {step.name}</h2></li>
+            )
+        })
 
         return (
-            <main>
-                <h2 className="progress-step">{this.state.step <= 2 ? `${this.state.step }. ${step.heading}` : ''}</h2>
 
-                {step.element}
+            <main>
+                <nav className="progress">
+                    <ul className="progress__list plainlist">
+                        {progressItem}
+                    </ul>
+                </nav>
+
+                {currentStep.element}
             </main>
         )
     }
