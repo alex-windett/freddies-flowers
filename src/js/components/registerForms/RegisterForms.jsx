@@ -9,6 +9,7 @@ import assign        from 'object-assign'
     // Movoe object into Flux stores
     // Create action for submit i.e fake AJAX
 let fieldValues = {
+    id          : null,
     firstName   : null,
     lastName    : null,
     email       : null,
@@ -101,10 +102,6 @@ class RegisterForms extends React.Component {
                             submitRegistration={this.submitRegistration} />,
                 }
         }
-    }
-
-    getCurrentStep(){
-
     }
 
     render() {

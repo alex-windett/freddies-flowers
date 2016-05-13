@@ -124,9 +124,10 @@ class AddressBilling extends React.Component {
                             isExisty: true
                         }} />
 
+                    <h3 className="text-center clear">You’ll be charged £20 a week on the morning of your delivery. Don’t worry – you can amend or cancel at any time. No quibbles!</h3>
                     <div className="form--actions">
                         <button className="button button__secondary" onClick={this.props.previousStep}>Back</button>
-                        <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
+                        <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Finish</button>
                     </div>
                 </Formsy.Form>
             </div>
