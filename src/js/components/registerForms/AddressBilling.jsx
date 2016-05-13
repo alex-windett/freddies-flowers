@@ -124,6 +124,7 @@ class AddressBilling extends React.Component {
                     }} />
 
                 <div className="form--actions">
+                    <button className="button button__secondary" onClick={this.props.previousStep}>Back</button>
                     <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
                 </div>
             </Formsy.Form>

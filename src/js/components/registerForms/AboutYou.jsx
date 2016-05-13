@@ -30,6 +30,10 @@ class AboutYou extends React.Component {
         });
     }
 
+    onChange() {
+
+    }
+
     nextStep(model) {
 
         var data = {
@@ -46,13 +50,20 @@ class AboutYou extends React.Component {
     }
 
     render () {
-
+        
         return (
-            <Formsy.Form ref="newAddressForm" className="clearfix registration registration__about" onSubmit={this.nextStep} onValid={this.enableButton} onInvalid={this.disableButton}>
+            <Formsy.Form
+                ref="newAddressForm"
+                className="clearfix registration registration__about"
+                onChange={this.onChange}
+                onSubmit={this.nextStep}
+                onValid={this.enableButton}
+                onInvalid={this.disableButton} >
 
                 <Input className="clearfix input__left"
                     placeholder="First Name"
                     name="firstName"
+                    defaultValue={this.props.fieldValues.firstName}
                     validations={{
                         isExisty: true
                     }} >
@@ -61,30 +72,35 @@ class AboutYou extends React.Component {
                 <Input className="input__right"
                     placeholder="Last Name"
                     name="lastName"
+                    defaultValue={this.props.fieldValues.lastName}
                     validations={{
                         isExisty: true
                     }} />
                 <Input className="input__left"
                     placeholder="Email"
                     name="email"
+                    defaultValue={this.props.fieldValues.email}
                     validations={{
                         isExisty: true
                     }} />
                 <Input className="input__right"
                     placeholder="Phone Number"
                     name="telephone"
+                    defaultValue={this.props.fieldValues.telephone}
                     validations={{
                         isExisty: true
                     }} />
                 <Input className="input__left"
                     placeholder="Create Password"
                     name="password"
+                    defaultValue={this.props.fieldValues.password}
                     validations={{
                         isExisty: true
                     }} />
 
                 <Input className="input__left"
                     placeholder="Referal Code"
+                    defaultValue={this.props.fieldValues.code}
                     name="code" />
 
                 <div className="form--actions">
