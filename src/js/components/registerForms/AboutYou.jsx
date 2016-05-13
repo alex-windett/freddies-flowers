@@ -16,16 +16,6 @@ class AboutYou extends React.Component {
         this.nextStep       = this.nextStep.bind(this)
     }
 
-    // componentDidMount() {
-    //     const fields = this.props.fieldValues
-    //     for( var prop in fields ) {
-    //         // If there is an ID on the saved object, i.e it exists
-    //         if ( fields.hasOwnProperty('id') && fields['id'] ) {
-    //             debuggerDont
-    //         }
-    //     }
-    // }
-
     enableButton () {
 
         this.setState({
