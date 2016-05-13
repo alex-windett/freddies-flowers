@@ -1,3 +1,15 @@
+.registration {
+
+    &__wrapper {
+        margin: 0 auto;
+        max-width: rem-calc(790);
+    }
+
+    &__form {
+        @include move-z(1);
+    }
+}
+
 .confirmation {
 
     &__wrapper {
@@ -14,6 +26,41 @@
             z-index: 1;
 
             @extend h3;
+        }
+    }
+}
+
+.progress {
+    @include move-z(0)
+
+    &__list {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        $border-radius: 15px;
+        display: inline-block;
+        width: 50%;
+
+        color: $color__primary;
+        text-align: center;
+
+        padding-top: rem-calc(15);
+
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+
+        &--title {
+            margin: 0;
+            color: inherit;
+        }
+
+        &--active {
+            color: $color__primary--dark;
+            background: white;
+            // box-shadow: 10px 20px 32px -3px rgba(0, 0, 0, 0.2);
+            box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
         }
     }
 }

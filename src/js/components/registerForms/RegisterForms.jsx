@@ -110,25 +110,31 @@ class RegisterForms extends React.Component {
     render() {
         const currentStep    = this.showStep()
         const progressItem   = this.state.steps.map( (step, index) => {
-        const activeClass    = index === this.state.currentStep ? 'progress__item--active' : ''
 
-            return (
-                /* Add + 1 to the index as state array starts at 0 */
-                <li className={`progress__item ${activeClass}`} key={index}><h2>{index + 1}. {step.name}</h2></li>
-            )
+            const activeClass = index === this.state.currentStep ? 'progress__item--active' : ''
+
+            /* Only show the title for the first two steps */
+            if ( index < 2 ) {
+                return (
+                    /* Add + 1 to the index as state array starts at 0 */
+                    <li className={`progress__item ${activeClass}`} key={index}>
+                        <h2 className="progress__item--title">{index + 1}. {step.name}</h2>
+                    </li>
+                )
+            }
         })
 
         return (
 
-            <main>
+            <article className="registration__wrapper">
                 <nav className="progress">
-                    <ul className="progress__list plainlist">
+                    <ul className="progress__list">
                         {progressItem}
                     </ul>
                 </nav>
 
                 {currentStep.element}
-            </main>
+            </article>
         )
     }
 }

@@ -56,78 +56,80 @@ class AddressBilling extends React.Component {
     render () {
 
         return (
-            <Formsy.Form ref="newAddressForm" className="clearfix registration registration__billing" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+            <div className="decoration decoration__plain registration__form">
+                <Formsy.Form ref="newAddressForm" className="clearfix registration registration__billing" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
-                <Input className="clearfix input__left"
-                    placeholder="Postcode"
-                    name="postcode"
-                    validations={{
-                        isExisty: true
-                    }} >
-                </Input>
-                <Input className="input__right"
-                    placeholder="House Number"
-                    name="house"
-                    validations={{
-                        isExisty: true
-                    }} />
-                <Input className="input__left"
-                    placeholder="Street Name"
-                    name="street"
-                    validations={{
-                        isExisty: true
-                    }} />
-                <Input className="input__right"
-                    value={this.props.fieldValues.telephone}
-                    placeholder="Phone Number"
-                    name="telephone"
-                    validations={{
-                        isExisty: true
-                    }} />
-                <Input className="input__left"
-                    placeholder="Town or City"
-                    name="town"
-                    validations={{
-                        isExisty: true
-                    }} />
+                    <Input className="clearfix input__left"
+                        placeholder="Postcode"
+                        name="postcode"
+                        validations={{
+                            isExisty: true
+                        }} >
+                    </Input>
+                    <Input className="input__right"
+                        placeholder="House Number"
+                        name="house"
+                        validations={{
+                            isExisty: true
+                        }} />
+                    <Input className="input__left"
+                        placeholder="Street Name"
+                        name="street"
+                        validations={{
+                            isExisty: true
+                        }} />
+                    <Input className="input__right"
+                        value={this.props.fieldValues.telephone}
+                        placeholder="Phone Number"
+                        name="telephone"
+                        validations={{
+                            isExisty: true
+                        }} />
+                    <Input className="input__left"
+                        placeholder="Town or City"
+                        name="town"
+                        validations={{
+                            isExisty: true
+                        }} />
 
-                <Input className="input__left"
-                    placeholder="Delivery Instructions"
-                    name="delivery" />
+                    <Input className="input__left"
+                        placeholder="Delivery Instructions"
+                        name="delivery" />
 
-                <h3 className="clear">Your payment details</h3>
-                <Input className="clearfix input__left"
-                    placeholder="The Long Number"
-                    name="cardNumber"
-                    validations={{
-                        isExisty: true
-                    }} >
-                </Input>
+                    <h3 className="clear">Your payment details</h3>
+                    <Input className="clearfix input__left"
+                        placeholder="The Long Number"
+                        name="cardNumber"
+                        validations={{
+                            isExisty: true
+                        }} >
+                    </Input>
 
-                <Input className="input__right"
-                    placeholder="Expiry (MM/YY)"
-                    name="expiriy"
-                    validations={{
-                        isExisty: true
-                    }} />
-                <Input className="input__left"
-                    placeholder="Cardholder's name"
-                    name="cardholder"
-                    validations={{
-                        isExisty: true
-                    }} />
-                <Input className="input__right"
-                    placeholder="CVV"
-                    name="cvv"
-                    validations={{
-                        isExisty: true
-                    }} />
+                    <Input className="input__right"
+                        placeholder="Expiry (MM/YY)"
+                        name="expiriy"
+                        validations={{
+                            isExisty: true
+                        }} />
+                    <Input className="input__left"
+                        placeholder="Cardholder's name"
+                        name="cardholder"
+                        validations={{
+                            isExisty: true
+                        }} />
+                    <Input className="input__right"
+                        placeholder="CVV"
+                        name="cvv"
+                        validations={{
+                            isExisty: true
+                        }} />
 
-                <div className="form--actions">
-                    <button className="button button__secondary" onClick={this.props.previousStep}>Back</button>
-                    <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
-                </div>
-            </Formsy.Form>
+                    <div className="form--actions">
+                        <button className="button button__secondary" onClick={this.props.previousStep}>Back</button>
+                        <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
+                    </div>
+                </Formsy.Form>
+            </div>
         );
     }
 
