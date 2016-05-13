@@ -1,4 +1,10 @@
 @mixin formWidth() {
+    /**
+        * Sets the same width for the tabs and the form wrapper
+        *
+        * The form and tabs need to be seperated as they are rendered
+        * seperately in React
+    */
     @include breakpoint(medium up) {
         width: 70%;
         margin: 0 auto;
