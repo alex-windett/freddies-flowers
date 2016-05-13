@@ -13,7 +13,7 @@ class Confirmation extends React.Component {
             <div className="row decoration decoration__tape decoration__tape--left confirmation">
                 <aside className="columns medium-6">
                     <div className="confirmation__image--wrapper">
-                        <img className="confirmation__image--medium" src="./src/images/content/registration-confirmation.jpg"/>
+                        <img className="confirmation__image--medium" src="./src/images/content/registration-confirmation.png"/>
                         <span className="confirmation__image--name">{firstName ? firstName : 'Thank You'}</span>
                     </div>
                 </aside>
