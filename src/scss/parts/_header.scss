@@ -117,8 +117,14 @@
         }
 
         &--email {
+            font-size: 20px;
             display: inline-block;
-            margin-left: rem-calc(25);
+            margin-left: rem-calc(20);
+
+            &:before {
+                position: relative;
+                top: 4px;
+            }
         }
     }
 }
