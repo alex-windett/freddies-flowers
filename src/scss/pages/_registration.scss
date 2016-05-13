@@ -1,12 +1,37 @@
+@mixin formWidth() {
+    @include breakpoint(medium up) {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 .registration {
 
     &__wrapper {
         margin: 0 auto;
-        max-width: rem-calc(790);
+        max-width: rem-calc(780);
     }
 
     &__form {
+        @include formWidth();
         @include move-z(1);
+    }
+}
+
+.referal {
+
+    &__info {
+
+        @include breakpoint(medium up) {
+            margin-top: rem-calc(12);
+            padding-left: rem-calc(15);
+
+            @include pseudo-el(before, 10px, 10px) {
+                content: "<";
+                left: 0;
+                top: 0;
+            }
+        }
     }
 }
 
@@ -31,6 +56,7 @@
 }
 
 .progress {
+    @include formWidth();
     @include move-z(0)
 
     &__list {
@@ -51,16 +77,26 @@
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
 
-        &--title {
+        &--header {
             margin: 0;
             color: inherit;
+        }
+
+        &--title {
+            @include breakpoint(small only) {
+                display: none;
+            }
         }
 
         &--active {
             color: $color__primary--dark;
             background: white;
-            // box-shadow: 10px 20px 32px -3px rgba(0, 0, 0, 0.2);
             box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
+
+            * {
+                display: inline-block;
+                padding-left: rem-calc(2);
+            }
         }
     }
 }

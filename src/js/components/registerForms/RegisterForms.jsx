@@ -115,7 +115,7 @@ class RegisterForms extends React.Component {
                 return (
                     /* Add + 1 to the index as state array starts at 0 */
                     <li className={`progress__item ${activeClass}`} key={index}>
-                        <h2 className="progress__item--title">{index + 1}. {step.name}</h2>
+                        <h2 className="progress__item--header">{index + 1}.<span className="progress__item--title">{step.name}</span></h2>
                     </li>
                 )
             }

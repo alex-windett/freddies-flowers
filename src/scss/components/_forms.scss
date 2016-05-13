@@ -39,22 +39,24 @@ input {
         background: lighten($color__valid, 20%);
     }
 
-    &__right,
-    &__left {
-        width: 48%;
-    }
+        @include breakpoint(medium up) {
+            &__right,
+            &__left {
+                width: 48%;
+            }
 
-    &__left {
-        float: left;
-    }
+            &__left {
+                float: left;
+            }
 
-    &__right {
-        float: right;
-    }
+            &__right {
+                float: right;
+            }
 
-    &__clear {
-        clear: both;
-    }
+            &__clear {
+                clear: both;
+            }
+        }
 
     &__required {
 

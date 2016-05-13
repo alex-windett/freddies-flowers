@@ -95,12 +95,16 @@ class AboutYou extends React.Component {
                             isExisty: true
                         }} />
 
-                    <Input className="input__left"
-                        placeholder="Referal Code"
-                        defaultValue={this.props.fieldValues.code}
-                        name="code" />
+                    <div className="referal clear">
+                        <p className="input__right referal__info small">If you have an invitation code, just pop it in here </p>
 
-                    <div className="form--actions">
+                        <Input className="input__left referal__input"
+                            placeholder="Referal Code"
+                            defaultValue={this.props.fieldValues.code}
+                            name="code" />
+                    </div>
+
+                    <div className="form--actions clear">
                         <button type="submit" disabled={!this.state.canSubmit} className="button button__primary" >Next</button>
                     </div>
                 </Formsy.Form>
