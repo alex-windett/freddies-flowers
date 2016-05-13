@@ -5,6 +5,7 @@
 
     &__company {
         margin: 0 auto;
+        text-align: center;
 
         @include breakpoint(small only) {
             &--item + &--item {
