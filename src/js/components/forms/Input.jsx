@@ -27,6 +27,7 @@ var Input = React.createClass({
                 <input
                     className={`${validationClassName} ${isValidClassName} ${inputClasses}`}
                     type={type}
+                    defaultValue={this.props.defaultValue}
                     placeholder={this.props.placeholder}
                     onChange={this.changeValue}
                     value={this.getValue()} />

@@ -3,9 +3,23 @@ import './scss/app'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App          from 'js/app'
+import AccountDashboard from 'js/accountDashboard'
+import Register from 'js/register'
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-)
+const accountDashboard = document.getElementById('accountDashboard')
+const registration     = document.getElementById('registration')
+
+if ( document.contains(accountDashboard) ) {
+    ReactDOM.render(
+        <AccountDashboard />,
+        accountDashboard
+    )
+}
+
+
+if ( document.contains(registration) ) {
+    ReactDOM.render(
+        <Register />,
+        registration
+    )
+}

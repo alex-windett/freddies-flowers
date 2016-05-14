@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Formsy from 'formsy-react'
-import Input from '../forms/input'
+import Input from '../forms/Input'
 
 import Store from '../../stores/accountDetailsStore'
 import Actions from '../../actions/accountDetailsActions'

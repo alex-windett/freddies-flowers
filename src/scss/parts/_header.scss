@@ -7,7 +7,7 @@
         width: 100%;
         background: $color__background;
         padding-top: rem-calc(20);
-        z-index: 1;
+        z-index: 100; // High z-index to make sure that nav is above all other content
 
         @include breakpoint(small only) {
             left: 0;
@@ -117,8 +117,14 @@
         }
 
         &--email {
+            font-size: 20px;
             display: inline-block;
-            margin-left: rem-calc(25);
+            margin-left: rem-calc(20);
+
+            &:before {
+                position: relative;
+                top: 4px;
+            }
         }
     }
 }

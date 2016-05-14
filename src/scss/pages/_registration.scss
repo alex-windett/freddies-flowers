@@ -1,0 +1,119 @@
+@mixin formWidth() {
+    /**
+        * Sets the same width for the tabs and the form wrapper
+        *
+        * The form and tabs need to be seperated as they are rendered
+        * seperately in React
+    */
+    @include breakpoint(medium up) {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.registration {
+
+    &__wrapper {
+        margin: 0 auto;
+    }
+
+    &__form {
+        @include formWidth();
+        @include move-z(1);
+    }
+
+    &__about,
+    &__billing {
+        max-width: 580px;
+        margin: 0 auto;
+    }
+}
+
+.referal {
+
+    &__info {
+
+        @include breakpoint(medium up) {
+            margin-top: rem-calc(12);
+            padding-left: rem-calc(15);
+
+            @include pseudo-el(before, 10px, 10px) {
+                content: "<";
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+.confirmation {
+
+    &__wrapper {
+        position: relative;
+    }
+
+    @include breakpoint(medium up) {
+        &__content {
+            padding: 0 10%;
+        }
+    }
+
+    &__image {
+
+        &--name {
+            position: absolute;
+            bottom: 21%;
+            right: 44%;
+            transform: rotate(-13deg);
+            z-index: 1;
+
+            @extend h3;
+        }
+    }
+}
+
+.progress {
+    @include formWidth();
+    @include move-z(0)
+
+    &__list {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        $border-radius: 15px;
+        display: inline-block;
+        width: 50%;
+
+        color: $color__primary;
+        text-align: center;
+
+        padding-top: rem-calc(15);
+
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+
+        &--header {
+            margin: 0;
+            color: inherit;
+        }
+
+        &--title {
+            @include breakpoint(small only) {
+                display: none;
+            }
+        }
+
+        &--active {
+            color: $color__primary--dark;
+            background: white;
+            box-shadow: 3px 3px 9px 0px rgba(0, 0, 0, 0.2);
+
+            * {
+                display: inline-block;
+                padding-left: rem-calc(2);
+            }
+        }
+    }
+}

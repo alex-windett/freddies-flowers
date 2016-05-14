@@ -11,15 +11,6 @@
     }
 }
 
-.socialites--item a {
-    color: $color__cta--primary;
-}
-
-.icon {
-    &-email { margin-left: rem-calc(5) }
-    &-sms { margin-left: rem-calc(15) }
-}
-
 .share__invitation {
 
     p {
@@ -34,7 +25,8 @@
         @extend input;
 
         padding: rem-calc(10 40);
-        background-image: url($img-icon-path + 'copy-link.png');
+        // background-image: url($img-icon-path + 'copy-link.png');
+        background-image: image($icon, 'copy-link.png');
         background-repeat: no-repeat;
         background-position: 8px 50%;
     }

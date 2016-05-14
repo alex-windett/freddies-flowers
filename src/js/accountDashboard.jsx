@@ -8,7 +8,7 @@ import AccountDetails from './components/accountDetails/AccountDetails'
 import BankDetails from './components/bankDetails/BankDetails'
 
 
-class App extends React.Component {
+class AccountDashboard extends React.Component {
 
     constructor() {
         super()
@@ -56,4 +56,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default AccountDashboard
