@@ -8,14 +8,31 @@ const DropdownSelect = React.createClass({
 
     // setValue() will set the value of the component, which in
     // turn will validate it and the rest of the form
-    changeValue(event) {
-        this.setValue(event.currentTarget.value)
-    },
+    changeValue: function(event) {
+       var target = event.currentTarget;
+       var value;
+       if ( this.props.multiple ) {
+           value = [];
+           for (var i = 0; i < target.length; i++){
+               var option = target.options[i];
+               if (option.selected) {
+                   value.push(option.value);
+               }
+           }
+       } else {
+           value = target.value;
+       }
+       this.setValue(value);
+    //    this.props.onChange(this.props.name, value);
+   },
 
     render() {
 
         return (
-            <select className="dropdown">
+            <select
+                className="dropdown"
+                value={this.getValue()}
+                onChange={this.changeValue}>
                 {this.props.children}
             </select>
         )

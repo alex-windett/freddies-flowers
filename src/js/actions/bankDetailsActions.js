@@ -15,6 +15,14 @@ const BankDetailsActions = {
             card
         })
     },
+
+    editAddress(address) {
+        
+        dispatcher.dispatch({
+            type: BankDetailsConstant.EDIT_BANKADDRESS,
+            address
+        })
+    }
 }
 
 export default BankDetailsActions

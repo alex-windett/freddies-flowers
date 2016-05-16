@@ -87,6 +87,64 @@ var RegisteredCards = React.createClass({
     }
 })
 
+var ChangeAddress = React.createClass({
+
+    getInitialState() {
+
+        return {
+            canSubmit: false,
+            addresses: this.props.addresses,
+        }
+    },
+
+
+    enableButton() {
+        this.setState({
+            canSubmit: true
+        })
+    },
+
+    disableButton() {
+        this.setState({
+            canSubmit: false
+        })
+    },
+
+    submit(model) {
+        Actions.editAddress(model)
+    },
+
+    render() {
+
+        const addresses = this.state.addresses.map( a => {
+
+            return <option data-key={a.id} key={a.id}>{a.address}</option>
+        })
+
+        return (
+            <Formsy.Form
+                refs="bankAddressForm"
+                className="bankdetails bankdetails__address"
+                onValidSubmit={this.submit}
+                onChange={this.enableButton}
+                onSubmit={this.submit} >
+                <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
+
+                <DropdownSelect name="address">
+                    {addresses}
+                </DropdownSelect>
+
+                <button
+                    className="button button__secondary bankdetails__submit"
+                    disabled={!this.state.canSubmit}>
+                    Edit
+                </button>
+
+            </Formsy.Form>
+        )
+    }
+})
+
 class BankDetails extends React.Component {
 
     constructor() {
@@ -118,10 +176,6 @@ class BankDetails extends React.Component {
     }
 
     render() {
-        const addresses = this.state.bankDetails.addresses.map( a => {
-
-            return <option key={a.id}>{a.address}</option>
-        })
 
         return (
             <div className="decoration decoration__paper decoration__tape decoration__tape--left clearfix">
@@ -129,23 +183,7 @@ class BankDetails extends React.Component {
 
                 <RegisteredCards bankCards={this.state.bankDetails.cards} />
 
-                <Formsy.Form
-                    className="bankdetails bankdetails__address"
-                    onValidSubmit={this.submit}
-                    onChange={this.enableButton.bind(this)} >
-                    <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
-
-                    <DropdownSelect name="address">
-                        {addresses}
-                    </DropdownSelect>
-
-                    <button
-                        className="button button__secondary bankdetails__submit"
-                        disabled={!this.state.canSubmit}>
-                        Edit
-                    </button>
-
-                </Formsy.Form>
+                <ChangeAddress addresses={this.state.bankDetails.addresses}/>
             </div>
         )
     }

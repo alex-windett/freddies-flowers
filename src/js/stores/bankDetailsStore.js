@@ -3,6 +3,7 @@ import Dispatcher from '../dispatcher'
 
 import BankDetailsConstant from '../constants/BankDetailsConstants'
 import GlobalConstant from '../constants/GlobalConstants'
+import helper from '../helpers.js'
 
 class BankDetailsStore extends EventEmitter {
 
@@ -97,6 +98,15 @@ class BankDetailsStore extends EventEmitter {
         this.emit(GlobalConstant.CHANGE_EVENT)
     }
 
+    editAddress(address) {
+        const id = address.id
+
+        addressID = helper.findById(this.bankdetails.addresses, id)
+
+        
+        debugger
+    }
+
     handleActions(action) {
 
         switch(action.type) {
@@ -108,6 +118,11 @@ class BankDetailsStore extends EventEmitter {
 
             case BankDetailsConstant.NEW_BANKCARD: {
                 this.newBankCard(action.card)
+                break
+            }
+
+            case BankDetailsConstant.EDIT_BANKADDRESS: {
+                this.editAddress(action.address)
                 break
             }
         }
