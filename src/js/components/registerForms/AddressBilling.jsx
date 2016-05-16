@@ -4,6 +4,7 @@ import Formsy from 'formsy-react'
 import Action from '../../actions/registerFormsActions'
 import Store from '../../stores/registerFormsStore'
 import Input from '../forms/Input'
+import CardDetailsInputs from '../forms/CardDetailsInputs'
 
 class AddressBilling extends React.Component {
 
@@ -100,32 +101,8 @@ class AddressBilling extends React.Component {
                     <p className="clear small text-center">Enter your postocde to find out your delivery day</p>
                     <h3>Your payment details</h3>
 
-                    <Input className="clearfix input__left input__left--large"
-                        placeholder="The Long Number"
-                        name="cardNumber"
-                        validations={{
-                            isExisty: true
-                        }} >
-                    </Input>
 
-                    <Input className="input__right input__right--small"
-                        placeholder="Expiry (MM/YY)"
-                        name="expiriy"
-                        validations={{
-                            isExisty: true
-                        }} />
-                    <Input className="input__left input__left--large"
-                        placeholder="Cardholder's name"
-                        name="cardholder"
-                        validations={{
-                            isExisty: true
-                        }} />
-                    <Input className="input__right input__right--small"
-                        placeholder="CVV"
-                        name="cvv"
-                        validations={{
-                            isExisty: true
-                        }} />
+                    <CardDetailsInputs />
 
                     <h3 className="text-center clear">You’ll be charged £20 a week on the morning of your delivery. Don’t worry – you can amend or cancel at any time. No quibbles!</h3>
                     <div className="form--actions text-center">
