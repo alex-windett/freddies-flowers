@@ -7,6 +7,7 @@ const DeliveryItem = React.createClass({
     getInitialState() {
         return {
             active: this.props.data.active,
+            defaultChecked: this.props.data.active,
             delivery: this.props.data
         }
     },
@@ -15,6 +16,7 @@ const DeliveryItem = React.createClass({
         Store.on("change", _ => {
             this.setState({
                 active: this.props.data.active,
+                defaultChecked: this.props.data.active,
                 delivery: this.props.data,
             })
         })
@@ -28,30 +30,32 @@ const DeliveryItem = React.createClass({
 
         const delivery = this.state.delivery
 
-        let textStyles = this.state.active ? "" : " 'textDecoration': 'line-throught' "
+        let textStyles = this.state.defaultChecked ? {} : { textDecoration: 'line-throught' }
 
         return (
-            <div key={delivery.id}>
-                <p style={textStyles}>
-                    {delivery.date}
-                </p>
 
-                <input type="checkbox" onClick={this.removeDelivery}/>
-
-                <hr />
-            </div>
+            <section className="boleanInput clear" onClick={this.removeDelivery} key={delivery.id} >
+                <input
+                    className={`booleanInput__input booleanInput__input--checkbox clear`} checked={this.state.defaultChecked}
+                    onChange={this.removeDelivery}
+                    type="checkbox" />
+                <label
+                    style={textStyles}
+                    className="boleanInput__label clear"
+                    htmlFor="ticked-checkbox">{delivery.date}</label>
+            </section>
         )
     }
 })
 
-const DeliveryItems = React.createClass({
+class Deliveries extends React.Component {
 
-    getInitialState() {
-
-        return {
+    constructor() {
+        super()
+        this.state = {
             deliveries: Store.getDeliveries()
         }
-    },
+    }
 
     componentDidMount() {
         Store.on("change", _ => {
@@ -59,7 +63,7 @@ const DeliveryItems = React.createClass({
                 deliveries: Store.getDeliveries()
             })
         })
-    },
+    }
 
     render() {
 
@@ -70,32 +74,15 @@ const DeliveryItems = React.createClass({
         })
 
         return (
-            <div>
-                {Items}
-            </div>
-        )
-    }
-
-});
-
-class UpcomingDeliveries extends React.Component {
-
-    constructor() {
-        super()
-    }
-
-    render() {
-
-        return (
             <div className="decoration decoration__paper decoration__tape decoration__tape--left">
                 <h2 className="text-center">Your upcoming deliveries</h2>
 
                 <p>Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>
 
-                <DeliveryItems />
+                {Items}
             </div>
         )
     }
 }
 
-export default UpcomingDeliveries
+export default Deliveries

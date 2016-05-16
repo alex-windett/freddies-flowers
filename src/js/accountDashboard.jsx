@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import UpcomingDeliveries from './components/upcomingDeliveries/UpcomingDeliveries'
+import Deliveries from './components/deliveries/Deliveries'
 import Share from './components/share/Share'
 import ManageAddressesList from './components/manageAddresses/ManageAddressesList'
 import AccountDetails from './components/accountDetails/AccountDetails'
@@ -19,7 +19,7 @@ class AccountDashboard extends React.Component {
             <section className="dashboard">
                 <div className='row'>
                     <div className='column medium-6 dashboard__item'>
-                        <UpcomingDeliveries/>
+                        <Deliveries />
                     </div>
 
                     <div className='column medium-6 dashboard__item dashboard__item--share'>

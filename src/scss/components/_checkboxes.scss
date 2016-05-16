@@ -1,9 +1,8 @@
 .boleanInput {
-    margin-bottom: rem-calc(20) !important; // Overrides Foundation
+    margin-bottom: rem-calc(20) !important;
 
     &__label {
         display: inline-block;
-        font-family: $font__tertiary;
     }
 
     input[type=checkbox] {
