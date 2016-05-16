@@ -4,9 +4,88 @@ import Formsy from 'formsy-react';
 import GlobalConstant from '../../constants/GlobalConstants'
 
 import DropdownSelect from '../forms/DropdownSelect'
+import Input from '../forms/Input'
+import CardDetailsInputs from '../forms/CardDetailsInputs'
+
 import Store from '../../stores/bankDetailsStore'
 import Actions from '../../actions/bankDetailsActions'
 
+
+var RegisteredCards = React.createClass({
+
+    getInitialState() {
+
+        return {
+            formVisible: 'hide',
+            canSubmit: false,
+            bankCards: this.props.bankCards,
+        }
+    },
+
+
+    enableButton() {
+        this.setState({
+            canSubmit: true
+        })
+    },
+
+    disableButton() {
+        this.setState({
+            canSubmit: false
+        })
+    },
+
+    submit(model) {
+        Actions.newBankCard(model)
+
+        this.refs.newBankCard.reset()
+    },
+
+    toggleForm() {
+        this.setState({
+            formVisible: this.state.formVisible ? '' : 'hide'
+        })
+    },
+
+    render() {
+
+        const activeCard = this.state.bankCards.filter( c => {
+            if ( c.active ) return c
+        })
+
+        var str = []
+        //Create the "*" for exactly 4 digits short
+        for( var i = 1; i <= activeCard[0].cardNumber.length - 4; i++) {
+            str += "*"
+        }
+        //Join the asterisk and last 4 characters
+        var ecard = `${str} ${activeCard[0].cardNumber.substr(activeCard[0].cardNumber.length-4)}`
+
+        return (
+            <section className="bankdetails clearfix">
+
+                <div className="clearfix">
+                    <h3 className="bankdetails__current bankdetails__current--title">Card number</h3>
+                    <p className="bankdetails__current bankdetails__current--number">{ecard}</p>
+
+                    <button className="button button__secondary bankdetails__toggle" onClick={this.toggleForm}>Edit</button>
+                </div>
+
+                <Formsy.Form
+                    ref="newBankCard"
+                    className={`${this.state.formVisible} clear bankdetails__form`}
+                    onSubmit={this.submit}
+                    onValid={this.enableButton}
+                    onInvalid={this.disableButton} >
+
+                    <CardDetailsInputs />
+
+                    <button className="button button__secondary" disabled={!this.state.canSubmit}>Edit</button>
+                </Formsy.Form>
+            </section>
+        )
+    }
+})
 
 class BankDetails extends React.Component {
 
@@ -44,36 +123,28 @@ class BankDetails extends React.Component {
             return <option key={a.id}>{a.address}</option>
         })
 
-        const activeCard = this.state.bankDetails.cards.filter( c => {
-            if ( c.active ) return c
-        })
-
-        var str = []
-        //Create the "*" for exactly 4 digits short
-        for( var i = 1; i <= activeCard[0].cardNumber.length - 4; i++) {
-            str += "*"
-        }
-        //Join the asterisk and last 4 characters
-        var ecard = `${str} ${activeCard[0].cardNumber.substr(activeCard[0].cardNumber.length-4)}`
-
         return (
-            <div className="decoration decoration__paper decoration__tape decoration__tape--left">
+            <div className="decoration decoration__paper decoration__tape decoration__tape--left clearfix">
                 <h2 className="text-center">Manage your payment details</h2>
 
-                <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)}>
-                    <label>Card Number</label>
+                <RegisteredCards bankCards={this.state.bankDetails.cards} />
 
-                    <input type="text" pattern="[0-9]{13,16}" title="A credit card number" placeholder={ecard}/>
+                <Formsy.Form
+                    className="bankdetails bankdetails__address"
+                    onValidSubmit={this.submit}
+                    onChange={this.enableButton.bind(this)} >
+                    <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
 
-                    <button className="button button__secondary">Edit</button>
-                </Formsy.Form>
-
-                <Formsy.Form onValidSubmit={this.submit} onChange={this.enableButton.bind(this)} >
                     <DropdownSelect name="address">
                         {addresses}
                     </DropdownSelect>
 
-                    <button className="button button__secondary" disabled={!this.state.canSubmit}>Edit</button>
+                    <button
+                        className="button button__secondary bankdetails__submit"
+                        disabled={!this.state.canSubmit}>
+                        Edit
+                    </button>
+
                 </Formsy.Form>
             </div>
         )

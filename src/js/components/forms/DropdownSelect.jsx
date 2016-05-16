@@ -15,7 +15,7 @@ const DropdownSelect = React.createClass({
     render() {
 
         return (
-            <select className="custom-dropdown">
+            <select className="dropdown">
                 {this.props.children}
             </select>
         )

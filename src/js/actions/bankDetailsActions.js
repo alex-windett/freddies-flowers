@@ -8,6 +8,13 @@ const BankDetailsActions = {
             type: BankDetailsConstant.GET_BANKDETAILS
         })
     },
+
+    newBankCard(card) {
+        dispatcher.dispatch({
+            type: BankDetailsConstant.NEW_BANKCARD,
+            card
+        })
+    },
 }
 
 export default BankDetailsActions

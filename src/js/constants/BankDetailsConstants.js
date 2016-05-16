@@ -2,6 +2,7 @@ const BankDetailsConstants = {
     GET_BANKDETAILS: "GET_BANKDETAILS",
     GET_BANKACCOUNT: "GET_BANKACCOUNT",
     EDIT_BANKACCOUNT: "EDIT_BANKACCOUNT",
+    NEW_BANKCARD: "NEW_BANKCARD",
 }
 
 export default BankDetailsConstants;

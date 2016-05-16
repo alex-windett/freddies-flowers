@@ -13,29 +13,32 @@ class BankDetailsStore extends EventEmitter {
             "cards": [
                 {
                     "id": 1,
+                    "ç": '',
                     "cardNumber": "63040362932181450",
-                    "active": true
-                },
-                {
-                    "id": 2,
-                    "cardNumber": "67716697717121336",
-                    "active": false
-                },
-                {
-                    "id": 3,
-                    "cardNumber": "63041131913735868",
-                    "active": false
-                },
-                {
-                    "id": 4,
-                    "cardNumber": "63045501795013152",
-                    "active": false
-                },
-                {
-                    "id": 5,
-                    "cardNumber": "67095829910283875",
-                    "active": false
-                }
+                    "expiriy": '',
+                    "cvv": '',
+                    "active": true,
+                }//,
+                // {
+                //     "id": 2,
+                //     "cardNumber": "67716697717121336",
+                //     "active": false
+                // },
+                // {
+                //     "id": 3,
+                //     "cardNumber": "63041131913735868",
+                //     "active": false
+                // },
+                // {
+                //     "id": 4,
+                //     "cardNumber": "63045501795013152",
+                //     "active": false
+                // },
+                // {
+                //     "id": 5,
+                //     "cardNumber": "67095829910283875",
+                //     "active": false
+                // }
             ],
             "addresses": [
                 {
@@ -71,6 +74,28 @@ class BankDetailsStore extends EventEmitter {
         return this.bankDetails
     }
 
+    newBankCard(card) {
+        const newCard = {
+            "id": Date.now(),
+            "cardHolder": card.cardHolder,
+            "cardNumber": card.cardNumber,
+            "expiriy": card.expiriy,
+            "cvv": card.cvv,
+            "active": true
+        }
+
+        // Clear all the current bank cards - should only be 1
+        while ( this.bankDetails.cards.length > 0) {
+            this.bankDetails.cards.pop();
+        }
+
+        // Add the newly created card
+        this.bankDetails.cards.push(newCard)
+
+        console.log(this.bankDetails.cards)
+
+        this.emit(GlobalConstant.CHANGE_EVENT)
+    }
 
     handleActions(action) {
 
@@ -78,6 +103,11 @@ class BankDetailsStore extends EventEmitter {
 
             case BankDetailsConstant.GET_BANKDETAILS: {
                 this.getBankDetails()
+                break
+            }
+
+            case BankDetailsConstant.NEW_BANKCARD: {
+                this.newBankCard(action.card)
                 break
             }
         }

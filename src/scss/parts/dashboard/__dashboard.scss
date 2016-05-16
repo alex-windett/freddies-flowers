@@ -9,5 +9,9 @@
         &--addresses {
             @import 'manage-addresses';
         }
+
+        &--bankdetails {
+            @import 'manage-bank-details';
+        }
     }
 }

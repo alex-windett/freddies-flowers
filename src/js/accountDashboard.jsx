@@ -36,7 +36,7 @@ class AccountDashboard extends React.Component {
                         <AccountDetails />
                     </div>
 
-                    <div className='column medium-6 dashboard__item'>
+                    <div className='column medium-6 dashboard__item dashboard__item--bankdetails'>
                         <BankDetails />
                     </div>
                 </div>
