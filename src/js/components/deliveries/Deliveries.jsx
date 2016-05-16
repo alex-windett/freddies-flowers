@@ -30,8 +30,6 @@ const DeliveryItem = React.createClass({
 
         const delivery = this.state.delivery
 
-        let textStyles = this.state.defaultChecked ? {} : { textDecoration: 'line-throught' }
-
         return (
 
             <section className="boleanInput clear" onClick={this.removeDelivery} key={delivery.id} >
@@ -40,7 +38,6 @@ const DeliveryItem = React.createClass({
                     onChange={this.removeDelivery}
                     type="checkbox" />
                 <label
-                    style={textStyles}
                     className="boleanInput__label clear"
                     htmlFor="ticked-checkbox">{delivery.date}</label>
             </section>

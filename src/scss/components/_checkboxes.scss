@@ -10,6 +10,7 @@
 
         + label {
             margin-left: rem-calc(40);
+            text-decoration: line-through;
 
             $image: $img-icon-path + 'checkbox.png';
             @include pseudo-el(before, 32px, 30px) {
@@ -22,6 +23,7 @@
         &:checked {
             + label {
 
+                text-decoration: none;
                 $image: $img-icon-path + 'checkbox-active.png';
                 @include pseudo-el(before, 32px, 30px) {
                     background: url($image) no-repeat;
