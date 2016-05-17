@@ -1,14 +1,15 @@
-import React from 'react'
-import Formsy from 'formsy-react';
+import React                from 'react'
+import Formsy               from 'formsy-react';
 
-import GlobalConstant from '../../constants/GlobalConstants'
+import DropdownSelect       from '../forms/DropdownSelect'
+import Input                from '../forms/Input'
+import CardDetailsInputs    from '../forms/CardDetailsInputs'
+import ChangeAddress        from './ChangeAddress'
 
-import DropdownSelect from '../forms/DropdownSelect'
-import Input from '../forms/Input'
-import CardDetailsInputs from '../forms/CardDetailsInputs'
+import GlobalConstant       from '../../constants/GlobalConstants'
 
-import Store from '../../stores/bankDetailsStore'
-import Actions from '../../actions/bankDetailsActions'
+import Store                from '../../stores/bankDetailsStore'
+import Actions              from '../../actions/bankDetailsActions'
 
 
 var RegisteredCards = React.createClass({
@@ -87,63 +88,6 @@ var RegisteredCards = React.createClass({
     }
 })
 
-var ChangeAddress = React.createClass({
-
-    getInitialState() {
-
-        return {
-            canSubmit: false,
-            addresses: this.props.addresses,
-        }
-    },
-
-
-    enableButton() {
-        this.setState({
-            canSubmit: true
-        })
-    },
-
-    disableButton() {
-        this.setState({
-            canSubmit: false
-        })
-    },
-
-    submit(model) {
-        Actions.editAddress(model)
-    },
-
-    render() {
-
-        const addresses = this.state.addresses.map( a => {
-
-            return <option data-key={a.id} key={a.id}>{a.address}</option>
-        })
-
-        return (
-            <Formsy.Form
-                refs="bankAddressForm"
-                className="bankdetails bankdetails__address"
-                onValidSubmit={this.submit}
-                onChange={this.enableButton}
-                onSubmit={this.submit} >
-                <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
-
-                <DropdownSelect name="address">
-                    {addresses}
-                </DropdownSelect>
-
-                <button
-                    className="button button__secondary bankdetails__submit"
-                    disabled={!this.state.canSubmit}>
-                    Edit
-                </button>
-
-            </Formsy.Form>
-        )
-    }
-})
 
 class BankDetails extends React.Component {
 
