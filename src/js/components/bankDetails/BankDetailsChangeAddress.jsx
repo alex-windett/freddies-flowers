@@ -55,7 +55,7 @@ class BankDetailsChangeAddress extends React.Component {
 
 
 BankDetailsChangeAddress.propTypes = {
-    addresses: React.PropTypes.array
+    addresses: React.PropTypes.array.isRequired
 }
 
 export default BankDetailsChangeAddress

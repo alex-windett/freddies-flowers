@@ -9,7 +9,6 @@ class BillingAddressInputs extends React.Component {
         super()
     }
 
-
     render() {
 
         const buttonAdditionalStyle = {

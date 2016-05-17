@@ -66,9 +66,6 @@ const ManageAddressesEditAddress = React.createClass({
         const editingAddress = this.props.editingAddress
 
         return (
-            /**
-            * TODO: Have placeholder show correct details, will need to adjust object recieved
-            */
             <Formsy.Form ref="editAddressForm" className="clearfix" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                 <Input className="clearfix"
@@ -118,5 +115,10 @@ const ManageAddressesEditAddress = React.createClass({
         );
     }
 })
+
+ManageAddressesEditAddress.propTypes = {
+    // TODO: prop type changes from string to object when editable form is triggered
+    // editingAddress: React.PropTypes.string,
+}
 
 export default ManageAddressesEditAddress

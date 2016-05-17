@@ -12,7 +12,7 @@ import Actions                          from '../../actions/deliveryAddressActio
 
 class ManageAddresses extends React.Component {
 
-    constructor(props) {
+    constructor() {
         super()
         this.state = {
             newFormVisibility: 'hide',

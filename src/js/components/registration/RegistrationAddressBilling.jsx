@@ -79,4 +79,11 @@ class RegistrationAddressBilling extends React.Component {
 
 }
 
+RegistrationAddressBilling.propTypes = {
+    previousStep: React.PropTypes.func.isRequired,
+    nextStep: React.PropTypes.func.isRequired,
+    saveValues: React.PropTypes.func.isRequired,
+    fieldValues: React.PropTypes.object
+}
+
 export default RegistrationAddressBilling

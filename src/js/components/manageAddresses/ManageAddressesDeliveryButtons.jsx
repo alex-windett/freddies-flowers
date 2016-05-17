@@ -7,7 +7,6 @@ class ManageAddressesDeliveryButtons extends React.Component {
 
     constructor(props) {
         super(props)
-        const quantity = this.props.addressData.quantity
 
         this.state = {
             decreaseHide: '',
@@ -80,6 +79,10 @@ class ManageAddressesDeliveryButtons extends React.Component {
             </div>
         )
     }
+}
+
+ManageAddressesDeliveryButtons.propTypes = {
+    addressData: React.PropTypes.object.isRequired,
 }
 
 export default ManageAddressesDeliveryButtons

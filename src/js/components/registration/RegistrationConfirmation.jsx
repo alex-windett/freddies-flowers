@@ -41,4 +41,8 @@ class RegistrationConfirmation extends React.Component {
     }
 }
 
+RegistrationConfirmation.propTypes = {
+    fieldValues: React.PropTypes.object
+}
+
 export default RegistrationConfirmation
