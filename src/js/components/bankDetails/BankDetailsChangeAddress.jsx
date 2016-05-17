@@ -18,6 +18,10 @@ class BankDetailsChangeAddress extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.onSelectChange()
+    }
+
     onSelectChange() {
         const dropdownSelect    = $('.bankdetails__address select')
         const options           = dropdownSelect.children()
@@ -107,7 +111,7 @@ class BankDetailsChangeAddress extends React.Component {
                         <button
                             className="button button__secondary"
                             disabled={!this.state.canFormSubmit}>
-                            Edit
+                            Add
                         </button>
                     </section>
 
