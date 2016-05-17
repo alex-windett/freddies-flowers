@@ -18,7 +18,7 @@ class AccountDashboard extends React.Component {
         return (
             <section className="dashboard">
                 <div className='row'>
-                    <div className='column medium-6 dashboard__item'>
+                    <div className='column medium-6 dashboard__item dashboard__item--deliveries'>
                         <Deliveries />
                     </div>
 

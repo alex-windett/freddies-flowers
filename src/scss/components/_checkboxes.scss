@@ -1,5 +1,5 @@
 .boleanInput {
-    margin-bottom: rem-calc(20) !important;
+    margin-bottom: rem-calc(20);
 
     &__label {
         display: inline-block;
@@ -14,8 +14,6 @@
 
             $image: $img-icon-path + 'checkbox.png';
             @include pseudo-el(before, 32px, 30px) {
-                left: -40px;
-                top: -5px;
                 background: url($image) no-repeat;
             }
         }

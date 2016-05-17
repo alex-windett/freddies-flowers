@@ -2,6 +2,10 @@
 
     &__item {
 
+        &--deliveries {
+            @import 'deliveries';
+        }
+
         &--share {
             @import 'share';
         }

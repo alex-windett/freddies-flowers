@@ -39,13 +39,14 @@ const DeliveryItem = React.createClass({
 
         return (
 
-            <section className="boleanInput clear" onClick={this.removeDelivery} key={delivery.id} >
+            <section className="boleanInput clearfix delivery" onClick={this.removeDelivery} key={delivery.id} >
                 <input
-                    className={`booleanInput__input booleanInput__input--checkbox clear`} checked={this.state.defaultChecked}
+                    className="booleanInput__input booleanInput__input--checkbox"
+                    checked={this.state.defaultChecked}
                     onChange={this.removeDelivery}
                     type="checkbox" />
                 <label
-                    className="boleanInput__label clear"
+                    className="boleanInput__label delivery__date"
                     htmlFor="ticked-checkbox">{delivery.date}</label>
             </section>
         )
@@ -78,10 +79,10 @@ class Deliveries extends React.Component {
         })
 
         return (
-            <div className="decoration decoration__paper decoration__tape decoration__tape--left">
-                <h2 className="text-center">Your upcoming deliveries</h2>
+            <div className="decoration decoration__paper decoration__tape decoration__tape--left deliveries">
+                <h2 className="text-center deliveries__title">Your upcoming deliveries</h2>
 
-                <p>Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>
+                <p className="text-center deliveries__introduction">Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>
 
                 {Items}
             </div>
