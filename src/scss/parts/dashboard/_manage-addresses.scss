@@ -15,3 +15,17 @@
         text-align: center;
     }
 }
+
+
+@include breakpoint(small only) {
+    .address {
+
+        &__buttons {
+
+            &--button {
+                display: inline-block;
+                // margin-top: 0;
+            }
+        }
+    }
+}

@@ -15,6 +15,10 @@
 
         &--number {
             margin-left: rem-calc(20);
+
+            @include breakpoint(small only) {
+                width: 70%;
+            }
         }
     }
 
@@ -25,7 +29,11 @@
         .dropdown {
             float: left;
             margin-left: rem-calc(15);
-            width: 42%;
+            width: 70%;
+
+            @include breakpoint(medium up) {
+                width: 42%;
+            }
         }
 
         &--title {
@@ -35,6 +43,11 @@
 
     &__toggle,
     &__submit {
-        float: right
+        clear: both;
+        float: left;
+
+        @include breakpoint(medium up) {
+            float: right
+        }
     }
 }

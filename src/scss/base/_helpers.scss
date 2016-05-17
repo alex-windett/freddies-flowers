@@ -26,8 +26,10 @@
 	text-align: center;
 }
 
-.padder {
-    margin: rem-calc(50 0);
+@include breakpoint(medium up) {
+	.padder {
+		margin: rem-calc(50 0);
+	}
 }
 
 .clear {

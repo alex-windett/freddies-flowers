@@ -14,8 +14,8 @@
     }
 
     & + & {
-        margin-top: rem-calc(10);
-        
+        margin-left: rem-calc(10);
+
         @include breakpoint(medium up) {
             margin-top: 0;
             margin-left: rem-calc(20);

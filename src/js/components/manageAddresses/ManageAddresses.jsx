@@ -82,7 +82,7 @@ class ManageAddresses extends React.Component {
         const tableRows = addresses.map( address => {
 
             return (
-                <tr key={address.id} className="table__row">
+                <tr key={address.id} className="table__row address">
                     <td>{address.address}</td>
                     <td>
                         <ManageAddressesDeliveryButtons addressData={address}>
@@ -90,15 +90,15 @@ class ManageAddresses extends React.Component {
                         </ManageAddressesDeliveryButtons>
                     </td>
                     <td>£{address.cost}</td>
-                    <td>
+                    <td className="address__buttons">
                         <button
-                            className="button button__primary"
+                            className="button button__primary address__buttons--button"
                             onClick={ _ => this.editAddress(address) }>
                             Edit
                         </button>
 
                         <button
-                            className={"button button__secondary " + this.state.hidden}
+                            className={`button button__secondary  address__buttons--button ${this.state.hidden}`}
                             onClick={this.deleteAddress.bind(this)}
                             data-id={address.id}>
                             Cancel

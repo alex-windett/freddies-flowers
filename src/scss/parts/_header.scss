@@ -15,7 +15,10 @@
         }
 
         &--sticky {
-
+            
+            @include breakpoint(small only) {
+                padding: 0
+            }
             .useraccess {
                 margin-top: 0;
 

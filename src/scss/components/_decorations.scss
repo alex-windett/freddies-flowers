@@ -1,5 +1,9 @@
 .decoration {
-    padding: rem-calc(30);
+    padding: rem-calc(10);
+
+    @include breakpoint(medium up) {
+        padding: rem-calc(30);
+    }
 
     @extend %boxshadow;
 

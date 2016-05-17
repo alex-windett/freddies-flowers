@@ -1,6 +1,10 @@
 .columns,
 .column {
     position: relative;
+
+    & + & {
+        margin-top: rem-calc(20);
+    }
 }
 
 .row {
