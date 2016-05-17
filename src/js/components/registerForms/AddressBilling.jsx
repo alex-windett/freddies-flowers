@@ -5,6 +5,7 @@ import Action from '../../actions/registerFormsActions'
 import Store from '../../stores/registerFormsStore'
 import Input from '../forms/Input'
 import CardDetailsInputs from '../forms/CardDetailsInputs'
+import BillingAddressInputs from '../forms/BillingAddressInputs'
 
 class AddressBilling extends React.Component {
 
@@ -56,51 +57,11 @@ class AddressBilling extends React.Component {
 
     render () {
 
-        const buttonAdditionalStyle = {
-            marginBottom: "16px"
-        }
-
         return (
             <div className="decoration decoration__plain registration__form">
                 <Formsy.Form ref="newAddressForm" className="clearfix registration registration__billing" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
-                    <Input className="clearfix input__left"
-                        placeholder="Postcode"
-                        name="postcode"
-                        validations={{
-                            isExisty: true
-                        }} >
-                    </Input>
-
-                    <button style={buttonAdditionalStyle} className="button button__secondary input__right">Find Address</button>
-                    <br />
-
-                    <Input className="input__left"
-                        placeholder="House Number"
-                        name="house"
-                        validations={{
-                            isExisty: true
-                        }} />
-                    <Input className="input__right"
-                        placeholder="Street Name"
-                        name="street"
-                        validations={{
-                            isExisty: true
-                        }} />
-                    <Input className="input__left"
-                        placeholder="Town or City"
-                        name="town"
-                        validations={{
-                            isExisty: true
-                        }} />
-
-                    <Input className="input__right"
-                        placeholder="Delivery Instructions"
-                        name="delivery" />
-
-                    <p className="clear small text-center">Enter your postocde to find out your delivery day</p>
-                    <h3>Your payment details</h3>
-
+                    <BillingAddressInputs />
 
                     <CardDetailsInputs />
 

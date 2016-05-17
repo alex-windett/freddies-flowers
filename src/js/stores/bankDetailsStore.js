@@ -14,7 +14,6 @@ class BankDetailsStore extends EventEmitter {
             "cards": [
                 {
                     "id": 1,
-                    "ç": '',
                     "cardNumber": "63040362932181450",
                     "expiriy": '',
                     "cvv": '',
@@ -103,7 +102,7 @@ class BankDetailsStore extends EventEmitter {
 
         addressID = helper.findById(this.bankdetails.addresses, id)
 
-        
+
         debugger
     }
 
