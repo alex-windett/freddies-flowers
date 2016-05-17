@@ -63,6 +63,11 @@ class Deliveries extends React.Component {
                 <p className="text-center deliveries__introduction">Going on holiday? Not a fan of next weeks flowers? Skip upcoming deliveries here.</p>
 
                 {Items}
+
+                <footer className="clearfix">
+                    <a href="#" className="no-link deliveries__more deliveries__more--earlier">Earlier Deliveries</a>
+                    <a href="#" className="no-link deliveries__more deliveries__more--later">Later Deliveries</a>
+                </footer>
             </div>
         )
     }
