@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Deliveries from './components/deliveries/Deliveries'
-import Share from './components/share/Share'
-import ManageAddresses from './components/manageAddresses/ManageAddresses'
-import AccountDetails from './components/accountDetails/AccountDetails'
-import BankDetails from './components/bankDetails/BankDetails'
+import Deliveries from './components/Deliveries/Deliveries'
+import Share from './components/Share/Share'
+import ManageAddresses from './components/ManageAddresses/ManageAddresses'
+import AccountDetails from './components/AccountDetails/AccountDetails'
+import BankDetails from './components/BankDetails/BankDetails'
 
 
 class AccountDashboard extends React.Component {
