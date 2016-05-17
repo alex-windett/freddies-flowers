@@ -31,6 +31,26 @@ class DeliveryStore extends EventEmitter {
                 id: 4,
                 date: 'Friday 4 September',
                 active: true
+            },
+            {
+                id: 5,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 6,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 7,
+                date: 'Friday 4 September',
+                active: true
+            },
+            {
+                id: 8,
+                date: 'Friday 4 September',
+                active: true
             }
         ]
     }

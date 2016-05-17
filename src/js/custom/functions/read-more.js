@@ -2,6 +2,7 @@ var readMore = {
 
     init() {
         this.homepage()
+        this.deliveries()
     },
 
     homepage() {
@@ -22,6 +23,10 @@ var readMore = {
                 trigger.hide()
             }
         })
+    },
+
+    deliveries() {
+            
     },
 }
 

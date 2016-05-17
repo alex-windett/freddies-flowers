@@ -6,48 +6,26 @@ const DeliveryItem = React.createClass({
 
     propTypes: {
         active: React.PropTypes.bool,
-        defaultChecked: React.PropTypes.bool,
         delivery: React.PropTypes.object
     },
 
-    getInitialState() {
-
-        return {
-            active: this.props.data.active,
-            defaultChecked: this.props.data.active,
-            delivery: this.props.data
-        }
-    },
-
-    componentDidMount() {
-        Store.on("change", _ => {
-            this.setState({
-                active: this.props.data.active,
-                defaultChecked: this.props.data.active,
-                delivery: this.props.data,
-            })
-        })
-    },
-
     removeDelivery() {
-        Actions.removeDelivery(this.state.delivery.id)
+        Actions.removeDelivery(this.props.delivery.id)
     },
 
     render() {
 
-        const delivery = this.state.delivery
-
         return (
 
-            <section className="boleanInput clearfix delivery" onClick={this.removeDelivery} key={delivery.id} >
+            <section className="boleanInput clearfix delivery" onClick={this.removeDelivery} key={this.props.delivery.id} >
                 <input
                     className="booleanInput__input booleanInput__input--checkbox"
-                    checked={this.state.defaultChecked}
+                    checked={this.props.delivery.active}
                     onChange={this.removeDelivery}
                     type="checkbox" />
                 <label
                     className="boleanInput__label delivery__date"
-                    htmlFor="ticked-checkbox">{delivery.date}</label>
+                    htmlFor="ticked-checkbox">{this.props.delivery.date}</label>
             </section>
         )
     }
@@ -74,7 +52,7 @@ class Deliveries extends React.Component {
 
         const Items = this.state.deliveries.map( delivery => {
             return (
-                <DeliveryItem key={delivery.id} data={delivery}/>
+                <DeliveryItem key={delivery.id} delivery={delivery}/>
             )
         })
 
