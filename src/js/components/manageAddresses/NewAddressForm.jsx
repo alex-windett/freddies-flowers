@@ -18,14 +18,12 @@ const NewAddressForm = React.createClass({
     },
 
     enableButton () {
-        console.log('able to submit')
         this.setState({
             canSubmit: true
         });
     },
 
     disableButton () {
-        console.log('unable to submit')
         this.setState({
             canSubmit: false
         });
