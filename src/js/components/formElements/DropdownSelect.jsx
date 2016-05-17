@@ -32,7 +32,7 @@ const DropdownSelect = React.createClass({
             <select
                 className="dropdown"
                 value={this.getValue()}
-                onChange={this.changeValue}>
+                onChange={this.changeValue} >
                 {this.props.children}
             </select>
         )

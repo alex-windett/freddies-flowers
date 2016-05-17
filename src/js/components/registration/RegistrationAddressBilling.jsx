@@ -66,7 +66,7 @@ class RegistrationAddressBilling extends React.Component {
 
                     <p className="clear small text-center">Enter your postocde to find out your delivery day</p>
                     <h3>Your payment details</h3>
-
+                        
                     <CardDetailsInputs />
 
                     <h3 className="text-center clear">You’ll be charged £20 a week on the morning of your delivery. Don’t worry – you can amend or cancel at any time. No quibbles!</h3>

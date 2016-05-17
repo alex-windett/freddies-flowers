@@ -11,17 +11,30 @@ class BankDetailsChangeAddress extends React.Component {
 
         this.state = {
             canSubmit: false,
+            newAddressVisible: 'hide',
         }
     }
 
-    enableButton() {
-        this.setState({
-            canSubmit: true
-        })
-    }
+    onChange() {
+        const dropdownSelect    = $('.bankdetails__address select')
+        const options           = dropdownSelect.children()
+        const addAddressOption  = dropdownSelect.find('option:last-child')
+        let selected            = dropdownSelect.find(':selected')
 
-    newAddress() {
+        if ( selected.val() === addAddressOption.val() ) {
+            this.setState({
+                newAddressVisible: '',
+            })
+        } else {
+            this.setState({
+                newAddressVisible: 'hide',
+                canSubmit: true,
+            })
+        }
 
+        // this.setState({
+        //     canSubmit: true
+        // })
     }
 
     submit(model) {
@@ -32,23 +45,32 @@ class BankDetailsChangeAddress extends React.Component {
 
         const addresses = this.props.addresses.map( a => {
 
-            return <option data-key={a.id} key={a.id}>{a.address}</option>
+            return (
+                <option
+                    value={a.address}
+                    data-key={a.id}
+                    key={a.id}>
+                    {a.address}
+                </option>
+             )
         })
 
         return (
             <Formsy.Form
                 refs="bankAddressForm"
                 className="bankdetails bankdetails__address"
-                onChange={this.enableButton.bind(this)}
+                onChange={this.onChange.bind(this)}
                 onSubmit={this.submit} >
                 <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
 
                 <DropdownSelect name="address">
                     {addresses}
-                    <option onClick={this.newAddress}>Add a new address...</option>
+                    <option onClick={this.newAddress} value="newAddress">Add a new address...</option>
                 </DropdownSelect>
 
-                <BillingAddressInputs className="hide"/>
+                <section className={this.state.newAddressVisible}>
+                    <BillingAddressInputs className="hide"/>
+                </section>
 
                 <button
                     className="button button__secondary bankdetails__submit"
