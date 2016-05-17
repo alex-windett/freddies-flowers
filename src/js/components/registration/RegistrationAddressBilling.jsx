@@ -1,15 +1,15 @@
-import React                    from 'react'
+import React                from 'react'
 
-import Formsy                   from 'formsy-react'
+import Formsy               from 'formsy-react'
 
-import Input                    from '../formElements/Input'
-import CardDetailsInputs        from '../formElements/CardDetailsInputs'
-import BillingAddressInputs     from '../formElements/BillingAddressInputs'
+import Input                from '../formElements/Input'
+import CardDetailsInputs    from '../formElements/CardDetailsInputs'
+import BillingAddressInputs from '../formElements/BillingAddressInputs'
 
-import Action                   from '../../actions/registerFormsActions'
-import Store                    from '../../stores/registerFormsStore'
+import Action               from '../../actions/registerFormsActions'
+import Store                from '../../stores/registerFormsStore'
 
-class AddressBilling extends React.Component {
+class RegistrationAddressBilling extends React.Component {
 
     constructor() {
         super()
@@ -79,4 +79,4 @@ class AddressBilling extends React.Component {
 
 }
 
-export default AddressBilling
+export default RegistrationAddressBilling

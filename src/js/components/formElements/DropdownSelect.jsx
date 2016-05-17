@@ -1,5 +1,5 @@
-import React from 'react'
-import Formsy from 'formsy-react'
+import React        from 'react'
+import Formsy       from 'formsy-react'
 
 const DropdownSelect = React.createClass({
 

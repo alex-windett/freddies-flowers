@@ -1,9 +1,9 @@
-import React from 'react'
+import React                        from 'react'
+import assign                       from 'object-assign'
 
-import AboutYou from './AboutYou'
-import AddressBilling  from './AddressBilling'
-import Confirmation  from './Confirmation'
-import assign        from 'object-assign'
+import RegistrationAboutYou         from './RegistrationAboutYou'
+import RegistrationAddressBilling   from './RegistrationAddressBilling'
+import RegistrationConfirmation     from './RegistrationConfirmation'
 
 // TODO:
     // Movoe object into Flux stores
@@ -26,7 +26,7 @@ let fieldValues = {
     cvv         : null,
 }
 
-class RegisterForms extends React.Component {
+class Registration extends React.Component {
     constructor(props) {
         super()
 
@@ -78,7 +78,7 @@ class RegisterForms extends React.Component {
             case 0:
                 return {
                     heading: 'About You',
-                    element: <AboutYou
+                    element: <RegistrationAboutYou
                         fieldValues={fieldValues}
                         nextStep={this.nextStep}
                         previousStep={this.previousStep}
@@ -87,7 +87,7 @@ class RegisterForms extends React.Component {
             case 1:
                 return {
                     heading: 'Address & Billing',
-                    element: <AddressBilling
+                    element: <RegistrationAddressBilling
                         fieldValues={fieldValues}
                         nextStep={this.nextStep}
                         previousStep={this.previousStep}
@@ -96,7 +96,7 @@ class RegisterForms extends React.Component {
             case 2:
                 return {
                     heading: 'Confirmation',
-                    element: <Confirmation
+                    element: <RegistrationConfirmation
                             fieldValues={fieldValues}
                             previousStep={this.previousStep}
                             submitRegistration={this.submitRegistration} />,
@@ -136,4 +136,4 @@ class RegisterForms extends React.Component {
     }
 }
 
-export default RegisterForms
+export default Registration

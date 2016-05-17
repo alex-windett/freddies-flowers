@@ -1,7 +1,7 @@
-import React from 'react'
+import React        from 'react'
 
-import Formsy from 'formsy-react'
-import Input from './Input'
+import Formsy       from 'formsy-react'
+import Input        from './Input'
 
 class BillingAddressInputs extends React.Component {
 

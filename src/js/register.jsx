@@ -1,7 +1,7 @@
 import React from 'react'
-import Register from './components/registerForms/RegisterForms'
+import Registration from './components/registration/Registration'
 
-class RegisterForms extends React.Component {
+class Register extends React.Component {
 
     constructor() {
         super()
@@ -10,7 +10,7 @@ class RegisterForms extends React.Component {
     render() {
 
         return (
-            <RegisterForms />
+            <Registration />
         )
     }
 }

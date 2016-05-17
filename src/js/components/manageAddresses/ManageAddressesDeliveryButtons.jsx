@@ -1,9 +1,9 @@
-import React from 'react'
+import React            from 'react'
 
-import Store from '../../stores/deliveryAddressStore'
-import GlobalConstant from '../../constants/GlobalConstants'
+import Store            from '../../stores/deliveryAddressStore'
+import GlobalConstant   from '../../constants/GlobalConstants'
 
-class ActionButtons extends React.Component {
+class ManageAddressesDeliveryButtons extends React.Component {
 
     constructor(props) {
         super(props)
@@ -82,4 +82,4 @@ class ActionButtons extends React.Component {
     }
 }
 
-export default ActionButtons
+export default ManageAddressesDeliveryButtons

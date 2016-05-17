@@ -1,13 +1,13 @@
-import React from 'react'
-import Input from './Input'
-import Formsy from 'formsy-react'
+import React        from 'react'
+import Input        from './Input'
+import Formsy       from 'formsy-react'
 
 var CardDetailsInputs = React.createClass({
 
     render() {
 
         return (
-            
+
             <div>
                 <Input className="clearfix input__left input__left--large"
                     placeholder="The Long Number"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Confirmation extends React.Component {
+class RegistrationConfirmation extends React.Component {
 
     constructor() {
         super()
@@ -41,4 +41,4 @@ class Confirmation extends React.Component {
     }
 }
 
-export default Confirmation
+export default RegistrationConfirmation

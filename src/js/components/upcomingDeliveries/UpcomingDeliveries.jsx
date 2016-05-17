@@ -1,6 +1,7 @@
-import React from 'react'
-import Store from '../../stores/deliveryStore'
-import Actions from '../../actions/deliveryActions'
+import React        from 'react'
+
+import Store        from '../../stores/deliveryStore'
+import Actions      from '../../actions/deliveryActions'
 
 const DeliveryItem = React.createClass({
 

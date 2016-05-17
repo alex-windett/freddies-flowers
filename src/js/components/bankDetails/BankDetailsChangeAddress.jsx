@@ -1,8 +1,8 @@
-import React from 'react'
-import Formsy from 'formsy-react'
-import DropdownSelect from '../forms/DropdownSelect'
+import React            from 'react'
+import Formsy           from 'formsy-react'
+import DropdownSelect   from '../formElements/DropdownSelect'
 
-class ChangeAddress extends React.Component {
+class BankDetailsChangeAddress extends React.Component {
 
     constructor(props) {
         super(props)
@@ -53,4 +53,4 @@ class ChangeAddress extends React.Component {
     }
 }
 
-export default ChangeAddress
+export default BankDetailsChangeAddress

@@ -1,15 +1,15 @@
-import React                from 'react'
-import Formsy               from 'formsy-react';
+import React                    from 'react'
+import Formsy                   from 'formsy-react';
 
-import DropdownSelect       from '../forms/DropdownSelect'
-import Input                from '../forms/Input'
-import CardDetailsInputs    from '../forms/CardDetailsInputs'
-import ChangeAddress        from './ChangeAddress'
+import DropdownSelect           from '../formElements/DropdownSelect'
+import Input                    from '../formElements/Input'
+import CardDetailsInputs        from '../formElements/CardDetailsInputs'
+import BankDetailsChangeAddress from './BankDetailsChangeAddress'
 
-import GlobalConstant       from '../../constants/GlobalConstants'
+import GlobalConstant           from '../../constants/GlobalConstants'
 
-import Store                from '../../stores/bankDetailsStore'
-import Actions              from '../../actions/bankDetailsActions'
+import Store                    from '../../stores/bankDetailsStore'
+import Actions                  from '../../actions/bankDetailsActions'
 
 
 var RegisteredCards = React.createClass({
@@ -127,7 +127,7 @@ class BankDetails extends React.Component {
 
                 <RegisteredCards bankCards={this.state.bankDetails.cards} />
 
-                <ChangeAddress addresses={this.state.bankDetails.addresses}/>
+                <BankDetailsChangeAddress addresses={this.state.bankDetails.addresses}/>
             </div>
         )
     }

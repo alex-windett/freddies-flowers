@@ -1,13 +1,13 @@
-import React from 'react'
+import React                            from 'react'
 
-import NewAddressForm from './NewAddressForm'
-import EditAddressForm from './EditAddressForm'
-import ActionButtons from './ActionButtons'
+import ManageAddressesNewAddress        from './ManageAddressesNewAddress'
+import ManageAddressesEditAddress       from './ManageAddressesEditAddress'
+import ManageAddressesDeliveryButtons   from './ManageAddressesDeliveryButtons'
 
-import GlobalConstant from '../../constants/GlobalConstants'
+import GlobalConstant                   from '../../constants/GlobalConstants'
 
-import Store from '../../stores/deliveryAddressStore'
-import Actions from '../../actions/deliveryAddressActions'
+import Store                            from '../../stores/deliveryAddressStore'
+import Actions                          from '../../actions/deliveryAddressActions'
 
 
 class ManageAddresses extends React.Component {
@@ -85,9 +85,9 @@ class ManageAddresses extends React.Component {
                 <tr key={address.id} className="table__row">
                     <td>{address.address}</td>
                     <td>
-                        <ActionButtons addressData={address}>
+                        <ManageAddressesDeliveryButtons addressData={address}>
                             {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
-                        </ActionButtons>
+                        </ManageAddressesDeliveryButtons>
                     </td>
                     <td>£{address.cost}</td>
                     <td>
@@ -131,11 +131,11 @@ class ManageAddresses extends React.Component {
                 <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
 
                 <div className={`form form__addAddress ${this.state.newFormVisibility}`} >
-                    <NewAddressForm />
+                    <ManageAddressesNewAddress />
                 </div>
 
                 <div className={`form form__editAddress ${this.state.editFormVisibility}`} >
-                    <EditAddressForm editingAddress={this.state.selected} />
+                    <ManageAddressesEditAddress editingAddress={this.state.selected} />
                 </div>
 
 
