@@ -52,8 +52,7 @@ class RegistrationAddressBilling extends React.Component {
 
         this.props.saveValues(data)
 
-        const completeUserData = this.props.fieldValues
-        Action.createUser(completeUserData)
+        Action.createUser(this.props.fieldValues)
         this.props.nextStep()
     }
 
@@ -64,6 +63,9 @@ class RegistrationAddressBilling extends React.Component {
                 <Formsy.Form ref="newAddressForm" className="clearfix registration registration__billing" onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
 
                     <BillingAddressInputs />
+
+                    <p className="clear small text-center">Enter your postocde to find out your delivery day</p>
+                    <h3>Your payment details</h3>
 
                     <CardDetailsInputs />
 

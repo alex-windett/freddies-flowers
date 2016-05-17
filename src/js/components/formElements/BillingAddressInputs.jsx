@@ -50,9 +50,6 @@ class BillingAddressInputs extends React.Component {
                 <Input className="input__right"
                     placeholder="Delivery Instructions"
                     name="delivery" />
-
-                <p className="clear small text-center">Enter your postocde to find out your delivery day</p>
-                <h3>Your payment details</h3>
             </div>
         )
     }

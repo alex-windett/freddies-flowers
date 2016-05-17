@@ -1,6 +1,8 @@
-import React            from 'react'
-import Formsy           from 'formsy-react'
-import DropdownSelect   from '../formElements/DropdownSelect'
+import React                    from 'react'
+import Formsy                   from 'formsy-react'
+
+import DropdownSelect           from '../formElements/DropdownSelect'
+import BillingAddressInputs     from '../formElements/BillingAddressInputs'
 
 class BankDetailsChangeAddress extends React.Component {
 
@@ -16,6 +18,10 @@ class BankDetailsChangeAddress extends React.Component {
         this.setState({
             canSubmit: true
         })
+    }
+
+    newAddress() {
+
     }
 
     submit(model) {
@@ -39,8 +45,10 @@ class BankDetailsChangeAddress extends React.Component {
 
                 <DropdownSelect name="address">
                     {addresses}
-                    <option>Add a new address...</option>
+                    <option onClick={this.newAddress}>Add a new address...</option>
                 </DropdownSelect>
+
+                <BillingAddressInputs className="hide"/>
 
                 <button
                     className="button button__secondary bankdetails__submit"

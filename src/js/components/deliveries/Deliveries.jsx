@@ -4,11 +4,11 @@ import Actions      from '../../actions/deliveryActions'
 
 const DeliveryItem = React.createClass({
 
-    propTypes = {
+    propTypes: {
         active: React.PropTypes.bool,
         defaultChecked: React.PropTypes.bool,
         delivery: React.PropTypes.object
-    }
+    },
 
     getInitialState() {
 
