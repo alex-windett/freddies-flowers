@@ -54,7 +54,7 @@ class BankDetailsStore extends EventEmitter {
                 {
                     "id": 3,
                     "address": "some palce in london",
-                    "active": false
+                    "active": true
                 },
                 {
                     "id": 4,
@@ -97,13 +97,34 @@ class BankDetailsStore extends EventEmitter {
         this.emit(GlobalConstant.CHANGE_EVENT)
     }
 
-    editAddress(address) {
-        const id = address.id
+    // editAddress(address) {
+    //     const id = address.id
+    //
+    //     addressID = helper.findById(this.bankdetails.addresses, id)
+    // }
 
-        addressID = helper.findById(this.bankdetails.addresses, id)
+    newBankAddress(address) {
 
+        /**
+            For each of the current addresses set their billing address
+            activity to false
 
-        debugger
+            Then add the new address with its status as active
+        */
+        for ( let address of this.bankDetails.addresses ) {
+            address.active = false
+        }
+
+        const newBankAddress = {
+            id: Date.now(),
+            postcode: address.postcode,
+            address: `${address.house} ${address.street}`,
+            active: true,
+        }
+
+        this.bankDetails.addresses.push(newBankAddress)
+
+        this.emit(GlobalConstant.CHANGE_EVENT)
     }
 
     handleActions(action) {
@@ -120,8 +141,13 @@ class BankDetailsStore extends EventEmitter {
                 break
             }
 
-            case BankDetailsConstant.EDIT_BANKADDRESS: {
-                this.editAddress(action.address)
+            // case BankDetailsConstant.EDIT_BANKADDRESS: {
+            //     this.editAddress(action.address)
+            //     break
+            // }
+
+            case BankDetailsConstant.NEW_BANKADDRESS: {
+                this.newBankAddress(action.address)
                 break
             }
         }

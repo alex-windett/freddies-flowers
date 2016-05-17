@@ -69,7 +69,7 @@ class BankDetailsRegisteredCards extends React.Component {
                 <Formsy.Form
                     ref="newBankCard"
                     className={`${this.state.formVisible} clear bankdetails__form`}
-                    onSubmit={this.submit}
+                    onSubmit={this.submit.bind(this)}
                     onValid={this.enableButton.bind(this)}
                     onInvalid={this.disableButton.bind(this)} >
 
