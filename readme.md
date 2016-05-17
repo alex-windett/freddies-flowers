@@ -30,6 +30,17 @@ It can be summerized here:
 
 ### Props and State
 - They should both be written in camelCase
+- Add the component PropTypes after the class is declared
+    - This is good as a reference point
+    - It also gives indications if things break
+    ```
+    RegistrationAddressBilling.propTypes = {
+        previousStep: React.PropTypes.func.isRequired,
+        nextStep: React.PropTypes.func.isRequired,
+        saveValues: React.PropTypes.func.isRequired,
+        fieldValues: React.PropTypes.object
+    }
+    ```
 
 
 ### Methods
