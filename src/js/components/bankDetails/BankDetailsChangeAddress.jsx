@@ -53,4 +53,9 @@ class BankDetailsChangeAddress extends React.Component {
     }
 }
 
+
+BankDetailsChangeAddress.propTypes = {
+    addresses: React.PropTypes.array
+}
+
 export default BankDetailsChangeAddress
