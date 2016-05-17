@@ -1,13 +1,12 @@
-import React from 'react'
+import React            from 'react'
 
-import Store from '../../stores/deliveryAddressStore'
-import GlobalConstant from '../../constants/GlobalConstants'
+import Store            from '../../stores/deliveryAddressStore'
+import GlobalConstant   from '../../constants/GlobalConstants'
 
-class ActionButtons extends React.Component {
+class ManageAddressesDeliveryButtons extends React.Component {
 
     constructor(props) {
         super(props)
-        const quantity = this.props.addressData.quantity
 
         this.state = {
             decreaseHide: '',
@@ -82,4 +81,8 @@ class ActionButtons extends React.Component {
     }
 }
 
-export default ActionButtons
+ManageAddressesDeliveryButtons.propTypes = {
+    addressData: React.PropTypes.object.isRequired,
+}
+
+export default ManageAddressesDeliveryButtons

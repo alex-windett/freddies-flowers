@@ -1,9 +1,8 @@
 .boleanInput {
-    margin-bottom: rem-calc(20) !important; // Overrides Foundation
+    margin-bottom: rem-calc(20);
 
     &__label {
         display: inline-block;
-        font-family: $font__tertiary;
     }
 
     input[type=checkbox] {
@@ -11,11 +10,10 @@
 
         + label {
             margin-left: rem-calc(40);
+            text-decoration: line-through;
 
             $image: $img-icon-path + 'checkbox.png';
             @include pseudo-el(before, 32px, 30px) {
-                left: -40px;
-                top: -5px;
                 background: url($image) no-repeat;
             }
         }
@@ -23,6 +21,7 @@
         &:checked {
             + label {
 
+                text-decoration: none;
                 $image: $img-icon-path + 'checkbox-active.png';
                 @include pseudo-el(before, 32px, 30px) {
                     background: url($image) no-repeat;

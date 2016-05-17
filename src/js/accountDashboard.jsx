@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import UpcomingDeliveries from './components/upcomingDeliveries/UpcomingDeliveries'
-import Share from './components/share/Share'
-import ManageAddressesList from './components/manageAddresses/ManageAddressesList'
-import AccountDetails from './components/accountDetails/AccountDetails'
-import BankDetails from './components/bankDetails/BankDetails'
+import Deliveries from './components/Deliveries/Deliveries'
+import Share from './components/Share/Share'
+import ManageAddresses from './components/ManageAddresses/ManageAddresses'
+import AccountDetails from './components/AccountDetails/AccountDetails'
+import BankDetails from './components/BankDetails/BankDetails'
 
 
 class AccountDashboard extends React.Component {
@@ -18,8 +18,8 @@ class AccountDashboard extends React.Component {
         return (
             <section className="dashboard">
                 <div className='row'>
-                    <div className='column medium-6 dashboard__item'>
-                        <UpcomingDeliveries/>
+                    <div className='column medium-6 dashboard__item dashboard__item--deliveries'>
+                        <Deliveries />
                     </div>
 
                     <div className='column medium-6 dashboard__item dashboard__item--share'>
@@ -28,7 +28,7 @@ class AccountDashboard extends React.Component {
                 </div>
 
                 <div className="row column dashboard__item dashboard__item--addresses">
-                    <ManageAddressesList />
+                    <ManageAddresses />
                 </div>
 
                 <div className='row'>
@@ -36,7 +36,7 @@ class AccountDashboard extends React.Component {
                         <AccountDetails />
                     </div>
 
-                    <div className='column medium-6 dashboard__item'>
+                    <div className='column medium-6 dashboard__item dashboard__item--bankdetails'>
                         <BankDetails />
                     </div>
                 </div>

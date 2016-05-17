@@ -1,0 +1,40 @@
+.bankdetails {
+
+    &__current,
+    &__address {
+        float: left;
+        display: inline-block;
+        margin-top: rem-calc(5);
+    }
+
+    &__form {
+        margin-top: rem-calc(20);
+    }
+
+    &__current {
+
+        &--number {
+            margin-left: rem-calc(20);
+        }
+    }
+
+    &__address {
+        float: left;
+        margin-top: rem-calc(20);
+
+        .dropdown {
+            float: left;
+            margin-left: rem-calc(15);
+            width: 42%;
+        }
+
+        &--title {
+            margin-top: rem-calc(10);
+        }
+    }
+
+    &__toggle,
+    &__submit {
+        float: right
+    }
+}

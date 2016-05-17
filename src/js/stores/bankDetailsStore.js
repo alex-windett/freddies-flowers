@@ -3,6 +3,7 @@ import Dispatcher from '../dispatcher'
 
 import BankDetailsConstant from '../constants/BankDetailsConstants'
 import GlobalConstant from '../constants/GlobalConstants'
+import helper from '../helpers.js'
 
 class BankDetailsStore extends EventEmitter {
 
@@ -14,28 +15,30 @@ class BankDetailsStore extends EventEmitter {
                 {
                     "id": 1,
                     "cardNumber": "63040362932181450",
-                    "active": true
-                },
-                {
-                    "id": 2,
-                    "cardNumber": "67716697717121336",
-                    "active": false
-                },
-                {
-                    "id": 3,
-                    "cardNumber": "63041131913735868",
-                    "active": false
-                },
-                {
-                    "id": 4,
-                    "cardNumber": "63045501795013152",
-                    "active": false
-                },
-                {
-                    "id": 5,
-                    "cardNumber": "67095829910283875",
-                    "active": false
-                }
+                    "expiriy": '',
+                    "cvv": '',
+                    "active": true,
+                }//,
+                // {
+                //     "id": 2,
+                //     "cardNumber": "67716697717121336",
+                //     "active": false
+                // },
+                // {
+                //     "id": 3,
+                //     "cardNumber": "63041131913735868",
+                //     "active": false
+                // },
+                // {
+                //     "id": 4,
+                //     "cardNumber": "63045501795013152",
+                //     "active": false
+                // },
+                // {
+                //     "id": 5,
+                //     "cardNumber": "67095829910283875",
+                //     "active": false
+                // }
             ],
             "addresses": [
                 {
@@ -51,7 +54,7 @@ class BankDetailsStore extends EventEmitter {
                 {
                     "id": 3,
                     "address": "some palce in london",
-                    "active": false
+                    "active": true
                 },
                 {
                     "id": 4,
@@ -71,6 +74,58 @@ class BankDetailsStore extends EventEmitter {
         return this.bankDetails
     }
 
+    newBankCard(card) {
+        const newCard = {
+            "id": Date.now(),
+            "cardHolder": card.cardHolder,
+            "cardNumber": card.cardNumber,
+            "expiriy": card.expiriy,
+            "cvv": card.cvv,
+            "active": true
+        }
+
+        // Clear all the current bank cards - should only be 1
+        while ( this.bankDetails.cards.length > 0) {
+            this.bankDetails.cards.pop();
+        }
+
+        // Add the newly created card
+        this.bankDetails.cards.push(newCard)
+
+        console.log(this.bankDetails.cards)
+
+        this.emit(GlobalConstant.CHANGE_EVENT)
+    }
+
+    // editAddress(address) {
+    //     const id = address.id
+    //
+    //     addressID = helper.findById(this.bankdetails.addresses, id)
+    // }
+
+    newBankAddress(address) {
+
+        /**
+            For each of the current addresses set their billing address
+            activity to false
+
+            Then add the new address with its status as active
+        */
+        for ( let address of this.bankDetails.addresses ) {
+            address.active = false
+        }
+
+        const newBankAddress = {
+            id: Date.now(),
+            postcode: address.postcode,
+            address: `${address.house} ${address.street}`,
+            active: true,
+        }
+
+        this.bankDetails.addresses.push(newBankAddress)
+
+        this.emit(GlobalConstant.CHANGE_EVENT)
+    }
 
     handleActions(action) {
 
@@ -78,6 +133,21 @@ class BankDetailsStore extends EventEmitter {
 
             case BankDetailsConstant.GET_BANKDETAILS: {
                 this.getBankDetails()
+                break
+            }
+
+            case BankDetailsConstant.NEW_BANKCARD: {
+                this.newBankCard(action.card)
+                break
+            }
+
+            // case BankDetailsConstant.EDIT_BANKADDRESS: {
+            //     this.editAddress(action.address)
+            //     break
+            // }
+
+            case BankDetailsConstant.NEW_BANKADDRESS: {
+                this.newBankAddress(action.address)
                 break
             }
         }

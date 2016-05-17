@@ -1,9 +1,10 @@
-import React from 'react'
+import React            from 'react'
 
-import Formsy from 'formsy-react'
-import Input from '../forms/Input'
+import Formsy           from 'formsy-react'
 
-class AboutYou extends React.Component {
+import Input            from '../formElements/Input'
+
+class RegistrationAboutYou extends React.Component {
 
     constructor() {
         super()
@@ -113,4 +114,10 @@ class AboutYou extends React.Component {
     }
 }
 
-export default AboutYou
+RegistrationAboutYou.propTypes = {
+    nextStep: React.PropTypes.func.isRequired,
+    saveValues: React.PropTypes.func.isRequired,
+    fieldValues: React.PropTypes.object
+}
+
+export default RegistrationAboutYou

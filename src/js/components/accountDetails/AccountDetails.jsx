@@ -1,10 +1,10 @@
-import React from 'react'
+import React        from 'react'
 
-import Formsy from 'formsy-react'
-import Input from '../forms/Input'
+import Formsy       from 'formsy-react'
+import Input        from '../formElements/Input'
 
-import Store from '../../stores/accountDetailsStore'
-import Actions from '../../actions/accountDetailsActions'
+import Store        from '../../stores/accountDetailsStore'
+import Actions      from '../../actions/accountDetailsActions'
 
 
 class AccountDetails extends React.Component {
