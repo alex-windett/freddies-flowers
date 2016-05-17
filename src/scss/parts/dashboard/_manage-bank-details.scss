@@ -43,7 +43,7 @@
 
     &__toggle,
     &__submit {
-        clear: both;
+        
         float: left;
 
         @include breakpoint(medium up) {

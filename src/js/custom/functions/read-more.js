@@ -25,7 +25,25 @@ var readMore = {
     },
 
     deliveries() {
+        const initialShown  = 5
+        let currentShown    = initialShown
+        const deliveries    = $('.deliveries')
+        const delivery      = deliveries.find('.delivery')
+        const earlierTrigger        = deliveries.find('.deliveries__more--earlier')
+        const laterTrigger        = deliveries.find('.deliveries__more--later')
 
+        delivery.hide()
+        delivery.slice(0, initialShown).show()
+
+        earlierTrigger.on('click', function (e) {
+            let currentShown = currentShown + initialShown
+            $(".delivery").slice(0, currentShown).hide()
+            $(".delivery:hidden").slice(currentShown, initialShown).show()
+
+            if ( $(".delivery:hidden").length <= 0 ) {
+                trigger.hide()
+            }
+        })
     }
 }
 
