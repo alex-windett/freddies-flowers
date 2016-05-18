@@ -1,7 +1,9 @@
+$dropdown__color: $color__primary--mid;
+$dropdown__color--hover: #dadada;
+
+
 .dk-select,
 .custom-dropdown {
-    $dropdown__color: $color__primary--mid;
-    $dropdown__color--hover: #dadada;
 
     width: 100% !important; // Override plugin styles
     margin: rem-calc(20 0 0);
@@ -84,6 +86,65 @@
 
         &--description {
             color: $color__warning;
+        }
+    }
+}
+
+
+
+// ****************************************
+// List style dropdown select
+// ****************************************
+
+
+.dropdown {
+    margin-bottom: rem-calc(20);
+
+    &__text {
+        color: $color__primary--dark;
+    }
+
+    &__selected {
+        color: $dropdown__color;
+        cursor: pointer;
+        display: block;
+    }
+
+    &__link {
+
+        &--selected {
+            padding: rem-calc(5 10);
+            width: 100%;
+            background: #fff no-repeat scroll right center;
+            display: block;
+            border: 1px solid $dropdown__color;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+
+        &--option {
+            padding: 5px;
+            display: block;
+            text-decoration: none;
+            color: $color__primary--dark;
+
+            &:hover {
+                background: $color__primary;
+                text-decoration: none;
+                transition: 0.2s ease;
+            }
+        }
+    }
+
+    &__options {
+
+        &--list {
+            background: #fff none repeat scroll 0 0;
+            display: none;
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            border: 1px solid #d7d7d7;
         }
     }
 }
