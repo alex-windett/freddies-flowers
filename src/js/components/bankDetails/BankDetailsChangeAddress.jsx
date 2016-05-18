@@ -31,6 +31,7 @@ class BankDetailsChangeAddress extends React.Component {
         if ( selected.val() === addAddressOption.val() ) {
             this.setState({
                 newAddressVisible: '',
+                canSelectSubmit: false,
             })
         } else {
             this.setState({
@@ -92,7 +93,7 @@ class BankDetailsChangeAddress extends React.Component {
 
                     <button
                         className="button button__secondary bankdetails__submit"
-                        disabled={!this.state.canSubmit}>
+                        disabled={!this.state.canSelectSubmit}>
                         Edit
                     </button>
 
