@@ -1,9 +1,27 @@
 .table {
     width: 100%;
 
-    &--stackable {
-        @extend table.stack;
+    @include breakpoint(small only) {
+        &--stackable {
+            @extend table.stack;
+        }
     }
+
+    // @include breakpoint(small only) {
+    //     // Similar to Foundation include but that only effects medium down, not small down
+    //     // see bower_components/foundation-sites/scss/components/_table.scss line 215
+    //     &--stackable {
+    //         tr,
+    //         th,
+    //         td {
+    //           display: block;
+    //         }
+    //
+    //         td {
+    //           border-top: 0;
+    //         }
+    //     }
+    // }
 
     &__row,
     thead,

@@ -30,7 +30,13 @@
         $button--hover: darken($color__cta--primary, 20%);
         @include hover-transition(button, $color__cta--primary, $button--hover)
         color: white;
+
         padding: rem-calc(10 50 5);
+
+        @include breakpoint(small only) {
+            padding: 4% 10% 1%;
+            font-size: 3.5vw;
+        }
 
         &--small {
             font-size: 10px;
@@ -42,6 +48,11 @@
         @include hover-transition(button, $color__cta--secondary, $button--hover)
         color: black;
         padding: rem-calc(10 50 5);
+
+        @include breakpoint(small only) {
+            padding: 4% 10% 1%;
+            font-size: 3.5vw;
+        }
 
         &--small {
             font-size: 10px;
