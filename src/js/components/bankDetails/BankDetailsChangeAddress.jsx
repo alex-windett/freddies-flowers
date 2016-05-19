@@ -64,15 +64,15 @@ class BankDetailsChangeAddress extends React.Component {
 
     render() {
 
-        const addresses = this.props.addresses.map( a => {
+        const addresses = this.props.addresses.map( address => {
             return (
                 // TODO: `selected='true'` throws error in React, but still works
                 <option
-                    selected={a.active}
-                    value={a.address}
-                    data-key={a.id}
-                    key={a.id} >
-                    {a.address}
+                    selected={address.active}
+                    value={address.address}
+                    data-key={address.id}
+                    key={address.id} >
+                    {address.address}
                 </option>
              )
         })
