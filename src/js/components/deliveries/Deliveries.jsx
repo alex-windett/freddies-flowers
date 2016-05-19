@@ -37,9 +37,8 @@ const DeliveryItem = React.createClass({
                     checked={this.props.delivery.active}
                     onChange={this.removeDelivery}
                     type="checkbox" />
-                <label
-                    className="boleanInput__label delivery__date"
-                    htmlFor="ticked-checkbox">
+                
+                <label className="boleanInput__label delivery__date" >
                         {this.props.delivery.date}
                 </label>
             </section>
