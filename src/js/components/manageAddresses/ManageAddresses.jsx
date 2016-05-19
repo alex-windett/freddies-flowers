@@ -83,13 +83,13 @@ class ManageAddresses extends React.Component {
 
             return (
                 <tr key={address.id} className="table__row address">
-                    <td>{address.address}</td>
-                    <td>
+                    <td className="address__address">{address.address}</td>
+                    <td className="address__boxs">
                         <ManageAddressesDeliveryButtons addressData={address}>
                             {address.quantity} {address.quantity > 1 ? 'boxes' : 'box'}
                         </ManageAddressesDeliveryButtons>
                     </td>
-                    <td>£{address.cost}</td>
+                    <td className="address__cost">Total Cost: £{address.cost}</td>
                     <td className="address__buttons">
                         <button
                             className="button button__primary address__buttons--button"
@@ -128,7 +128,10 @@ class ManageAddresses extends React.Component {
                     </table>
 
 
-                <button className="button button__primary" onClick={this.toggleFormVisibility.bind(this)}>Add an new delivery address</button>
+                <button
+                    className="button button__primary newaddresstoggle"  onClick={this.toggleFormVisibility.bind(this)} >
+                    Add an new delivery address
+                </button>
 
                 <div className={`form form__addAddress ${this.state.newFormVisibility}`} >
                     <ManageAddressesNewAddress />

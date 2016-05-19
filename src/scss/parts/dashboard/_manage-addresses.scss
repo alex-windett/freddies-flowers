@@ -1,30 +1,79 @@
 .form {
-    width: 70%;
     margin: rem-calc(30) auto 0;
+
+    @include breakpoint(medium up) {
+        width: 70%;
+    }
 
     &__addAddress,
     &__editAddress {
 
         .find-address {
-            margin-left: 4%;
+            margin-bottom: rem-calc(15);
+
+            @include breakpoint(medium up) {
+                margin-bottom: 0;
+                margin-left: 4%;
+            }
         }
     }
 
     &--actions {
         clear: both;
         text-align: center;
+
+        @include breakpoint(small only) {
+            .button {
+                display: inline-block;
+            }
+        }
     }
 }
 
+.newaddresstoggle {
+    @include breakpoint(small only) {
+        margin: 0 auto;
+    }
+}
 
-@include breakpoint(small only) {
-    .address {
+.address {
 
-        &__buttons {
+    border-bottom: solid 1px $color__primary--mid;
+
+    &:first-child {
+        border-top: solid 1px $color__primary--mid;
+    }
+
+    &__address {
+        @include breakpoint(small only) {
+            text-align: center;
+        }
+    }
+
+    &__boxs {
+        @include breakpoint(small only) {
+            float: left;
+            text-align: center;
+            width: 50%;
+        }
+    }
+
+    &__cost {
+        @include breakpoint(small only) {
+            float: right;
+            text-align: center;
+            width: 50%;
+        }
+    }
+
+    &__buttons {
+        clear: both;
+
+        @include breakpoint(small only) {
+            text-align: center;
 
             &--button {
                 display: inline-block;
-                // margin-top: 0;
             }
         }
     }
