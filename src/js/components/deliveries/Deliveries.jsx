@@ -36,15 +36,30 @@ class Deliveries extends React.Component {
     constructor() {
         super()
         this.state = {
-            deliveries: Store.getDeliveries()
+            deliveries: Store.getCurrentDeliveries()
         }
+
+        this.laterDeliveries = this.laterDeliveries.bind(this)
+        this.earlierDeliveries = this.earlierDeliveries.bind(this)
     }
 
     componentDidMount() {
-        Store.on("change", _ => {
-            this.setState({
-                deliveries: Store.getDeliveries()
-            })
+        // Store.on("change", _ => {
+        //     this.setState({
+        //         deliveries: Store.getDeliveries()
+        //     })
+        // })
+    }
+
+    laterDeliveries() {
+        this.setState({
+            deliveries: Store.laterDeliveries()
+        })
+    }
+
+    earlierDeliveries() {
+        this.setState({
+            deliveries: Store.earlierDeliveries()
         })
     }
 
@@ -65,8 +80,8 @@ class Deliveries extends React.Component {
                 {Items}
 
                 <footer className="clearfix">
-                    <a href="#" className="no-link deliveries__more deliveries__more--earlier">Earlier Deliveries</a>
-                    <a href="#" className="no-link deliveries__more deliveries__more--later">Later Deliveries</a>
+                    <a href="#" onClick={this.earlierDeliveries} className="no-link deliveries__more deliveries__more--earlier">Earlier Deliveries</a>
+                    <a href="#" onClick={this.laterDeliveries} className="no-link deliveries__more deliveries__more--later">Later Deliveries</a>
                 </footer>
             </div>
         )

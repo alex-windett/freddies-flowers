@@ -2,7 +2,7 @@ var readMore = {
 
     init() {
         this.homepage()
-        this.deliveries()
+        // this.deliveries()
     },
 
     homepage() {
