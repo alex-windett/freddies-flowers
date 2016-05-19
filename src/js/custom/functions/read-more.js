@@ -6,7 +6,7 @@ var readMore = {
     },
 
     homepage() {
-        const itemsPerRow      = 3
+        const itemsPerRow       = 3
         const trigger           = $('#pastDeliveriesReadMore')
         const deliveryItem      = $('.pastdelivery__item')
 

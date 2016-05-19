@@ -36,40 +36,75 @@ class Deliveries extends React.Component {
     constructor() {
         super()
         this.state = {
-            deliveries: Store.getCurrentDeliveries()
+            allDeliveries: Store.getDeliveries(),
+            deliveries: Store.getCurrentDeliveries(),
+            page: 1,
+            hideEarlier: '',
+            hideLater: '',
         }
 
-        this.laterDeliveries = this.laterDeliveries.bind(this)
-        this.earlierDeliveries = this.earlierDeliveries.bind(this)
+        this.maxPerPage         = 5
+        this.maxNumberPages     = Math.ceil( this.state.allDeliveries.length / this.maxPerPage )
+        this.laterDeliveries    = this.laterDeliveries.bind(this)
+        this.earlierDeliveries  = this.earlierDeliveries.bind(this)
     }
 
     componentDidMount() {
-        // Store.on("change", _ => {
-        //     this.setState({
-        //         deliveries: Store.getDeliveries()
-        //     })
-        // })
+        Store.on("change", _ => {
+            this.setState({
+                page: Store.getCurrentPage()
+            })
+        })
+
+        this.displayButton()
+    }
+
+    displayButton() {
+debugger
+        if ( this.state.page <= 1 ) {
+            this.setState({
+                hideEarlier: 'hide',
+                hideLater: '',
+            })
+        } else if (this.state.page >= this.maxNumberPages ) {
+            this.setState({
+                hideEarlier: '',
+                hideLater: 'hide',
+            })
+        }
+
+        // console.log(this.state.page, ' in function call')
     }
 
     laterDeliveries() {
         this.setState({
-            deliveries: Store.laterDeliveries()
-        })
+            deliveries: Store.laterDeliveries(),
+            page: this.state.page++
+        }, _ => this.displayButton() )
+debugger
+        // this.displayButton()
     }
 
     earlierDeliveries() {
         this.setState({
-            deliveries: Store.earlierDeliveries()
-        })
+            deliveries: Store.earlierDeliveries(),
+            page: this.state.page--
+        }, _ => this.displayButton() )
+debugger
+        // this.displayButton()
     }
 
     render() {
 
-        const Items = this.state.deliveries.map( delivery => {
-            return (
-                <DeliveryItem key={delivery.id} delivery={delivery}/>
-            )
-        })
+        if ( this.state.deliveries ) {
+            var Items = this.state.deliveries.map( delivery => {
+                return (
+                    <DeliveryItem key={delivery.id} delivery={delivery}/>
+                )
+            })
+        } else {
+            var Items = ''
+        }
 
         return (
             <div className="decoration decoration__paper decoration__tape decoration__tape--left deliveries">
@@ -80,8 +115,17 @@ class Deliveries extends React.Component {
                 {Items}
 
                 <footer className="clearfix">
-                    <a href="#" onClick={this.earlierDeliveries} className="no-link deliveries__more deliveries__more--earlier">Earlier Deliveries</a>
-                    <a href="#" onClick={this.laterDeliveries} className="no-link deliveries__more deliveries__more--later">Later Deliveries</a>
+                    <a  href="#"
+                        onClick={this.earlierDeliveries}
+                        className={`${this.state.hideEarlier} no-link deliveries__more deliveries__more--earlier`}>
+                        Earlier Deliveries
+                    </a>
+                    <a
+                        href="#"
+                        onClick={this.laterDeliveries}
+                        className={`${this.state.hideLater} no-link deliveries__more deliveries__more--later`}>
+                        Later Deliveries
+                    </a>
                 </footer>
             </div>
         )

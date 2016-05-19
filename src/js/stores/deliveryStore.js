@@ -51,7 +51,52 @@ class DeliveryStore extends EventEmitter {
                 id: 8,
                 date: 'Friday 8 September',
                 active: true
-            }
+            },
+            {
+                id: 9,
+                date: 'Friday 9 September',
+                active: true
+            },
+            {
+                id: 10,
+                date: 'Friday 10 September',
+                active: true
+            },
+            {
+                id: 11,
+                date: 'Friday 11 September',
+                active: true
+            },
+            {
+                id: 12,
+                date: 'Friday 12 September',
+                active: true
+            },
+            {
+                id: 13,
+                date: 'Friday 13 September',
+                active: true
+            },
+            {
+                id: 14,
+                date: 'Friday 14 September',
+                active: true
+            },
+            {
+                id: 15,
+                date: 'Friday 15 September',
+                active: true
+            },
+            {
+                id: 16,
+                date: 'Friday 16 September',
+                active: true
+            },
+            {
+                id: 17,
+                date: 'Friday 17 September',
+                active: true
+            },
         ]
 
         this.resultsPerPage     = 5
@@ -65,16 +110,23 @@ class DeliveryStore extends EventEmitter {
         return this.deliveries
     }
 
+    getCurrentPage() {
+        return this.currentPage
+    }
+
     getCurrentDeliveries() {
         return this.deliveries.slice(this.currentSliceStart, this.currentSliceEnd)
     }
 
     earlierDeliveries() {
-        if ( this.currentPage > 0 ) {
+        if ( this.currentPage > 1 ) {    
             this.currentSliceStart -= this.resultsPerPage
             this.currentSliceEnd -= this.resultsPerPage
-            return this.deliveries.slice(this.currentSliceStart, this.currentSliceEnd)
             this.currentPage--
+
+            this.emit(CHANGE_EVENT)
+
+            return this.deliveries.slice(this.currentSliceStart, this.currentSliceEnd)
         }
     }
 
@@ -82,8 +134,11 @@ class DeliveryStore extends EventEmitter {
         if ( this.currentPage < this.maxNumberPages ) {
             this.currentSliceStart += this.resultsPerPage
             this.currentSliceEnd += this.resultsPerPage
-            return this.deliveries.slice(this.currentSliceStart, this.currentSliceEnd)
             this.currentPage++
+
+            this.emit(CHANGE_EVENT)
+
+            return this.deliveries.slice(this.currentSliceStart, this.currentSliceEnd)
         }
     }
 
