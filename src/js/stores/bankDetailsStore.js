@@ -18,27 +18,7 @@ class BankDetailsStore extends EventEmitter {
                     "expiriy": '',
                     "cvv": '',
                     "active": true,
-                }//,
-                // {
-                //     "id": 2,
-                //     "cardNumber": "67716697717121336",
-                //     "active": false
-                // },
-                // {
-                //     "id": 3,
-                //     "cardNumber": "63041131913735868",
-                //     "active": false
-                // },
-                // {
-                //     "id": 4,
-                //     "cardNumber": "63045501795013152",
-                //     "active": false
-                // },
-                // {
-                //     "id": 5,
-                //     "cardNumber": "67095829910283875",
-                //     "active": false
-                // }
+                }
             ],
             "addresses": [
                 {

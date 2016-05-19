@@ -9,18 +9,6 @@ const DeliveryActions = {
             id
         })
     },
-
-    earlierDeliveries() {
-        dispatcher.dispatch({
-            type: DeliveryConstant.EARLIER_DELIVERIES
-        })
-    },
-
-    laterDeliveries() {
-        dispatcher.dispatch({
-            type: DeliveryConstant.LATER_DELIVERIES
-        })
-    }
 }
 
 export default DeliveryActions

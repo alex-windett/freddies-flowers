@@ -1,6 +1,8 @@
 import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
+
 import DeliveryConstant from '../constants/DeliveryConstants'
+import GlobalConstant      from '../constants/GlobalConstants'
 
 import helper from '../helpers'
 
@@ -99,10 +101,10 @@ class DeliveryStore extends EventEmitter {
             },
         ]
 
-        this.resultsPerPage     = 5
+        this.resultsPerPage     = GlobalConstant.MAX_DELIVERIES_PER_PAGE
         this.currentPage        = 1
         this.currentSliceStart  = 0
-        this.currentSliceEnd    = 5
+        this.currentSliceEnd    = this.resultsPerPage
         this.maxNumberPages     = Math.ceil(this.deliveries.length / this.resultsPerPage)
     }
 

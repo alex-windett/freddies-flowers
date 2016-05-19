@@ -1,6 +1,7 @@
 import React        from 'react'
 import Store        from '../../stores/deliveryStore'
 import Actions      from '../../actions/deliveryActions'
+import GlobalConstant      from '../../constants/GlobalConstants'
 
 const DeliveryItem = React.createClass({
 
@@ -58,7 +59,7 @@ class Deliveries extends React.Component {
             hideLater: '',
         }
 
-        this.maxPerPage         = 5
+        this.maxPerPage         = GlobalConstant.MAX_DELIVERIES_PER_PAGE
         this.maxNumberPages     = Math.ceil( this.state.allDeliveries.length / this.maxPerPage )
         this.laterDeliveries    = this.laterDeliveries.bind(this)
         this.earlierDeliveries  = this.earlierDeliveries.bind(this)
@@ -108,6 +109,7 @@ class Deliveries extends React.Component {
 
         if ( this.state.deliveries ) {
             var Items = this.state.deliveries.map( delivery => {
+
                 return (
                     <DeliveryItem key={delivery.id} delivery={delivery}/>
                 )
