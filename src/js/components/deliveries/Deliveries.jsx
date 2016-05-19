@@ -38,7 +38,7 @@ class Deliveries extends React.Component {
         this.state = {
             allDeliveries: Store.getDeliveries(),
             deliveries: Store.getCurrentDeliveries(),
-            page: 1,
+            page: 1, // Set to 0 on load, componentDidMount will change this to 1 on render
             hideEarlier: '',
             hideLater: '',
         }
@@ -50,48 +50,40 @@ class Deliveries extends React.Component {
     }
 
     componentDidMount() {
-        Store.on("change", _ => {
-            this.setState({
-                page: Store.getCurrentPage()
-            })
-        })
-
         this.displayButton()
     }
 
     displayButton() {
-debugger
-        if ( this.state.page <= 1 ) {
+
+        if ( this.state.page <= 2 ) { // Make sure previous isn't shown on page 1
             this.setState({
                 hideEarlier: 'hide',
                 hideLater: '',
             })
-        } else if (this.state.page >= this.maxNumberPages ) {
+        } else if (this.state.page >= this.maxNumberPages - 1 ) { // Minus one hides span on page before
             this.setState({
                 hideEarlier: '',
                 hideLater: 'hide',
             })
         }
-
-        // console.log(this.state.page, ' in function call')
     }
 
     laterDeliveries() {
         this.setState({
             deliveries: Store.laterDeliveries(),
-            page: this.state.page++
-        }, _ => this.displayButton() )
-debugger
-        // this.displayButton()
+            page: this.state.page + 1,
+        })
+
+        this.displayButton()
     }
 
     earlierDeliveries() {
         this.setState({
             deliveries: Store.earlierDeliveries(),
-            page: this.state.page--
-        }, _ => this.displayButton() )
-debugger
-        // this.displayButton()
+            page: this.state.page - 1,
+        })
+
+        this.displayButton()
     }
 
     render() {
