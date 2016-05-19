@@ -9,15 +9,28 @@ const DeliveryItem = React.createClass({
         delivery: React.PropTypes.object
     },
 
+    getInitialState() {
+        return {
+            checked: this.props.delivery.active,
+        }
+    },
+
     removeDelivery() {
         Actions.removeDelivery(this.props.delivery.id)
+
+        this.setState({
+            checked: this.props.delivery.active
+        })
     },
 
     render() {
 
         return (
 
-            <section className="boleanInput clearfix delivery" onClick={this.removeDelivery} key={this.props.delivery.id} >
+            <section
+                className="boleanInput clearfix delivery"
+                onClick={this.removeDelivery}
+                key={this.props.delivery.id} >
                 <input
                     className="booleanInput__input booleanInput__input--checkbox"
                     checked={this.props.delivery.active}
@@ -25,7 +38,9 @@ const DeliveryItem = React.createClass({
                     type="checkbox" />
                 <label
                     className="boleanInput__label delivery__date"
-                    htmlFor="ticked-checkbox">{this.props.delivery.date}</label>
+                    htmlFor="ticked-checkbox">
+                        {this.props.delivery.date}
+                </label>
             </section>
         )
     }

@@ -15,7 +15,7 @@ class DeliveryStore extends EventEmitter {
             {
                 id: 1,
                 date: 'Friday 1 September',
-                active: true
+                active: false
             },
             {
                 id: 2,
@@ -25,7 +25,7 @@ class DeliveryStore extends EventEmitter {
             {
                 id: 3,
                 date: 'Friday 3 September',
-                active: true
+                active: false
             },
             {
                 id: 4,
@@ -35,7 +35,7 @@ class DeliveryStore extends EventEmitter {
             {
                 id: 5,
                 date: 'Friday 5 September',
-                active: true
+                active: false
             },
             {
                 id: 6,
@@ -65,7 +65,7 @@ class DeliveryStore extends EventEmitter {
             {
                 id: 11,
                 date: 'Friday 11 September',
-                active: true
+                active: false
             },
             {
                 id: 12,
@@ -80,7 +80,7 @@ class DeliveryStore extends EventEmitter {
             {
                 id: 14,
                 date: 'Friday 14 September',
-                active: true
+                active: false
             },
             {
                 id: 15,
@@ -110,6 +110,11 @@ class DeliveryStore extends EventEmitter {
         return this.deliveries
     }
 
+    getDelivery(id) {
+        const delivery = helper.findById(id, this.deliveries)
+        return delivery
+    }
+
     getCurrentPage() {
         return this.currentPage
     }
@@ -119,7 +124,7 @@ class DeliveryStore extends EventEmitter {
     }
 
     earlierDeliveries() {
-        if ( this.currentPage > 1 ) {    
+        if ( this.currentPage > 1 ) {
             this.currentSliceStart -= this.resultsPerPage
             this.currentSliceEnd -= this.resultsPerPage
             this.currentPage--
@@ -143,7 +148,6 @@ class DeliveryStore extends EventEmitter {
     }
 
     removeDelivery(id) {
-
         const toEdit = helper.findById(this.deliveries, id)
         toEdit.active = toEdit.active ? false : true
         this.emit(CHANGE_EVENT)
