@@ -54,13 +54,18 @@ class Deliveries extends React.Component {
     }
 
     displayButton() {
-
-        if ( this.state.page <= 2 ) { // Make sure previous isn't shown on page 1
+        // If current page can have both buttons visible
+        if ( this.state.page > 1 && this.state.page < this.maxNumberPages ) {
+            this.setState({
+                hideEarlier: '',
+                hideLater: '',
+            })
+        } else if ( this.state.page <= 2 ) { // Make sure previous isn't shown on page 1
             this.setState({
                 hideEarlier: 'hide',
                 hideLater: '',
             })
-        } else if (this.state.page >= this.maxNumberPages - 1 ) { // Minus one hides span on page before
+        } else if (this.state.page >= this.maxNumberPages ) {
             this.setState({
                 hideEarlier: '',
                 hideLater: 'hide',
@@ -72,18 +77,16 @@ class Deliveries extends React.Component {
         this.setState({
             deliveries: Store.laterDeliveries(),
             page: this.state.page + 1,
-        })
+        }, _ => this.displayButton() )
 
-        this.displayButton()
     }
 
     earlierDeliveries() {
         this.setState({
             deliveries: Store.earlierDeliveries(),
             page: this.state.page - 1,
-        })
+        }, _ => this.displayButton())
 
-        this.displayButton()
     }
 
     render() {
