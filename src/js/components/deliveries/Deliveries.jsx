@@ -37,7 +37,7 @@ const DeliveryItem = React.createClass({
                     checked={this.props.delivery.active}
                     onChange={this.removeDelivery}
                     type="checkbox" />
-                
+
                 <label className="boleanInput__label delivery__date" >
                         {this.props.delivery.date}
                 </label>
@@ -53,7 +53,7 @@ class Deliveries extends React.Component {
         this.state = {
             allDeliveries: Store.getDeliveries(),
             deliveries: Store.getCurrentDeliveries(),
-            page: 1, // Set to 0 on load, componentDidMount will change this to 1 on render
+            page: 1,
             hideEarlier: '',
             hideLater: '',
         }
@@ -75,7 +75,7 @@ class Deliveries extends React.Component {
                 hideEarlier: '',
                 hideLater: '',
             })
-        } else if ( this.state.page <= 2 ) { // Make sure previous isn't shown on page 1
+        } else if ( this.state.page <= 2 ) { // Make sure 'previous' isn't shown on page 1
             this.setState({
                 hideEarlier: 'hide',
                 hideLater: '',
