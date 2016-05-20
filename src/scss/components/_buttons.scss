@@ -1,3 +1,9 @@
+@mixin mobile-button {
+    padding: 4% 10% 1%;
+    font-size: 3.5vw;
+    line-height: 3.5vh;
+}
+
 .button {
     display: block;
     vertical-align: top;
@@ -34,8 +40,7 @@
         padding: rem-calc(10 50 5);
 
         @include breakpoint(small only) {
-            padding: 4% 10% 1%;
-            font-size: 3.5vw;
+            @include mobile-button();
         }
 
         &--small {
@@ -50,8 +55,7 @@
         padding: rem-calc(10 50 5);
 
         @include breakpoint(small only) {
-            padding: 4% 10% 1%;
-            font-size: 3.5vw;
+            @include mobile-button();
         }
 
         &--small {

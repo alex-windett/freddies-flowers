@@ -1,7 +1,7 @@
 > .decoration {
 
     @include breakpoint(medium up) {
-        padding: rem-calc(30 100);
+        padding: rem-calc(30) 21%;
     }
 }
 
@@ -27,7 +27,6 @@
         @extend input;
 
         padding: rem-calc(10 40);
-        // background-image: url($img-icon-path + 'copy-link.png');
         background-image: image($icon, 'copy-link.png');
         background-repeat: no-repeat;
         background-position: 8px 50%;
