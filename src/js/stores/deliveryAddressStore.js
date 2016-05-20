@@ -95,7 +95,7 @@ class DeliveryAddressStore extends EventEmitter {
         */
         const addressToChange = helper.findById(this.addresses, id)
 
-        if ( addressToChange.quantity <= GlobalConstant.MAX_ORDERS ) {
+        if ( addressToChange.quantity < GlobalConstant.MAX_ORDERS ) {
             addressToChange.quantity++
         }
 
@@ -108,7 +108,7 @@ class DeliveryAddressStore extends EventEmitter {
         */
         const addressToChange = helper.findById(this.addresses, id)
 
-        if ( addressToChange.quantity >= GlobalConstant.MIN_ORDERS ) {
+        if ( addressToChange.quantity > GlobalConstant.MIN_ORDERS ) {
             addressToChange.quantity--
         }
 
