@@ -62,13 +62,27 @@ class BankDetailsChangeAddress extends React.Component {
         this.refs.newBankAddressForm.reset()
     }
 
+    getActive() {
+        /**
+        TODO
+        Still need to corretly set default value.
+        function returns correctly but react element
+        attribute to picking up value
+        */
+        this.props.addresses.forEach( address => {
+            if ( address.active ) {
+                // debugger
+                return address.id
+            }
+        })
+    }
+
     render() {
 
         const addresses = this.props.addresses.map( address => {
             return (
                 // TODO: `selected='true'` throws error in React, but still works
                 <option
-                    selected={address.active}
                     value={address.id}
                     key={address.id} >
                     {address.address}
@@ -85,7 +99,9 @@ class BankDetailsChangeAddress extends React.Component {
                     onSubmit={this.selectSubmit} >
                     <h3 className="bankdetails__address bankdetails__address--title clear">Billing Address</h3>
 
-                    <DropdownSelect name="address" >
+                    <DropdownSelect
+                        name="address"
+                        defaultValue={this.getActive()}>
                         {addresses}
                         <option onClick={this.newAddress} value="newAddress">Add a new address...</option>
                     </DropdownSelect>
