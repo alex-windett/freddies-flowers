@@ -1,5 +1,4 @@
 require('waypoints')
-require('dropkick')
 
 // Unfortunately no way to import * from directory in JS
 // Add all files to list to the be called in init function

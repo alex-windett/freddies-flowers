@@ -1,150 +1,28 @@
-$dropdown__color: $color__primary--mid;
-$dropdown__color--hover: #dadada;
+@mixin dropdown-background($icon-image) {
+    background-image: image($icon, $icon-image);
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+}
 
-
-.dk-select,
-.custom-dropdown {
+select,
+.dropdown {
 
     width: 100% !important; // Override plugin styles
     margin: rem-calc(20 0 0);
+    background: white;
 
-    .dk-selected {
-        border: 1px solid $dropdown__color;
-        border-radius: 0;
-        color: $dropdown__color;
-        padding: rem-calc(5 10);
-
-        &:before {
-            color: $dropdown__color;
-            top: 39%;
-            right: 0;
-            border-width: 0.65em 0.65em 0;
-        }
-
-        &:after {
-            border-left: none;
-        }
-    }
-
-    .dk-option {
-        color: $dropdown__color;
-        font-family: $font__tertiary;
-        font-size: rem-calc(15);
-        line-height: rem-calc(30);
-
-        &.dk-option-highlight,
-        &.dk-option-selected {
-            background: $dropdown__color--hover;
-        }
-    }
-
-
-    // ****************************************
-    // Active Dropdown Select
-    // ****************************************
-    &.dk-select-open-down {
-
-        .dk-selected,
-        .dk-select-options {
-            color: black;
-            border-color: $dropdown__color--hover;
-        }
-
-        .dk-option-selected {
-            background: transparent;
-        }
-
-        .dk-option-highlighted {
-            background: $dropdown__color--hover !important;
-        }
-
-        .dk-option {
-            color: black;
-        }
-
-        .dk-selected:before {
-            border-width: 0 0.75em 0.75em;
-            border-bottom-color: $dropdown__color--hover;
-        }
-    }
+    @include dropdown-background('dropdown-arrow.png');
 
     // ****************************************
     // Dropdown Error
     // ****************************************
     &__error {
+        color: $color__warning;
         @extend .input__error;
-
-        .dk-selected {
-            border-top-color: $color__warning;
-            color: $color__warning;
-
-            &:before {
-                border-top-color: $color__warning !important; // Override for plugin specficity
-                border-bottom-color: $color__warning !important; // Override for plugin specficity
-            }
-        }
+        @include dropdown-background('dropdown-arrow-error.png');
 
         &--description {
             color: $color__warning;
-        }
-    }
-}
-
-
-
-// ****************************************
-// List style dropdown select
-// ****************************************
-
-
-.dropdown {
-    margin-bottom: rem-calc(20);
-
-    &__text {
-        color: $color__primary--dark;
-    }
-
-    &__selected {
-        color: $dropdown__color;
-        cursor: pointer;
-        display: block;
-    }
-
-    &__link {
-
-        &--selected {
-            padding: rem-calc(5 10);
-            width: 100%;
-            background: #fff no-repeat scroll right center;
-            display: block;
-            border: 1px solid $dropdown__color;
-            border-radius: 2px;
-            text-decoration: none;
-        }
-
-        &--option {
-            padding: 5px;
-            display: block;
-            text-decoration: none;
-            color: $color__primary--dark;
-
-            &:hover {
-                background: $color__primary;
-                text-decoration: none;
-                transition: 0.2s ease;
-            }
-        }
-    }
-
-    &__options {
-
-        &--list {
-            background: #fff none repeat scroll 0 0;
-            display: none;
-            list-style: none;
-            padding: 0;
-            width: 100%;
-            border: 1px solid #d7d7d7;
         }
     }
 }
