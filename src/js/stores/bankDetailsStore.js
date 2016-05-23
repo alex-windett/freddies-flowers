@@ -77,11 +77,22 @@ class BankDetailsStore extends EventEmitter {
         this.emit(GlobalConstant.CHANGE_EVENT)
     }
 
-    // editAddress(address) {
-    //     const id = address.id
-    //
-    //     addressID = helper.findById(this.bankdetails.addresses, id)
-    // }
+    editAddress(address) {
+        // Make sure id passed is an interger
+        const addressId = parseInt(address.address)
+
+        // Find the correct address
+        const targetAddress = helper.findById(this.bankDetails.addresses, addressId)
+
+        // Set all address to inactive
+        for ( let address of this.bankDetails.addresses ) {
+            address.active = false
+        }
+
+        // Set only the target address to active
+        targetAddress.active = true
+
+    }
 
     newBankAddress(address) {
 
@@ -121,10 +132,10 @@ class BankDetailsStore extends EventEmitter {
                 break
             }
 
-            // case BankDetailsConstant.EDIT_BANKADDRESS: {
-            //     this.editAddress(action.address)
-            //     break
-            // }
+            case BankDetailsConstant.EDIT_BANKADDRESS: {
+                this.editAddress(action.address)
+                break
+            }
 
             case BankDetailsConstant.NEW_BANKADDRESS: {
                 this.newBankAddress(action.address)

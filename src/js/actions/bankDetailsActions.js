@@ -16,13 +16,12 @@ const BankDetailsActions = {
         })
     },
 
-    // editAddress(address) {
-    //
-    //     dispatcher.dispatch({
-    //         type: BankDetailsConstant.EDIT_BANKADDRESS,
-    //         address
-    //     })
-    // },
+    editAddress(address) {
+        dispatcher.dispatch({
+            type: BankDetailsConstant.EDIT_BANKADDRESS,
+            address
+        })
+    },
 
     newBankAddress(address) {
 

@@ -69,8 +69,7 @@ class BankDetailsChangeAddress extends React.Component {
                 // TODO: `selected='true'` throws error in React, but still works
                 <option
                     selected={address.active}
-                    value={address.address}
-                    data-key={address.id}
+                    value={address.id}
                     key={address.id} >
                     {address.address}
                 </option>
