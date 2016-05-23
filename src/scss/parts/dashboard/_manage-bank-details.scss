@@ -28,10 +28,13 @@
 
         .dropdown {
             float: left;
+            margin-bottom: rem-calc(20);
             margin-left: rem-calc(15);
+            margin-top: 0;
             width: 70%;
 
             @include breakpoint(medium up) {
+                margin-bottom: 0;
                 width: 42%;
             }
         }
@@ -43,7 +46,7 @@
 
     &__toggle,
     &__submit {
-        
+
         float: left;
 
         @include breakpoint(medium up) {
