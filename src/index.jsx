@@ -10,7 +10,7 @@ const accountDashboard = document.getElementById('accountDashboard')
 const registration     = document.getElementById('registration')
 
 if ( document.contains(accountDashboard) ) {
-    ReactDOM.render(
+    render(
         <AccountDashboard />,
         accountDashboard
     )
@@ -18,7 +18,7 @@ if ( document.contains(accountDashboard) ) {
 
 
 if ( document.contains(registration) ) {
-    ReactDOM.render(
+    render(
         <Register />,
         registration
     )

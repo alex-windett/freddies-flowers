@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 import Deliveries from './components/Deliveries/Deliveries'
 import Share from './components/Share/Share'
