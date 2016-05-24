@@ -1,7 +1,7 @@
 import './scss/app'
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 
 import AccountDashboard from 'js/accountDashboard'
 import Register from 'js/register'
