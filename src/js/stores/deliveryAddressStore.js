@@ -2,7 +2,8 @@ import EventEmitter from 'events'
 import Dispatcher from '../dispatcher'
 import AddressConstant from '../constants/DeliveryAddressConstants'
 import GlobalConstant from '../constants/GlobalConstants'
-import helper from '../helpers'
+
+import { findById, deleteById } from '../helpers'
 
 const CHANGE_EVENT = 'change'
 
@@ -52,7 +53,7 @@ class DeliveryAddressStore extends EventEmitter {
             * DB is set up
         */
 
-        let toEditAddress = helper.findById(this.addresses, modelData.id)
+        let toEditAddress = findById(this.addresses, modelData.id)
         toEditAddress.address = `${modelData.house} ${modelData.street}`
 
         this.emit(CHANGE_EVENT)
@@ -65,7 +66,7 @@ class DeliveryAddressStore extends EventEmitter {
         let addresses = this.addresses
 
         if ( addresses.length > GlobalConstant.MIN_ADDRESSES ) {
-            helper.deleteById(addresses, targetID);
+            deleteById(addresses, targetID);
         }
 
 
@@ -93,7 +94,7 @@ class DeliveryAddressStore extends EventEmitter {
         /**
         * Increase delivery amount to specific address
         */
-        const addressToChange = helper.findById(this.addresses, id)
+        const addressToChange = findById(this.addresses, id)
 
         if ( addressToChange.quantity < GlobalConstant.MAX_ORDERS ) {
             addressToChange.quantity++
@@ -106,7 +107,7 @@ class DeliveryAddressStore extends EventEmitter {
         /**
         * Decrease delivery amount to specific address
         */
-        const addressToChange = helper.findById(this.addresses, id)
+        const addressToChange = findById(this.addresses, id)
 
         if ( addressToChange.quantity > GlobalConstant.MIN_ORDERS ) {
             addressToChange.quantity--

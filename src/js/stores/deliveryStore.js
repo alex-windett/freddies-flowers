@@ -4,7 +4,7 @@ import Dispatcher from '../dispatcher'
 import DeliveryConstant from '../constants/DeliveryConstants'
 import GlobalConstant      from '../constants/GlobalConstants'
 
-import helper from '../helpers'
+import { findById } from '../helpers'
 
 const CHANGE_EVENT = 'change'
 
@@ -113,7 +113,7 @@ class DeliveryStore extends EventEmitter {
     }
 
     getDelivery(id) {
-        const delivery = helper.findById(id, this.deliveries)
+        const delivery = findById(id, this.deliveries)
         return delivery
     }
 
@@ -150,7 +150,8 @@ class DeliveryStore extends EventEmitter {
     }
 
     removeDelivery(id) {
-        const toEdit = helper.findById(this.deliveries, id)
+        const toEdit =
+        findById(this.deliveries, id)
         toEdit.active = toEdit.active ? false : true
         this.emit(CHANGE_EVENT)
     }

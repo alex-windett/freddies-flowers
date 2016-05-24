@@ -3,7 +3,8 @@ import Dispatcher from '../dispatcher'
 
 import BankDetailsConstant from '../constants/BankDetailsConstants'
 import GlobalConstant from '../constants/GlobalConstants'
-import helper from '../helpers.js'
+
+import { findById } from '../helpers'
 
 class BankDetailsStore extends EventEmitter {
 
@@ -82,7 +83,7 @@ class BankDetailsStore extends EventEmitter {
         const addressId = parseInt(address.address)
 
         // Find the correct address
-        const targetAddress = helper.findById(this.bankDetails.addresses, addressId)
+        const targetAddress = findById(this.bankDetails.addresses, addressId)
 
         // Set all address to inactive
         for ( let address of this.bankDetails.addresses ) {
