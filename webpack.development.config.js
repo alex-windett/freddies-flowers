@@ -2,15 +2,13 @@
 Run file using -
     webpack --progress --config webpack.development.config.js
 */
-const webpack           = require('webpack')
-const autoprefixer      = require('autoprefixer')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const path              = require('path')
-const LiveReloadPlugin  = require('webpack-livereload-plugin')
-const BowerWebpackPlugin = require("bower-webpack-plugin")
-const NpmInstallPlugin  = require('npm-install-webpack-plugin')
-const merge     = require('webpack-merge')
-const config    = require('./webpack.config');
+const webpack               = require('webpack')
+const ExtractTextPlugin     = require('extract-text-webpack-plugin')
+const LiveReloadPlugin      = require('webpack-livereload-plugin')
+const BowerWebpackPlugin    = require("bower-webpack-plugin")
+const NpmInstallPlugin      = require('npm-install-webpack-plugin')
+const merge                 = require('webpack-merge')
+const config                = require('./webpack.config');
 
 module.exports = merge(config.common, {
     debug: true,
