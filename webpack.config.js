@@ -11,8 +11,8 @@ module.exports = config = {
 
     common: {
         entry: {
-            app: './src/index.jsx',
-            custom: './src/custom.js'
+            app: path.join(__dirname, './src/index.jsx'),
+            custom: path.join(__dirname, './src/custom.js'),
         },
         output: {
             filename: '[name].js?[hash]',
