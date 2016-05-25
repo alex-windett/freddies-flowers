@@ -1,8 +1,3 @@
-/**
-Run file using -
-    NODE_ENV=production webpack --progress --config webpack.production.config.js
-*/
-
 const webpack           = require('webpack')
 const autoprefixer      = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -12,33 +7,13 @@ const merge             = require('webpack-merge')
 const BowerWebpackPlugin = require("bower-webpack-plugin")
 const NpmInstallPlugin  = require('npm-install-webpack-plugin')
 
-const common = require('./webpack.config')
-
 const TARGET            = process.env.npm_lifecycle_event
 const PATHS             = {
     app     : path.join(__dirname, './src'),
     build   : path.join(__dirname, './build')
 }
 
-const common = {
-    entry: {
-        app: './src/index.jsx',
-        custom: './src/custom.js'
-    },
-    output: {
-        filename: '[name].js?[hash]',
-        path: path.join(__dirname, './build'),
-        publicPath: './'
-    },
-    resolve: {
-        root: path.resolve(__dirname),
-        modulesDirectories: ['./src', 'node_modules', './bower_components'],
-        extensions: ['', '.js', '.jsx', '.scss', '.sass'],
-        alias: {
-            'waypoints': 'waypoints/lib/waypoints.js'
-        }
-    }
-}
+const common = require('./webpack.config')
 
 module.exports = merge(common, {
     module: {
@@ -54,8 +29,8 @@ module.exports = merge(common, {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
-                    'style',
-                    'css!sass'
+                    'style', // backup loader when not building .css file
+                    'css?sourceMap!sass?sourceMap' // loaders to preprocess CSS
                 )
             },
             {
@@ -78,25 +53,32 @@ module.exports = merge(common, {
     },
     sassLoader: {
         includePaths: [
-            path.resolve(__dirname),
-            path.resolve(__dirname, './src'),
+            path.resolve(__dirname), path.resolve(__dirname, './src'),
             path.join(__dirname, 'node_modules'),
             path.join(__dirname, './bower_components/foundation-sites/assets/scss')
         ]
     },
+    devtool: "source-map", // or "inline-source-map"
+    watch: true,
     plugins: [
         new ExtractTextPlugin('[name].css?[hash]'),
         new BowerWebpackPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
+        new NpmInstallPlugin({
+            save: true // --save
+        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             waypoints: 'waypoints'
         }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        })
+        new LiveReloadPlugin()
     ],
+    // resolveLoader: {
+    //     fallback: path.join(__dirname, 'node_modules'),
+    //     alias: {
+    //         'hbs': 'handlebars-loader'
+    //     }
+    // }
     postcss: [
         autoprefixer({
             browsers: [
