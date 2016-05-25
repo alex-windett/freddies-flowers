@@ -1,32 +1,25 @@
-const webpack           = require('webpack');
-const autoprefixer      = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path              = require('path');
-const LiveReloadPlugin  = require('webpack-livereload-plugin');
-const merge             = require('webpack-merge');
-const BowerWebpackPlugin = require("bower-webpack-plugin");
-const NpmInstallPlugin  = require('npm-install-webpack-plugin');
+/**
+Run file using -
+    webpack --progress --config webpack.development.config.js
+*/
+const webpack           = require('webpack')
+const autoprefixer      = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path              = require('path')
+const LiveReloadPlugin  = require('webpack-livereload-plugin')
+const BowerWebpackPlugin = require("bower-webpack-plugin")
+const NpmInstallPlugin  = require('npm-install-webpack-plugin')
+const merge     = require('webpack-merge')
+const config    = require('./webpack.config');
 
-const TARGET            = process.env.npm_lifecycle_event
-const PATHS             = {
-    app     : path.join(__dirname, './src'),
-    build   : path.join(__dirname, './build')
-}
-
-const common = require('./webpack.config')
-
-module.exports = merge(common, {
+module.exports = merge(config.common, {
     debug: true,
     module: {
         loaders: [
-            {
-                test: /\.jsx?$/,
-                loader: "babel-loader",
-                query: {
-                    presets: ['es2015', 'react']
-                }
-
-            },
+            config.loaders.js,
+            config.loaders.css,
+            config.loaders.fonts,
+            config.loaders.images,
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
@@ -34,32 +27,13 @@ module.exports = merge(common, {
                     'css?sourceMap!sass?sourceMap'
                 )
             },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader"
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                exclude: /node_modules/,
-                loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
-            },
-            {
-                test: /\.(gif|png|jpeg|svg)$/,
-                exclude: /scss/,
-                loaders: [
-                    'file?hash=sha512&digest=hex&name=images/[path][name].[ext]',
-                    'image-webpack?optimizationLevel=4&interlaced=false&progressive=true'
-                ]
-            }
+
         ]
     },
-    sassLoader: {
-        includePaths: [
-            path.resolve(__dirname), path.resolve(__dirname, './src'),
-            path.join(__dirname, 'node_modules'),
-            path.join(__dirname, './bower_components/foundation-sites/assets/scss')
-        ]
-    },
+
+    sassLoader: config.sassLoader,
+    postcss: config.postCSS,
+
     devtool: "source-map",
     watch: true,
     plugins: [
@@ -73,13 +47,5 @@ module.exports = merge(common, {
             waypoints: 'waypoints'
         }),
         new LiveReloadPlugin()
-    ],
-    postcss: [
-        autoprefixer({
-            browsers: [
-                'last 2 versions',
-                'ie >= 9'
-            ]
-        })
     ]
 });
