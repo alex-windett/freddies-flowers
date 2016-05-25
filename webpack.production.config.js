@@ -20,26 +20,6 @@ const PATHS             = {
     build   : path.join(__dirname, './build')
 }
 
-const common = {
-    entry: {
-        app: './src/index.jsx',
-        custom: './src/custom.js'
-    },
-    output: {
-        filename: '[name].js?[hash]',
-        path: path.join(__dirname, './build'),
-        publicPath: './'
-    },
-    resolve: {
-        root: path.resolve(__dirname),
-        modulesDirectories: ['./src', 'node_modules', './bower_components'],
-        extensions: ['', '.js', '.jsx', '.scss', '.sass'],
-        alias: {
-            'waypoints': 'waypoints/lib/waypoints.js'
-        }
-    }
-}
-
 module.exports = merge(common, {
     module: {
         loaders: [
@@ -90,6 +70,9 @@ module.exports = merge(common, {
         new webpack.ProvidePlugin({
             $: "jquery",
             waypoints: 'waypoints'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false }
         }),
         new webpack.DefinePlugin({
             'process.env': {
