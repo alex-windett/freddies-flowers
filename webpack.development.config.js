@@ -29,8 +29,8 @@ module.exports = merge(common, {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
-                    'style', // backup loader when not building .css file
-                    'css?sourceMap!sass?sourceMap' // loaders to preprocess CSS
+                    'style',
+                    'css?sourceMap!sass?sourceMap' 
                 )
             },
             {
@@ -58,7 +58,7 @@ module.exports = merge(common, {
             path.join(__dirname, './bower_components/foundation-sites/assets/scss')
         ]
     },
-    devtool: "source-map", // or "inline-source-map"
+    devtool: "source-map",
     watch: true,
     plugins: [
         new ExtractTextPlugin('[name].css?[hash]'),
@@ -73,12 +73,6 @@ module.exports = merge(common, {
         }),
         new LiveReloadPlugin()
     ],
-    // resolveLoader: {
-    //     fallback: path.join(__dirname, 'node_modules'),
-    //     alias: {
-    //         'hbs': 'handlebars-loader'
-    //     }
-    // }
     postcss: [
         autoprefixer({
             browsers: [
