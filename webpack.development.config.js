@@ -1,11 +1,11 @@
-const webpack           = require('webpack')
-const autoprefixer      = require('autoprefixer')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const path              = require('path')
-const LiveReloadPlugin  = require('webpack-livereload-plugin')
-const merge             = require('webpack-merge')
-const BowerWebpackPlugin = require("bower-webpack-plugin")
-const NpmInstallPlugin  = require('npm-install-webpack-plugin')
+const webpack           = require('webpack');
+const autoprefixer      = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path              = require('path');
+const LiveReloadPlugin  = require('webpack-livereload-plugin');
+const merge             = require('webpack-merge');
+const BowerWebpackPlugin = require("bower-webpack-plugin");
+const NpmInstallPlugin  = require('npm-install-webpack-plugin');
 
 const TARGET            = process.env.npm_lifecycle_event
 const PATHS             = {
@@ -16,6 +16,7 @@ const PATHS             = {
 const common = require('./webpack.config')
 
 module.exports = merge(common, {
+    debug: true,
     module: {
         loaders: [
             {
@@ -30,7 +31,7 @@ module.exports = merge(common, {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract(
                     'style',
-                    'css?sourceMap!sass?sourceMap' 
+                    'css?sourceMap!sass?sourceMap'
                 )
             },
             {
@@ -43,10 +44,11 @@ module.exports = merge(common, {
                 loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
             },
             {
-                test: /.*\.(gif|png|jpe?g|svg)$/i,
+                test: /\.(gif|png|jpeg|svg)$/,
+                exclude: /scss/,
                 loaders: [
-                    'file?hash=sha512&digest=hex&name=images/[name].[ext]',
-                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                    'file?hash=sha512&digest=hex&name=images/[path][name].[ext]',
+                    'image-webpack?optimizationLevel=4&interlaced=false&progressive=true'
                 ]
             }
         ]
@@ -61,11 +63,10 @@ module.exports = merge(common, {
     devtool: "source-map",
     watch: true,
     plugins: [
-        new ExtractTextPlugin('[name].css?[hash]'),
+        new ExtractTextPlugin('[name].css'),
         new BowerWebpackPlugin(),
-        // new webpack.HotModuleReplacementPlugin(),
         new NpmInstallPlugin({
-            save: true // --save
+            save: true
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
@@ -81,4 +82,4 @@ module.exports = merge(common, {
             ]
         })
     ]
-})
+});
