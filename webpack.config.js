@@ -110,5 +110,65 @@ if ( TARGET === 'start' || TARGET === 'watch' ) {
 }
 
 if ( TARGET === 'build') {
-    module.exports = merge(common, {})
+    module.exports = merge(common, {
+        module: {
+            loaders: [
+                {
+                    test: /\.jsx?$/,
+                    loader: "babel-loader",
+                    query: {
+                        presets: ['es2015', 'react']
+                    }
+
+                },
+                {
+                    test: /\.scss$/,
+                    loader: ExtractTextPlugin.extract(
+                        'style',
+                        'css?sourceMap!sass'
+                    )
+                },
+                {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
+                },
+                {
+                    test: /\.(eot|svg|ttf|woff|woff2)$/,
+                    exclude: /node_modules/,
+                    loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
+                },
+                {
+                    test: /.*\.(gif|png|jpe?g|svg)$/i,
+                    loaders: [
+                        'file?hash=sha512&digest=hex&name=images/[name].[ext]',
+                        'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                    ]
+                }
+            ]
+        },
+        sassLoader: {
+            includePaths: [
+                path.resolve(__dirname),
+                path.resolve(__dirname, './src'),
+                path.join(__dirname, 'node_modules'),
+                path.join(__dirname, './bower_components/foundation-sites/assets/scss')
+            ]
+        },
+        plugins: [
+            new ExtractTextPlugin('[name].css?[hash]'),
+            new BowerWebpackPlugin(),
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                waypoints: 'waypoints'
+            }),
+        ],
+        postcss: [
+            autoprefixer({
+                browsers: [
+                    'last 2 versions',
+                    'ie >= 9'
+                ]
+            })
+        ]
+    })
 }

@@ -4,6 +4,12 @@
   "version": "1.0.0",
   "description": "Freddies Flower with React.js",
   "main": "index.js",
+  "scripts": {
+    "start": "webpack --progress --colors --watch",
+    "dev": "webpack --progress --colors --watch",
+    "build": "webpack --progress --colors",
+    "clean": "rm -rf build"
+  },
   "dependencies": {
     "autoprefixer": "^6.0.3",
     "babel-core": "^6.1.4",
@@ -39,12 +45,6 @@
     "webpack": "^1.12.14",
     "webpack-livereload-plugin": "^0.8.1",
     "webpack-merge": "^0.12.0"
-  },
-  "scripts": {
-    "test": "test",
-    "start": "echo \"Running start...\" && npm install && webpack --progress --colors --watch",
-    "dev": "echo \"Running webpack dev...\" && webpack --progress --colors --watch",
-    "build": "webpack --colors"
   },
   "author": "Alex Windett",
   "license": "MIT"
