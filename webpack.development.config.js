@@ -13,6 +13,9 @@ const config                = require('./webpack.config');
 module.exports = merge(config.common, {
     debug: true,
     module: {
+        // preLoaders: [
+        //   {test: /\.jsx?$/, loader: "eslint-loader", exclude: /node_modules/}
+        // ],
         loaders: [
             config.loaders.js,
             config.loaders.css,
