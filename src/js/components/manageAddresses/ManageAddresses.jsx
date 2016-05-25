@@ -129,8 +129,8 @@ class ManageAddresses extends React.Component {
 
 
                 <button
-                    className="button button__primary newaddresstoggle"  onClick={this.toggleFormVisibility.bind(this)} >
-                    Add an new delivery address
+                    className="button button__primary button__primary--small newaddresstoggle"  onClick={this.toggleFormVisibility.bind(this)} >
+                    Add new delivery address
                 </button>
 
                 <div className={`form form__addAddress ${this.state.newFormVisibility}`} >

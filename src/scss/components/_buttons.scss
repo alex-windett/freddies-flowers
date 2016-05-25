@@ -1,7 +1,7 @@
 @mixin mobile-button {
-    padding: 4% 10% 1%;
-    font-size: 3.5vw;
-    line-height: 3.5vh;
+    // padding: 4% 10% 1%;
+    // font-size: 3.5vw;
+    // line-height: 3.5vh;
 }
 
 .button {
@@ -13,9 +13,10 @@
     border: none;
     @extend h3;
 
-    font-size: 13px;
+
 
     @include breakpoint(medium up) {
+        font-size: 13px;
         display: inline-block;
     }
 
@@ -36,15 +37,13 @@
         $button--hover: darken($color__cta--primary, 20%);
         @include hover-transition(button, $color__cta--primary, $button--hover)
         color: white;
+        line-height: 25px;
+        font-size: 10px;
 
         padding: rem-calc(10 50 5);
 
-        @include breakpoint(small only) {
-            @include mobile-button();
-        }
-
-        &--small {
-            font-size: 10px;
+        &--large {
+            font-size: 13px;
         }
     }
 
@@ -52,15 +51,9 @@
         $button--hover: darken($color__cta--secondary, 20%);
         @include hover-transition(button, $color__cta--secondary, $button--hover)
         color: black;
+        font-size: 10px;
+        line-height: 25px;
         padding: rem-calc(10 50 5);
-
-        @include breakpoint(small only) {
-            @include mobile-button();
-        }
-
-        &--small {
-            font-size: 10px;
-        }
 
         &--incrementer,
         &--decrementer {
