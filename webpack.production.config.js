@@ -28,6 +28,7 @@ module.exports = merge(config.common, {
 
     sassLoader: config.sassLoader,
     postcss: config.postCSS,
+    // imageWebpackLoader: config.imageWebpackLoader,
 
     plugins: [
         new ExtractTextPlugin('[name].css?[hash]'),

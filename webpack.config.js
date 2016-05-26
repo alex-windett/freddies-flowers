@@ -1,26 +1,25 @@
 const autoprefixer      = require('autoprefixer')
 const path              = require('path')
 
-module.exports = config = {
+var PATHS = {
+    src         : path.join(__dirname, './src/'),
+    build       : path.join(__dirname, './build/')
+}
 
-    PATHS: {
-        root    : path.join(__dirname),
-        app     : path.join(__dirname, './src'),
-        build   : path.join(__dirname, './build')
-    },
+module.exports = config = {
 
     common: {
         entry: {
-            app: path.join(__dirname, './src/index.jsx'),
-            custom: path.join(__dirname, './src/custom.js'),
+            app: PATHS.src + 'index.jsx',
+            custom: PATHS.src + 'custom.js'
         },
         output: {
             filename: '[name].js?[hash]',
-            path: path.join(__dirname, './build'),
-            publicPath: './'
+            path: PATHS.build,
+            resourcesPath: './public'
         },
         resolve: {
-            root: path.join(__dirname),
+            root: PATHS.assets,
             modulesDirectories: ['./src', 'node_modules', './bower_components'],
             extensions: ['', '.js', '.jsx', '.scss', '.sass'],
             alias: {
@@ -48,21 +47,37 @@ module.exports = config = {
             loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
         },
         images: {
-            test: /\.(gif|png|jpeg|svg)$/,
+            test: /\.(gif|png|jpg|svg)$/i,
             exclude: /scss/,
             loaders: [
-                'file?hash=sha512&digest=hex&name=images/[path][name].[ext]',
-                'image-webpack?optimizationLevel=4&interlaced=false&progressive=true'
+                'file?name=images/[path][name].[ext]&context=./resources/assets/src/images',
+                'image-webpack'
+            ]
+        }
+    },
+
+    imageWebpackLoader: {
+        optimizationLevel: 4,
+        pregressive: true,
+        interlaced: true,
+        svgo:{
+            plugins: [
+                {
+                    removeViewBox: false
+                },
+                {
+                    removeEmptyAttrs: false
+                }
             ]
         }
     },
 
     sassLoader: {
         includePaths: [
+            PATHS.src,
             path.resolve(__dirname),
-            path.resolve(__dirname, './src'),
             path.join(__dirname, 'node_modules'),
-            path.join(__dirname, './bower_components/foundation-sites/assets/scss')
+            path.join(__dirname, PATHS.assets + 'bower_components/foundation-sites/assets/scss')
         ]
     },
 
